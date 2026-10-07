@@ -539,6 +539,35 @@ a{color:#1D5C50}a:hover{color:#174A41}
 .iv-tr-wrap .iv-tr{grid-column:7 / span 6}
 }
 
+/* flatten: no nested cards */
+.iv-st{padding:20px 0 0;border:0;border-top:3px solid var(--rule);border-radius:0;background:none;gap:8px}
+.iv-stat .iv-st:nth-child(1){border-top-color:#1D5C50}
+.iv-stat .iv-st:nth-child(2){border-top-color:#3E7F6D}
+.iv-stat .iv-st:nth-child(3){border-top-color:#996A15}
+.iv-stat .iv-st:nth-child(4){border-top-color:#C9C1B2}
+.iv-stat{column-gap:32px;row-gap:32px}
+.iv-card,.iv-card.soft{padding:0;border:0;border-radius:0;background:none}
+.iv-eng{gap:40px}
+.iv-tl-wrap{padding:0;border:0;border-radius:0;background:none;margin-bottom:56px}
+.iv-cols.one{grid-template-columns:minmax(0,1fr);margin-top:32px}
+.iv-pf{padding:0;border:0;border-radius:0;background:none;gap:14px}
+.iv-pf > svg{flex-shrink:0;margin-top:2px}
+.iv-proof{row-gap:32px;column-gap:48px}
+.iv-proof .iv-pf:last-child{grid-column:auto}
+.iv-calc{border:0;border-radius:0;background:none;overflow:visible}
+.iv-ctl{padding:0 0 32px;gap:28px}
+.iv-out{padding:32px 0 0}
+.iv-share{padding:0;background:none;border-radius:0}
+.iv-share b{font-size:40px}
+.iv-tot{gap:24px}
+.iv-tot div{padding:14px 0 0;border-radius:0;background:none;border-top:1px solid var(--rule)}
+@media (min-width:1024px){
+.iv-wrapnil{}
+.iv-ctl{padding:0 48px 0 0}
+.iv-out{padding:0 0 0 48px}
+.iv-tl-wrap{padding:0}
+}
+
 @media (prefers-reduced-motion: reduce){.pn-root *{animation:none !important;transition:none !important}}
 
 </style>
@@ -598,19 +627,9 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <div class="iv-hero-copy">
 <p class="iv-kick pn-up">Pantas Family Angel Round</p>
 <h1 id="iv-h1" class="iv-h1 pn-up pn-d1">Help Pantas reach launch.</h1>
-<p class="iv-lead pn-up pn-d2">Pantas is raising a small family round to finish its release and launch on Android and iOS. This page explains what the money is for, how you’d be paid back, and what could go wrong, so you can decide for yourself.</p>
-<div class="iv-note pn-up pn-d3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#996A15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg><p>This is a working proposal, not a final agreement. No money will be accepted until a Philippine lawyer and accountant have reviewed the terms.</p></div>
-<nav aria-label="On this page"><ul class="iv-toc pn-up pn-d4">
-<li><a href="#iv-terms"><span>01</span>The terms</a></li>
-<li><a href="#iv-product"><span>02</span>The product</a></li>
-<li><a href="#iv-status"><span>03</span>Progress</a></li>
-<li><a href="#iv-market"><span>04</span>The market</a></li>
-<li><a href="#iv-model"><span>05</span>Business model</a></li>
-<li><a href="#iv-funds"><span>06</span>Use of funds</a></li>
-<li><a href="#iv-returns"><span>07</span>Getting paid</a></li>
-<li><a href="#iv-calc"><span>08</span>Scenarios</a></li>
-<li><a href="#iv-risks"><span>09</span>Risks</a></li>
-</ul></nav>
+<p class="iv-lead pn-up pn-d2">A small family round to finish Pantas and launch it on Android and iOS.</p>
+<div class="iv-note pn-up pn-d3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#996A15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg><p>Working proposal. Nothing is accepted until a lawyer and accountant review the terms.</p></div>
+
 </div>
 <div class="iv-hero-art" aria-hidden="true"><svg viewBox="0 0 520 400" focusable="false">
 <defs><radialGradient id="ivSun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#F7DFA8" stop-opacity=".95"/><stop offset="1" stop-color="#F7DFA8" stop-opacity="0"/></radialGradient></defs>
@@ -648,19 +667,19 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-terms" class="iv-sec pn-rv" aria-labelledby="iv-terms-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">01 · The short version</p>
+<p class="iv-kick pn-up">The terms</p>
 <h2 id="iv-terms-h" class="iv-h2 pn-up pn-d1">A share of revenue, not a share of the company.</h2>
-<p class="iv-lead pn-up pn-d2">You put money in now. For five years, Pantas pays you a fixed percentage of what it earns.</p>
+
 </div>
 <div class="iv-terms">
-<div class="iv-term pn-up pn-d2"><b class="iv-num">₱100,000</b><span>Reference ticket. Smaller amounts work at the same rate: every ₱20,000 equals 1%.</span></div>
-<div class="iv-term pn-up pn-d3"><b class="iv-num">5%</b><span>of Pantas net receipts for every ₱100,000, paid every quarter.</span></div>
-<div class="iv-term pn-up pn-d4"><b>5 years</b><span>counted from the day you invest. After that, your share ends completely.</span></div>
-<div class="iv-term pn-up pn-d5"><b>No cap</b><span>on what you can earn during those five years. If Pantas grows, your payments grow with it.</span></div>
+<div class="iv-term pn-up pn-d2"><b class="iv-num">₱100,000</b><span>Reference ticket. Every ₱20,000 equals 1%.</span></div>
+<div class="iv-term pn-up pn-d3"><b class="iv-num">5%</b><span>of net receipts per ₱100,000, paid quarterly.</span></div>
+<div class="iv-term pn-up pn-d4"><b>5 years</b><span>from the day you invest, then it ends.</span></div>
+<div class="iv-term pn-up pn-d5"><b>No cap</b><span>on what you can earn in that time.</span></div>
 </div>
 <div class="iv-terms2">
-<div class="iv-line pn-up pn-d6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg><p><strong>Your principal is meant to be protected.</strong>If revenue hasn’t paid back your original amount by the end of your five years, the shortfall is covered. Profit itself isn’t guaranteed.</p></div>
-<div class="iv-line pn-up pn-d7"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><p><strong>No shares, votes, or control.</strong>The founder keeps 100% ownership and runs Pantas. Investors don’t own its code, content, brand, or data.</p></div>
+<div class="iv-line pn-up pn-d6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg><p><strong>Principal protected</strong>Your original amount is covered. Profit isn’t guaranteed.</p></div>
+<div class="iv-line pn-up pn-d7"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><p><strong>No shares or control</strong>The founder keeps 100% ownership.</p></div>
 </div>
 </div>
 </section>
@@ -670,14 +689,10 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-product" class="iv-sec pn-rv" aria-labelledby="iv-product-h">
 <div class="pn-wrap iv-two">
 <div class="iv-copy">
-<p class="iv-kick pn-up">02 · What Pantas is</p>
+<p class="iv-kick pn-up">What Pantas is</p>
 <h2 id="iv-product-h" class="iv-h2 pn-up pn-d1">A study plan that keeps up with the learner.</h2>
-<p class="iv-p pn-up pn-d2">Pantas is a learning app for Philippine exams that plans around the exam date. It connects a diagnostic, lessons, practice, scheduled review, mock exams, and progress into one daily plan, so learners don’t have to build and keep recalculating a study plan on their own.</p>
-<p class="iv-p m pn-up pn-d3">Pantas isn’t the only reviewer with offline mode, mock exams, or weak-area tracking. What’s different is the whole loop working together, with every result shaping the next day’s plan.</p>
-<div class="iv-alt pn-up pn-d4">
-<div><b>Review centers</b><span>Structured, but costly: about ₱1,997 for an online portal and ₱11,000–₱17,499 for guided programs.</span></div>
-<div><b>Reviewer apps</b><span>Cheap and often offline, but mostly question banks. The learner still decides what to study each day.</span></div>
-</div>
+<p class="iv-p pn-up pn-d2">Pantas plans each day around the learner’s exam date, connecting lessons, practice, review and mock exams into one plan that adjusts as they go.</p>
+<p class="iv-p m pn-up pn-d3">Review centers cost ₱2,000 to ₱17,500. Reviewer apps are cheap but leave the planning to the learner. Pantas sits between them.</p>
 </div>
 <div class="iv-loop" role="img" aria-label="Diagram: a diagnostic feeds a plan built around the exam date. The plan leads to lessons, practice, review and mock exams, and each result feeds back into the plan."><svg viewBox="0 0 460 460" focusable="false" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
 <defs><marker id="ivArr" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#7FB09F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></marker>
@@ -692,17 +707,17 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-status" class="iv-sec pn-rv" aria-labelledby="iv-status-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">03 · Where it stands</p>
+<p class="iv-kick pn-up">Where it stands</p>
 <h2 id="iv-status-h" class="iv-h2 pn-up pn-d1">Already built. Now being finished.</h2>
-<p class="iv-lead pn-up pn-d2">This isn’t money to find out whether Pantas can be built. A working product already exists. The round speeds up the last stretch to a reliable public release.</p>
+<p class="iv-lead pn-up pn-d2">Target launch: November 2026, if the remaining release checks pass.</p>
 </div>
 <div class="iv-stat">
-<div class="iv-st pn-up pn-d2"><div class="iv-st-ic" style="background: #E3EFEA"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></div><p class="iv-st-tag" style="color: #1D5C50">Designed</p><h3 class="iv-h3">286 approved screens</h3><p class="iv-sm">The full product experience is designed, from first launch to mock exam results.</p><div class="iv-st-bar"><i class="pn-d4" style="width: 100%; background: #1D5C50"></i></div></div>
-<div class="iv-st pn-up pn-d3"><div class="iv-st-ic" style="background: #E3EFEA"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/></svg></div><p class="iv-st-tag" style="color: #1D5C50">Built</p><h3 class="iv-h3">A working product</h3><p class="iv-sm">Onboarding, the daily plan, lessons, quizzes, review, mocks, progress, accounts and subscriptions exist in code, checked by 3,429 passing automated tests.</p><div class="iv-st-bar"><i class="pn-d5" style="width: 100%; background: #3E7F6D"></i></div></div>
-<div class="iv-st pn-up pn-d4"><div class="iv-st-ic" style="background: #FBF3E2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#996A15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></div><p class="iv-st-tag" style="color: #7A5410">Finishing</p><h3 class="iv-h3">Release work</h3><p class="iv-sm">Connecting the new design, hardening the backend, setting up store products, and testing the exact release build on real phones.</p><div class="iv-st-bar"><i class="pn-d6" style="width: 55%; background: #996A15"></i></div></div>
-<div class="iv-st pn-up pn-d5"><div class="iv-st-ic" style="background: #F1EDE4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6E675C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><p class="iv-st-tag" style="color: #6E675C">Launching</p><h3 class="iv-h3">Android and iOS</h3><p class="iv-sm">Both platforms are part of the first release. Each store has its own review, so the two may go live on different days.</p><div class="iv-st-bar"><i class="pn-d7" style="width: 12%; background: #8A8276"></i></div></div>
+<div class="iv-st pn-up pn-d2"><p class="iv-st-tag" style="color: #1D5C50">Designed</p><h3 class="iv-h3">286 approved screens</h3><p class="iv-sm">The full experience, end to end.</p></div>
+<div class="iv-st pn-up pn-d3"><p class="iv-st-tag" style="color: #1D5C50">Built</p><h3 class="iv-h3">A working product</h3><p class="iv-sm">The core app works, with 3,429 passing automated tests.</p></div>
+<div class="iv-st pn-up pn-d4"><p class="iv-st-tag" style="color: #7A5410">Finishing</p><h3 class="iv-h3">Release work</h3><p class="iv-sm">New design, backend hardening, store setup, device testing.</p></div>
+<div class="iv-st pn-up pn-d5"><p class="iv-st-tag" style="color: #6E675C">Launching</p><h3 class="iv-h3">Android and iOS</h3><p class="iv-sm">Both in the first release.</p></div>
 </div>
-<div class="iv-target pn-up pn-d6"><b>Target launch window: November 2026</b><p class="iv-sm">It’s a target, not a promise. It depends on the remaining release checks passing.</p></div>
+
 </div>
 </section>
 
@@ -711,10 +726,10 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-market" class="iv-sec pn-rv" aria-labelledby="iv-market-h">
 <div class="pn-wrap iv-mk">
 <div class="iv-big">
-<p class="iv-kick pn-up">04 · The market</p>
+<p class="iv-kick pn-up">The market</p>
 <h2 id="iv-market-h" class="iv-h2 pn-up pn-d1">Hundreds of thousands of exam attempts every year.</h2>
 <b class="iv-num pn-up pn-d2">793,773</b>
-<p class="iv-p m pn-up pn-d3">actual 2026 sittings of UPCAT, the DOST scholarship exam, and the Civil Service Exam alone, before most of the exams on the roadmap.</p>
+<p class="iv-p m pn-up pn-d3">2026 sittings of UPCAT, DOST and the Civil Service Exam alone.</p>
 </div>
 <div class="iv-mk-r">
 <div class="iv-bars">
@@ -728,8 +743,8 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <div class="iv-bar x pn-up pn-d6"><span class="iv-bar-l">Nurses’ board exam (PNLE)</span><span class="iv-bar-v">45,521</span><div class="iv-bar-t"><i class="pn-d7" style="width: 14.8%"></i></div></div>
 <div class="iv-bar x pn-up pn-d7"><span class="iv-bar-l">PMA entrance exam</span><span class="iv-bar-v">25,431</span><div class="iv-bar-t"><i class="pn-d8" style="width: 8.3%"></i></div></div>
 </div>
-<p class="iv-p pn-up pn-d8">With those three, it’s <strong>959,082</strong> sittings in 2026, still leaving out other college entrance tests, PUP’s 100,000+ applicants, and the police and military academies.</p>
-<div class="iv-foot pn-up pn-d9"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#996A15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg><p>These are exam sittings, not people. One student can take several exams, so the figures aren’t added up into a count of unique users. For scale: 1% of 793,773 is about 7,900 paying learners.</p></div>
+<p class="iv-p pn-up pn-d8">Adding those makes <strong>959,082</strong>, before other entrance exams and academies.</p>
+<div class="iv-foot pn-up pn-d9"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#996A15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg><p>Exam sittings, not unique people. One student can take several exams.</p></div>
 </div>
 </div>
 </section>
@@ -739,9 +754,9 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-model" class="iv-sec pn-rv" aria-labelledby="iv-model-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">05 · How Pantas earns</p>
+<p class="iv-kick pn-up">How Pantas earns</p>
 <h2 id="iv-model-h" class="iv-h2 pn-up pn-d1">Low prices, two ways to earn.</h2>
-<p class="iv-lead pn-up pn-d2">Pantas is free to start. Learners pay for the exam they’re preparing for, either by subscription or with one pass that lasts until exam day.</p>
+<p class="iv-lead pn-up pn-d2">Free to start. Learners pay by subscription or with one pass until exam day.</p>
 </div>
 <div class="iv-eng">
 <div class="iv-card pn-up pn-d2">
@@ -755,24 +770,17 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <tr><td>Coming later<small>Academies, LET, PNLE, PSHS-NCE</small></td><td>—</td><td>from ₱249</td><td>₱299–₱1,499</td></tr>
 </tbody>
 </table>
-<p class="iv-sm">A 7-day free trial comes with monthly plans only.</p>
 </div>
 <div class="iv-card soft pn-up pn-d3">
 <p class="iv-st-tag" style="color: #6E675C">Engine 2 · Institutions, later</p>
 <h3 class="iv-h3">Programs for schools and LGUs</h3>
-<p class="iv-p">Schools, review centers and local governments would pay to run structured programs: admin tools, cohort analytics, reporting, onboarding and support.</p>
-<p class="iv-sm">Institutional prices aren’t set yet, so none of the numbers on this page count on them.</p>
+<p class="iv-p m">Schools and local governments paying for admin tools, analytics and reporting. Not counted in any numbers here.</p>
 </div>
 </div>
 <div class="iv-flow pn-up pn-d4">
 <h3 class="iv-h3">Where a ₱149 monthly plan goes</h3>
 <div class="iv-flow-bar" aria-hidden="true"><span style="flex: 84; background: #1D5C50; color: #FFFFFF">Pantas · about ₱125</span><span style="flex: 15; background: #E5DFD3; color: #26221B">Store · ₱22</span><span style="flex: 1.2; background: #996A15"></span></div>
-<div class="iv-flow-k">
-<div><i style="background: #1D5C50"></i>Pantas receives about ₱125 (84%)</div>
-<div><i style="background: #E5DFD3"></i>App store keeps 15%</div>
-<div><i style="background: #996A15"></i>Payment tools take about 1% at scale</div>
-</div>
-<p class="iv-sm">If a store charges 30% instead, Pantas keeps about 69%. Servers, support and other costs come out of Pantas’s share.</p>
+<p class="iv-sm">After the 15% store fee and about 1% in payment fees. At a 30% store fee, Pantas keeps about 69%.</p>
 </div>
 </div>
 </section>
@@ -782,41 +790,27 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-funds" class="iv-sec pn-rv" aria-labelledby="iv-funds-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">06 · Use of funds</p>
+<p class="iv-kick pn-up">Use of funds</p>
 <h2 id="iv-funds-h" class="iv-h2 pn-up pn-d1">Where ₱100,000 goes.</h2>
-<p class="iv-lead pn-up pn-d2">Every amount is a cap, not a target. Each one removes something that would otherwise slow down or stop the launch.</p>
+
 </div>
 <div class="iv-stack pn-up pn-d2" role="img" aria-label="Allocation: development tools 40%, company setup 20%, launch marketing 15%, contingency 10%, Apple and iOS 7.5%, servers and testing 7.5%.">
 <span class="pn-d3" style="flex: 40; background: #1D5C50"></span><span class="pn-d4" style="flex: 20; background: #3E7F6D"></span><span class="pn-d5" style="flex: 15; background: #996A15"></span><span class="pn-d6" style="flex: 10; background: #C9C1B2"></span><span class="pn-d7" style="flex: 7.5; background: #7FB09F"></span><span class="pn-d8" style="flex: 7.5; background: #B7D5C8"></span>
 </div>
 <div class="iv-fund">
-<div class="iv-fi pn-up pn-d3"><i style="background: #1D5C50"></i><b>Development tools</b><em>₱40,000</em><p>Higher-capacity AI coding tools (Claude and ChatGPT/Codex) for the October–November release push. Pantas is built by one developer working with these tools, so more capacity means more engineering gets done.</p></div>
-<div class="iv-fi pn-up pn-d4"><i style="background: #3E7F6D"></i><b>Company setup</b><em>₱20,000</em><p>Registering Pantas as a One Person Corporation, accounting and tax setup, local permits, and a lawyer’s review of this agreement.</p></div>
-<div class="iv-fi pn-up pn-d5"><i style="background: #996A15"></i><b>Launch marketing</b><em>₱15,000</em><p>Small, measured tests to find learners, spent only once the app is ready to convert and keep them.</p></div>
-<div class="iv-fi pn-up pn-d6"><i style="background: #C9C1B2"></i><b>Contingency</b><em>₱10,000</em><p>A buffer so one unexpected cost doesn’t stall the release. Unused money stays in Pantas.</p></div>
-<div class="iv-fi pn-up pn-d7"><i style="background: #7FB09F"></i><b>Apple and iOS</b><em>₱7,500</em><p>The US$99 yearly Apple Developer membership, with room for exchange-rate swings.</p></div>
-<div class="iv-fi pn-up pn-d8"><i style="background: #B7D5C8"></i><b>Servers and release testing</b><em>₱7,500</em><p>Headroom for cloud services and testing the production setup. Kept as a reserve, not spent monthly by default.</p></div>
+<div class="iv-fi pn-up pn-d3"><i style="background: #1D5C50"></i><b>Development tools</b><em>₱40,000</em><p>More AI coding capacity for the release push. It’s how one developer builds Pantas.</p></div>
+<div class="iv-fi pn-up pn-d4"><i style="background: #3E7F6D"></i><b>Company setup</b><em>₱20,000</em><p>Registering the company, accounting, permits, and legal review of this agreement.</p></div>
+<div class="iv-fi pn-up pn-d5"><i style="background: #996A15"></i><b>Launch marketing</b><em>₱15,000</em><p>Small, measured tests after launch.</p></div>
+<div class="iv-fi pn-up pn-d6"><i style="background: #C9C1B2"></i><b>Contingency</b><em>₱10,000</em><p>So one surprise cost doesn’t stall the release.</p></div>
+<div class="iv-fi pn-up pn-d7"><i style="background: #7FB09F"></i><b>Apple and iOS</b><em>₱7,500</em><p>The US$99 Apple Developer membership.</p></div>
+<div class="iv-fi pn-up pn-d8"><i style="background: #B7D5C8"></i><b>Servers and release testing</b><em>₱7,500</em><p>Cloud and production testing headroom.</p></div>
 </div>
-<div class="iv-cols">
-<div class="pn-up pn-d4">
-<h3 class="iv-h3" style="margin-bottom: 20px">What it unlocks</h3>
-<ol class="iv-ms">
-<li>Finish the release without stopping for tool limits or small bills.</li>
-<li>Form the company and keep its books separate from personal money.</li>
-<li>Prepare and submit the iOS app alongside Android.</li>
-<li>Deploy and check production services safely.</li>
-<li>Run a small, measured launch campaign.</li>
-<li>Keep a cash buffer for surprises.</li>
-</ol>
-</div>
+<div class="iv-cols one">
 <div class="pn-up pn-d5">
-<h3 class="iv-h3" style="margin-bottom: 20px">How spending is kept honest</h3>
 <ul class="iv-chk">
-<li>A separate Pantas ledger, with a receipt for every expense.</li>
-<li>A monthly report of what was spent, what’s left, and what got done.</li>
-<li>Tool plans reviewed every billing cycle and downgraded when they’re no longer needed.</li>
-<li>Unused money stays in Pantas. None of it pays personal expenses or debts.</li>
-<li>The round can grow to ₱300,000 only if there’s a specific, defined use for more.</li>
+<li>Every amount is a cap, with receipts and a monthly report.</li>
+<li>Unused money stays in Pantas. None of it pays personal expenses.</li>
+<li>The round grows past ₱100,000 only for a specific need, up to ₱300,000.</li>
 </ul>
 </div>
 </div>
@@ -828,41 +822,26 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-returns" class="iv-sec pn-rv" aria-labelledby="iv-returns-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">07 · How you get paid</p>
+<p class="iv-kick pn-up">How you get paid</p>
 <h2 id="iv-returns-h" class="iv-h2 pn-up pn-d1">Five years of revenue share, then a principal check.</h2>
 </div>
 <div class="iv-tl-wrap pn-up pn-d2"><ol class="iv-tl"><li class="pn-up pn-d2"><span class="iv-dot" style="border-color: #1D5C50"></span><b>You invest</b><span>Day 0. Your five-year clock starts.</span></li><li class="pn-up pn-d4"><span class="iv-dot" style="border-color: #3E7F6D"></span><span class="iv-q" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><b>Pantas earns</b><span>Revenue share starts with the first sales.</span></li><li class="pn-up pn-d6"><span class="iv-dot" style="border-color: #7FB09F"></span><span class="iv-q" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><b>Every quarter</b><span>5% of net receipts, with a statement.</span></li><li class="pn-up pn-d8"><span class="iv-dot" style="border-color: #996A15"></span><b>Year 5 ends</b><span>Your share stops completely.</span></li><li class="pn-up pn-d10"><span class="iv-dot" style="border-color: #A33B2E"></span><b>Principal check</b><span>Any shortfall on your original amount is covered.</span></li></ol></div>
-<div class="iv-def">
-<div class="iv-card pn-up pn-d3">
-<h3 class="iv-h3">What “net receipts” means</h3>
-<div class="iv-eq"><span class="p">What customers pay</span><span>−</span><span class="n">refunds</span><span>−</span><span class="n">taxes collected</span><span>−</span><span class="n">store and payment fees</span></div>
-<p class="iv-p">Your percentage applies to that amount. Running costs like salaries, marketing and servers are not subtracted, so a thin-margin year doesn’t shrink your share.</p>
+<div class="iv-cols">
+<div class="pn-up pn-d3">
+<h3 class="iv-h3" style="margin-bottom: 12px">Net receipts</h3>
+<p class="iv-p">What customers pay, minus refunds, taxes, and store and payment fees. Running costs like salaries and marketing aren’t subtracted.</p>
 </div>
-<div class="iv-card pn-up pn-d4">
-<h3 class="iv-h3">What 5% could mean in a year</h3>
-<div class="iv-mult">
-<div><small>₱1M net receipts</small><b>₱50,000</b></div>
-<div><small>₱5M</small><b>₱250,000</b></div>
-<div><small>₱10M</small><b>₱500,000</b></div>
-<div><small>₱20M</small><b>₱1,000,000</b></div>
-</div>
-<p class="iv-sm">For each ₱100,000 invested. These show how the share scales, not what Pantas will earn.</p>
-</div>
-</div>
-<div class="iv-cols" style="margin-top: 40px">
 <div class="pn-up pn-d4">
-<h3 class="iv-h3" style="margin-bottom: 16px">What “principal protected” means</h3>
-<p class="iv-p" style="margin-bottom: 14px">At the end of your five years, total revenue-share payments are compared with what you put in. If they fall short, the founder personally covers the difference, on a set schedule.</p>
-<p class="iv-p m">It covers your original amount only. There’s no guaranteed profit or minimum return. The exact wording will be set by a lawyer.</p>
+<h3 class="iv-h3" style="margin-bottom: 12px">Principal protection</h3>
+<p class="iv-p">If payments total less than you put in after five years, the founder personally covers the difference. Principal only, not profit.</p>
 </div>
+</div>
+<div class="iv-cols one">
 <div class="pn-up pn-d5">
-<h3 class="iv-h3" style="margin-bottom: 16px">Other terms</h3>
 <ul class="iv-chk">
-<li>Paid quarterly, with a statement showing receipts, deductions, your percentage and your payment.</li>
-<li>One written agreement and one ledger per investor.</li>
-<li>All family investors together are capped at 15% of net receipts, the same as ₱300,000.</li>
-<li>Pantas can’t end your share early just by returning your money. A buyout needs your written agreement.</li>
-<li>Moving sales to another company or product doesn’t erase your share.</li>
+<li>A statement with every payment, and one agreement per investor.</li>
+<li>All family investors together are capped at 15% of net receipts.</li>
+<li>No early buyout without your written agreement.</li>
 </ul>
 </div>
 </div>
@@ -874,9 +853,9 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-calc" class="iv-sec pn-rv" aria-labelledby="iv-calc-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">08 · Scenarios</p>
+<p class="iv-kick pn-up">Scenarios</p>
 <h2 id="iv-calc-h" class="iv-h2 pn-up pn-d1">See what it could look like.</h2>
-<p class="iv-lead pn-up pn-d2">Pick an amount and a scenario. These are illustrations, not forecasts: Pantas hasn’t launched, so there’s no real sales data yet.</p>
+<p class="iv-lead pn-up pn-d2">Illustrations, not forecasts. Pantas hasn’t launched yet.</p>
 </div>
 <div class="iv-calc pn-up pn-d3">
 <div class="iv-calc-in">
@@ -918,7 +897,7 @@ a{color:#1D5C50}a:hover{color:#174A41}
 </div>
 </div>
 </div>
-<p class="iv-sm pn-up pn-d4" style="margin-top: 20px; max-width: 52rem">Built from current Student and Civil Service prices only, with app-store and payment fees taken out. Institutional deals and future exams are left out on purpose. After launch, these assumptions will be replaced with real numbers every month.</p>
+<p class="iv-sm pn-up pn-d4" style="margin-top: 24px; max-width: 52rem">Uses current Student and Civil Service prices, after fees. Replaced with real numbers monthly after launch.</p>
 </div>
 </section>
 
@@ -929,12 +908,11 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <div class="iv-head">
 <p class="iv-kick pn-up">Early traction</p>
 <h2 id="iv-tr-h" class="iv-h2 pn-up pn-d1">A public-sector path, already opened.</h2>
-<p class="iv-p m pn-up pn-d2">These are proposals under discussion, not approvals, contracts or revenue. The wording here will only change when there’s a signed document behind it.</p>
+<p class="iv-p m pn-up pn-d2">Proposals under discussion, not approvals or revenue.</p>
 </div>
 <div class="iv-tr">
-<div class="iv-tr-i pn-up pn-d2"><p class="iv-tr-d">14 August 2026</p><h3 class="iv-h3">Proposal submitted to SK Poblacion, Norala</h3><p class="iv-p m">Project PANTAS was formally submitted as an EduVision 2026 youth project: an eight-week community pilot for about 50 young people. The SK acknowledged it and said it would be reviewed.</p></div>
-<div class="iv-tr-i pn-up pn-d3"><p class="iv-tr-d">2026</p><h3 class="iv-h3">Municipal-scale proposal prepared</h3><p class="iv-p m">A wider version for 50 to 100 participants across Norala was prepared for discussion with Councilor Suzella Claire Frias, with costs, delivery options, and how results would be measured.</p></div>
-<div class="iv-tr-i o pn-up pn-d4"><p class="iv-tr-d">Next</p><h3 class="iv-h3">Approval, pilot, then results</h3><p class="iv-p m">Each step will be described exactly as the documents allow.</p></div>
+<div class="iv-tr-i pn-up pn-d2"><p class="iv-tr-d">14 August 2026</p><h3 class="iv-h3">Proposal submitted to SK Poblacion, Norala</h3><p class="iv-p m">An eight-week pilot for about 50 youth, acknowledged for review.</p></div>
+<div class="iv-tr-i pn-up pn-d3"><p class="iv-tr-d">2026</p><h3 class="iv-h3">Municipal-scale proposal prepared</h3><p class="iv-p m">For 50 to 100 participants, prepared for discussion with Councilor Suzella Claire Frias.</p></div>
 </div>
 </div>
 </section>
@@ -949,13 +927,12 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <p class="iv-lead pn-up pn-d2">Built by a solo developer who studied at Philippine Science High School and studied Computer Science at UP Diliman as a DOST Merit Scholar.</p>
 </div>
 <div class="iv-proof">
-<div class="iv-pf pn-up pn-d2"><div class="iv-pf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><div><h3 class="iv-h3">The product exists</h3><p class="iv-p m">A substantial working app and a finished 286-screen design, not a pitch deck.</p></div></div>
-<div class="iv-pf pn-up pn-d3"><div class="iv-pf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div><div><h3 class="iv-h3">Disciplined engineering</h3><p class="iv-p m">Thousands of automated tests, staged release checks, and independent reviews before work is accepted.</p></div></div>
-<div class="iv-pf pn-up pn-d4"><div class="iv-pf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><div><h3 class="iv-h3">Leverage without payroll</h3><p class="iv-p m">One developer directing AI tools like Claude and ChatGPT, instead of a salaried team. The founder still makes the decisions and checks the work.</p></div></div>
-<div class="iv-pf pn-up pn-d5"><div class="iv-pf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div><div><h3 class="iv-h3">Knows the exams first-hand</h3><p class="iv-p m">Has been through the same high-stakes academic selection Pantas serves, and can speak credibly to students and parents.</p></div></div>
-<div class="iv-pf pn-up pn-d6"><div class="iv-pf-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3.5 3.2-5.5 6-5.5s5.2 2 6 5.5M15 15.5c2.6-.3 4.8 1.3 5.5 4.5"/></svg></div><div><h3 class="iv-h3">Runs more than code</h3><p class="iv-p m">Previously managed 70+ active partnerships in a national student organization and led teams of up to 30, and is already doing public-sector proposal work for Pantas.</p></div></div>
+<div class="iv-pf pn-up pn-d3"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg><div><h3 class="iv-h3">Disciplined engineering</h3><p class="iv-p m">Staged release checks and independent reviews before work is accepted.</p></div></div>
+<div class="iv-pf pn-up pn-d4"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><div><h3 class="iv-h3">Leverage without payroll</h3><p class="iv-p m">One developer directing AI tools instead of a salaried team.</p></div></div>
+<div class="iv-pf pn-up pn-d5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg><div><h3 class="iv-h3">Knows the exams first-hand</h3><p class="iv-p m">Has been through the exams Pantas prepares learners for.</p></div></div>
+<div class="iv-pf pn-up pn-d6"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5C50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c.8-3.5 3.2-5.5 6-5.5s5.2 2 6 5.5M15 15.5c2.6-.3 4.8 1.3 5.5 4.5"/></svg><div><h3 class="iv-h3">Runs more than code</h3><p class="iv-p m">Managed 70+ partnerships and led teams of up to 30.</p></div></div>
 </div>
-<p class="iv-quote pn-up pn-d6">The round removes the bottlenecks around a product that already exists. It isn’t a bet on whether it can be built.</p>
+<p class="iv-quote pn-up pn-d6">The product already exists. This round removes what’s slowing its launch.</p>
 </div>
 </section>
 
@@ -964,58 +941,20 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <section id="iv-risks" class="iv-sec pn-rv" aria-labelledby="iv-risks-h">
 <div class="pn-wrap">
 <div class="iv-head">
-<p class="iv-kick pn-up">09 · Risks</p>
+<p class="iv-kick pn-up">Risks</p>
 <h2 id="iv-risks-h" class="iv-h2 pn-up pn-d1">What could go wrong.</h2>
-<p class="iv-lead pn-up pn-d2">Pantas isn’t risk-free. Here are the biggest risks, and what’s being done about each.</p>
 </div>
 <div class="iv-risks">
-<div class="iv-rk pn-up pn-d2"><div class="iv-rk-h"><span class="iv-rk-n">01</span><div><h3 class="iv-h3">Shipping</h3><span class="iv-lvl">High until release checks pass</span></div></div><div class="iv-rk-b"><p><span>Risk</span>The designed product is ahead of the build that’s been accepted for release. Design work, backend hardening, store setup and device testing are still open.</p><p><span>What’s being done</span>One live release status, staged checks, automated tests and independent reviews. No public launch until every check passes.</p></div></div>
-<div class="iv-rk pn-up pn-d3"><div class="iv-rk-h"><span class="iv-rk-n">02</span><div><h3 class="iv-h3">Demand</h3><span class="iv-lvl">High, no paying users yet</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Without a launch, there’s no real data on how many learners will pay, stay, or recommend Pantas. Android apps also tend to convert fewer downloads to paid.</p><p><span>What’s being done</span>Free to start with low prices, the whole funnel measured from day one, and a small marketing budget until the numbers support spending more.</p></div></div>
-<div class="iv-rk pn-up pn-d4"><div class="iv-rk-h"><span class="iv-rk-n">03</span><div><h3 class="iv-h3">One founder</h3><span class="iv-lvl">High</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Product, engineering and most decisions sit with one person. AI tools add leverage, but they don’t replace that person.</p><p><span>What’s being done</span>Thorough documentation, source control, tests, repeatable release steps, professional legal and accounting help, and delegating work once revenue allows.</p></div></div>
-<div class="iv-rk pn-up pn-d5"><div class="iv-rk-h"><span class="iv-rk-n">04</span><div><h3 class="iv-h3">The financing itself</h3><span class="iv-lvl md">Medium to high</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Revenue share comes off the top, before running costs, and the principal guarantee is a real personal obligation for the founder.</p><p><span>What’s being done</span>A hard 15% family ceiling, fixed five-year terms, cash reserves, and a guarantee limited to your original amount.</p></div></div>
-<div class="iv-rk pn-up pn-d6"><div class="iv-rk-h"><span class="iv-rk-n">05</span><div><h3 class="iv-h3">Legal and public sector</h3><span class="iv-lvl md">Medium to high</span></div></div><div class="iv-rk-b"><p><span>Risk</span>A revenue-share agreement can fall under securities, lending and tax rules. Government proposals can also be mistaken for approvals.</p><p><span>What’s being done</span>Nothing is signed until a lawyer and accountant approve it, and traction is described only as far as the documents go.</p></div></div>
-</div>
-<div class="iv-plain pn-up pn-d4">
-<h3 class="iv-h3">Said plainly</h3>
-<ul>
-<li>Pantas hasn’t launched and has no subscriber revenue yet.</li>
-<li>November 2026 is a target, not a guaranteed date.</li>
-<li>Government interest is at the proposal and discussion stage.</li>
-<li>iOS is in the first release, but isn’t ready for the App Store yet.</li>
-<li>Every revenue number on this page is an assumption until real users arrive.</li>
-<li>The agreement isn’t final until it’s been legally reviewed.</li>
-</ul>
+<div class="iv-rk pn-up pn-d2"><div class="iv-rk-h"><span class="iv-rk-n">01</span><div><h3 class="iv-h3">Shipping</h3><span class="iv-lvl">High</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Release work is still open.</p><p><span>What’s being done</span>No launch until every check passes.</p></div></div>
+<div class="iv-rk pn-up pn-d3"><div class="iv-rk-h"><span class="iv-rk-n">02</span><div><h3 class="iv-h3">Demand</h3><span class="iv-lvl">High</span></div></div><div class="iv-rk-b"><p><span>Risk</span>No paying users yet, so no data on who will pay or stay.</p><p><span>What’s being done</span>Low prices, full tracking, and small marketing spend until the numbers justify more.</p></div></div>
+<div class="iv-rk pn-up pn-d4"><div class="iv-rk-h"><span class="iv-rk-n">03</span><div><h3 class="iv-h3">One founder</h3><span class="iv-lvl">High</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Most of Pantas rests on one person.</p><p><span>What’s being done</span>Documentation, tests, and delegating once revenue allows.</p></div></div>
+<div class="iv-rk pn-up pn-d5"><div class="iv-rk-h"><span class="iv-rk-n">04</span><div><h3 class="iv-h3">The financing itself</h3><span class="iv-lvl md">Medium to high</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Revenue share comes before running costs, and the guarantee is personal.</p><p><span>What’s being done</span>A 15% ceiling, fixed terms, and cash reserves.</p></div></div>
+<div class="iv-rk pn-up pn-d6"><div class="iv-rk-h"><span class="iv-rk-n">05</span><div><h3 class="iv-h3">Legal</h3><span class="iv-lvl md">Medium to high</span></div></div><div class="iv-rk-b"><p><span>Risk</span>Securities, tax and lending rules may apply.</p><p><span>What’s being done</span>Nothing is signed before legal review.</p></div></div>
 </div>
 </div>
 </section>
 
 <hr class="iv-hr">
-
-<section class="iv-sec pn-rv" aria-labelledby="iv-open-h">
-<div class="pn-wrap iv-open">
-<div>
-<p class="iv-kick pn-up">Before anything is signed</p>
-<h2 id="iv-open-h" class="iv-h2 pn-up pn-d1" style="margin: 16px 0 20px">Nothing is final yet.</h2>
-<p class="iv-p m pn-up pn-d2" style="margin-bottom: 24px">These details still need to be settled, with professional advice, before any money changes hands.</p>
-<ul class="iv-chk pn-up pn-d3">
-<li>Exactly when quarterly payments start and are due.</li>
-<li>The repayment schedule if principal needs to be covered.</li>
-<li>The smallest amount that makes sense to accept.</li>
-<li>How tax and withholding are handled.</li>
-<li>Whether money goes to the company after it’s registered, or how earlier funds are transferred to it.</li>
-</ul>
-</div>
-<div>
-<h3 class="iv-h3 pn-up pn-d2" style="margin-bottom: 20px">How it would happen</h3>
-<ol class="iv-steps pn-up pn-d3">
-<li>Register the company first where possible, so it can be the party you sign with.</li>
-<li>Prepare one written agreement per investor, with the same core terms.</li>
-<li>Attach the net receipts definition, payment and reporting terms, the five-year term, principal protection and the 15% family ceiling.</li>
-<li>Have a Philippine lawyer and accountant review everything before funds are accepted.</li>
-</ol>
-</div>
-</div>
-</section>
 
 <section class="iv-end pn-rv">
 <div class="pn-wrap" style="display: flex; flex-direction: column; align-items: center; gap: 24px">
@@ -1030,8 +969,8 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <circle class="pn-pop pn-d6" cx="130" cy="84" r="5" fill="#F3C969"/><circle class="pn-pop pn-d7" cx="176" cy="104" r="5" fill="#F3C969"/><circle class="pn-pop pn-d8" cx="108" cy="124" r="5" fill="#F3C969"/>
 <g class="pn-pop pn-d9"><g transform="translate(150 98) scale(0.055) translate(-627 -632)" fill="#FBF9F4"><path d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/><path d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/><path d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/></g></g>
 </svg></div>
-<h2 class="iv-h2 pn-up pn-d3" style="max-width: 40rem">Questions are welcome.</h2>
-<p class="iv-lead pn-up pn-d4" style="text-align: center">Every number here has a source, and every assumption can be checked. Ask about anything, before deciding anything.</p>
+<h2 class="iv-h2 pn-up pn-d3" style="max-width: 40rem">Nothing is final yet.</h2>
+<p class="iv-lead pn-up pn-d4" style="text-align: center; max-width: 34rem">Payment dates, the repayment schedule, the minimum amount, and tax still need to be settled. Questions are welcome.</p>
 <details class="iv-src pn-up pn-d5">
 <summary>Sources<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
 <ul>
@@ -1047,7 +986,7 @@ a{color:#1D5C50}a:hover{color:#174A41}
 </section>
 
 <footer class="iv-legal">
-<div class="pn-wrap"><p>This page is for private discussion with family members. It is not a public offering or a solicitation to buy securities, and it is not financial, legal or tax advice. Terms are a working proposal and may change after professional review. Figures are as of 7 October 2026.</p></div>
+<div class="pn-wrap"><p>For private family discussion only. Not a public offering or financial advice. Figures as of 7 October 2026.</p></div>
 </footer>
 </main>
 
