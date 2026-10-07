@@ -568,6 +568,13 @@ a{color:#1D5C50}a:hover{color:#174A41}
 .iv-tl-wrap{padding:0}
 }
 
+.iv-range-k{position:relative}
+.iv-def-mk{position:absolute;left:calc(28.57% - 4px);transform:translateX(-50%);white-space:nowrap;color:var(--board);font-weight:600}
+.iv-def-mk::before{content:"";position:absolute;left:50%;top:-14px;width:2px;height:8px;border-radius:2px;background:var(--board)}
+.iv-share{align-items:baseline}
+.iv-share .iv-share-n{font-size:40px;font-weight:700;line-height:1;letter-spacing:-0.03em;color:var(--board);font-variant-numeric:tabular-nums;flex-shrink:0}
+@media (max-width:639px){.iv-range-k span:first-child{visibility:hidden}}
+
 @media (prefers-reduced-motion: reduce){.pn-root *{animation:none !important;transition:none !important}}
 
 </style>
@@ -672,7 +679,7 @@ a{color:#1D5C50}a:hover{color:#174A41}
 
 </div>
 <div class="iv-terms">
-<div class="iv-term pn-up pn-d2"><b class="iv-num">₱100,000</b><span>Reference ticket. Every ₱20,000 equals 1%.</span></div>
+<div class="iv-term pn-up pn-d2"><b class="iv-num">₱100,000</b><span>The default ask. Every ₱20,000 equals 1%, up to ₱300,000 for 15%.</span></div>
 <div class="iv-term pn-up pn-d3"><b class="iv-num">5%</b><span>of net receipts per ₱100,000, paid quarterly.</span></div>
 <div class="iv-term pn-up pn-d4"><b>5 years</b><span>from the day you invest, then it ends.</span></div>
 <div class="iv-term pn-up pn-d5"><b>No cap</b><span>on what you can earn in that time.</span></div>
@@ -810,7 +817,7 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <ul class="iv-chk">
 <li>Every amount is a cap, with receipts and a monthly report.</li>
 <li>Unused money stays in Pantas. None of it pays personal expenses.</li>
-<li>The round grows past ₱100,000 only for a specific need, up to ₱300,000.</li>
+<li>Money beyond the ₱100,000 ask goes to specific, recorded needs.</li>
 </ul>
 </div>
 </div>
@@ -862,10 +869,11 @@ a{color:#1D5C50}a:hover{color:#174A41}
 <div class="iv-ctl">
 <div>
 <p class="iv-lbl"><label for="iv-amt">Amount</label><span class="iv-amt">{{amtLabel}}</span></p>
-<input id="iv-amt" class="iv-range" type="range" min="20000" max="100000" step="5000" value="{{amt}}" aria-valuetext="{{amtLabel}}" onInput="{{setAmt}}">
-<div class="iv-range-k" aria-hidden="true"><span>₱20,000</span><span>₱100,000</span></div>
+<input id="iv-amt" class="iv-range" type="range" min="20000" max="300000" step="20000" value="{{amt}}" aria-valuetext="{{amtLabel}}" onInput="{{setAmt}}" onChange="{{setAmt}}">
+<div class="iv-range-k" aria-hidden="true"><span>₱20,000</span><span class="iv-def-mk">₱100,000 default</span><span>₱300,000</span></div>
 </div>
-<div class="iv-share"><b>{{shareLabel}}</b><span>of Pantas net receipts for five years</span></div>
+<div class="iv-share"><span class="iv-share-n">{{shareLabel}}</span><span>of Pantas net receipts for five years</span></div>
+<p class="iv-sm">₱100,000 (5%) is the default ask. You can go up to ₱300,000 (15%), the limit shared by all family investors combined.</p>
 <div>
 <p class="iv-lbl" id="iv-sc-l">Scenario</p>
 <div class="iv-seg" role="radiogroup" aria-labelledby="iv-sc-l">
@@ -1067,7 +1075,7 @@ class Component extends DCLogic {
       amt: String(amt),
       amtLabel: peso(amt),
       shareLabel: pctLabel,
-      setAmt: function (e) { var v = Number(e.target.value) || 100000; if (v !== self.state.amt) self.setState({ amt: v }); },
+      setAmt: function (e) { var v = Number(e.target && e.target.value) || 100000; v = Math.max(20000, Math.min(300000, Math.round(v / 20000) * 20000)); if (v !== self.state.amt) self.setState({ amt: v }); },
       scC: s.sc === 'c' ? 'true' : 'false', scE: s.sc === 'e' ? 'true' : 'false', scS: s.sc === 's' ? 'true' : 'false',
       pickC: function () { self.setState({ sc: 'c' }); },
       pickE: function () { self.setState({ sc: 'e' }); },
