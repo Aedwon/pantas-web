@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Pantas</title>
+<meta name="description" content="Reach the Pantas community, start a partnership conversation, or get product support.">
+<meta name="theme-color" content="#FBF9F4">
+<meta property="og:title" content="Contact — Pantas">
+<meta property="og:description" content="Reach the Pantas community, start a partnership conversation, or get product support.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+body{margin:0;background:#FBF9F4}
+a{color:#1D5C50}a:hover{color:#174A41}
+.pn-root{--bg:#FBF9F4;--surface:#FFFFFF;--ink:#26221B;--muted:#6E675C;--rule:#E5DFD3;--faint:#F1EDE4;--ctl:#8A8276;--board:#1D5C50;--board-h:#174A41;--board-p:#113A33;--tint:#E3EFEA;--tint-p:#CFE3DB;--rust:#A33B2E;--amber:#996A15;--g:20px;--s:.64;--ee:cubic-bezier(0.16,1,0.3,1);--es:cubic-bezier(0.2,0.8,0.2,1);font-family:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:320px}
+.pn-root *{box-sizing:border-box}
+.pn-root a:focus-visible,.pn-root button:focus-visible,.pn-root input:focus-visible{outline:3px solid #996A15;outline-offset:2px}
+.pn-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pn-wrap{max-width:calc(1280px + 2 * var(--g));margin:0 auto;padding-inline:var(--g)}
+
+/* header */
+.pn-hdr{position:relative;z-index:30}
+.pn-hdr-in{height:64px;display:flex;align-items:center;justify-content:space-between}
+.pn-logo{display:inline-flex;align-items:center;gap:10px;min-height:48px;color:var(--ink);text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-0.02em}
+.pn-logo:hover{color:var(--ink)}
+.pn-nav-d{display:none}
+.pn-nl{font:inherit;font-size:16px;font-weight:600;line-height:1.2;color:var(--ink);background:none;border:0;padding:0 14px;height:48px;display:inline-flex;align-items:center;gap:6px;border-radius:12px;text-decoration:none;cursor:pointer;transition:background-color .12s var(--es)}
+.pn-nl:hover{background:var(--faint);color:var(--ink)}
+.pn-chev{transition:transform .18s var(--es)}
+.pn-chev.up{transform:rotate(180deg)}
+.pn-dd{position:relative}
+.pn-ddm{position:absolute;top:calc(100% + 6px);left:0;min-width:200px;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--rule);border-radius:12px;box-shadow:0 8px 24px rgba(38,34,27,0.08);animation:pn-menu .18s var(--es) both}
+.pn-ddm a{display:flex;align-items:center;height:44px;padding:0 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:400;transition:background-color .12s var(--es)}
+.pn-ddm a:hover{background:var(--tint)}
+.pn-menubtn{width:48px;height:48px;border:0;background:none;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer}
+.pn-menubtn:hover{background:var(--faint)}
+.pn-mpanel{position:absolute;left:0;right:0;top:64px;background:var(--surface);border-top:1px solid var(--faint);border-bottom:1px solid var(--rule);padding:8px var(--g) 24px;animation:pn-menu .18s var(--es) both}
+.pn-mlist{list-style:none;margin:0;padding:0}
+.pn-mi{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;font:inherit;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:0;border-bottom:1px solid var(--faint);padding:0;cursor:pointer;text-align:left}
+.pn-mi:hover{color:var(--board)}
+.pn-msub{list-style:none;margin:0;padding:0 0 0 16px}
+.pn-msub .pn-mi{font-weight:400}
+
+/* buttons */
+.pn-btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 20px;border-radius:12px;background:var(--board);color:#FFFFFF;font:inherit;font-size:16px;font-weight:600;line-height:1.2;text-decoration:none;border:0;cursor:pointer;transition:background-color .12s var(--es),transform .12s var(--es)}
+.pn-btn:hover{background:var(--board-h);color:#FFFFFF}
+.pn-btn:active{background:var(--board-p);transform:scale(.98)}
+.pn-btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:12px;background:var(--surface);color:var(--board);border:1px solid var(--board);font:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;transition:background-color .12s var(--es),transform .12s var(--es)}
+.pn-btn2:hover{background:var(--tint)}
+.pn-btn2:active{background:var(--tint-p);transform:scale(.98)}
+.pn-gp{display:inline-flex;flex-direction:column;justify-content:center;height:56px;min-width:176px;padding:0 22px;background:#000000;color:#FFFFFF;border-radius:10px;text-decoration:none;line-height:1.1;transition:transform .12s var(--es)}
+.pn-gp:hover{color:#FFFFFF;transform:translateY(-2px)}
+.pn-gp:active{transform:translateY(0) scale(.98)}
+.pn-gp-s{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.pn-gp-b{font-size:21px;font-weight:600;letter-spacing:-0.01em}
+
+
+@media (min-width:480px){.pn-root{--g:24px}}
+@media (min-width:768px){
+.pn-root{--g:32px}
+.pn-hdr-in{height:72px}
+.pn-nav-d{display:flex;align-items:center;gap:4px}
+.pn-nav-d .pn-btn{margin-left:12px}
+.pn-menubtn,.pn-mpanel{display:none}
+}
+@media (min-width:1024px){.pn-root{--g:48px}}
+@media (min-width:1280px){.pn-root{--g:64px}}
+
+/* motion */
+@keyframes pn-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pn-fade{from{opacity:0}to{opacity:1}}
+@keyframes pn-pop{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+@keyframes pn-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pn-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pn-sl{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+@keyframes pn-sr{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes pn-su{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pn-wave{0%{transform:skewY(0)}25%{transform:skewY(-9deg)}55%{transform:skewY(6deg)}80%{transform:skewY(-2deg)}100%{transform:skewY(0)}}
+@keyframes pn-wave2{0%{transform:skewY(0)}25%{transform:skewY(-9deg)}55%{transform:skewY(6deg)}80%{transform:skewY(-2deg)}100%{transform:skewY(0)}}
+@keyframes pn-glow{0%{opacity:0}20%{opacity:.9}30%{opacity:.15}45%{opacity:.95}55%{opacity:.35}72%{opacity:.95}100%{opacity:.55}}
+@keyframes pn-settle{from{opacity:0;transform:translateY(48px) rotate(14deg)}to{opacity:1;transform:rotate(6deg)}}
+@keyframes pn-gauge{from{stroke-dashoffset:61}to{stroke-dashoffset:0}}
+@keyframes pn-ring{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes pn-out{from{opacity:1}to{opacity:0}}
+@keyframes pn-menu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.pn-pop,.pn-sl,.pn-sr,.pn-su,.pn-wave{transform-box:fill-box;transform-origin:50% 50%}
+.pn-grow{transform-box:fill-box;transform-origin:50% 100%}
+.pn-wave{transform-origin:0% 50%}
+.pn-glow{opacity:.5;transition:opacity .32s var(--es)}
+.pn-anim .pn-rv .pn-up,.pn-anim .pn-rv .pn-pop,.pn-anim .pn-rv .pn-sl,.pn-anim .pn-rv .pn-sr,.pn-anim .pn-rv .pn-su,.pn-anim .pn-rv .pn-fade,.pn-anim .pn-rv .pn-glow,.pn-anim .pn-rv .pn-tilt{opacity:0}
+.pn-anim .pn-rv .pn-grow{transform:scaleY(0)}
+.pn-anim .pn-rv .pn-draw{stroke-dasharray:1 2;stroke-dashoffset:1}
+.pn-anim .pn-rv .pn-gauge{stroke-dashoffset:61}
+.pn-anim .pn-rv.in .pn-up{animation:pn-up .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-fade{animation:pn-fade .42s ease both}
+.pn-anim .pn-rv.in .pn-pop{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) both}
+.pn-anim .pn-rv.in .pn-sl{animation:pn-sl .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-sr{animation:pn-sr .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-su{animation:pn-su .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-grow{animation:pn-grow .6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-draw{animation:pn-draw .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-draw.pn-slow{animation-duration:1s}
+.pn-anim .pn-rv.in .pn-wave{animation:pn-wave .9s ease-in-out both}
+.pn-anim .pn-rv.in .pn-glow{animation:pn-glow 1.2s ease both}
+.pn-anim .pn-rv.in .pn-tilt{animation:pn-settle .7s var(--ee) .15s both}
+.pn-anim .pn-rv.in .pn-gauge{animation:pn-gauge .9s var(--ee) .8s both}
+@keyframes pn-word{from{opacity:0;transform:translateY(.4em) rotate(3deg)}to{opacity:1;transform:none}}
+@keyframes pn-swing{0%{transform:rotate(0)}18%{transform:rotate(16deg)}40%{transform:rotate(-10deg)}62%{transform:rotate(5deg)}82%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes pn-swing2{0%{transform:rotate(0)}18%{transform:rotate(16deg)}40%{transform:rotate(-10deg)}62%{transform:rotate(5deg)}82%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes pn-tap{0%{opacity:0;transform:scale(.5)}35%{opacity:.35;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
+@keyframes pn-press{0%,100%{transform:scale(1)}45%{transform:scale(.96)}}
+@keyframes pn-growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pn-hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-12px)}70%{transform:translateY(2px)}}
+@keyframes pn-rise{from{opacity:0;transform:translateY(120px)}to{opacity:1;transform:none}}
+@keyframes pn-fly{from{transform:translateX(-620px)}to{transform:translateX(1240px)}}
+@keyframes pn-flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.35)}}
+@keyframes pn-sway{0%,100%{transform:skewX(0)}30%{transform:skewX(4deg)}65%{transform:skewX(-3deg)}}
+@keyframes pn-bob{0%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}70%{transform:translateY(2px)}}
+@keyframes pn-scrib{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,-6px)}40%{transform:translate(4px,-10px)}60%{transform:translate(10px,-2px)}80%{transform:translate(-2px,4px)}}
+@keyframes pn-blink{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.1)}}
+@keyframes pn-blink2{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.1)}}
+@keyframes pn-shine{from{left:-60%}to{left:130%}}
+@keyframes pn-spark{from{opacity:1;transform:rotate(var(--a)) translateX(0) scale(1)}to{opacity:0;transform:rotate(var(--a)) translateX(30px) scale(.3)}}
+.pn-w{display:inline-block}
+.pn-ulw{position:relative}
+.pn-ul{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.32em;overflow:visible}
+.pn-tassel{transform-box:fill-box;transform-origin:50% 0}
+.pn-anim .pn-tassel{animation:pn-swing 1.6s ease-in-out .6s both}
+.pn-logo:hover .pn-tassel{animation:pn-swing2 1.4s ease-in-out both}
+.pn-3d{width:100%;height:100%;transition:transform .32s var(--es)}
+.pa-ring1{position:relative;width:24px;height:24px;flex-shrink:0}
+.pa-ring1 svg{display:block}
+.pn-r1prog{stroke-dasharray:100;stroke-dashoffset:100}
+.pn-r1done{position:absolute;inset:0;border-radius:99px;background:#0B7A68;display:flex;align-items:center;justify-content:center;opacity:0}
+.pa-btn{position:relative;overflow:hidden}
+.pa-tap{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:99px;background:#FFFFFF;opacity:0}
+.pn-growx{transform-box:fill-box;transform-origin:0 50%}
+.pn-fan-b,.pn-fan-v,.pn-fan-q{transform-box:fill-box;transform-origin:50% 50%;transition:transform .42s var(--ee)}
+.pn-art:hover .pn-fan-b{transform:translate(16px,-10px) rotate(4deg)}
+.pn-art:hover .pn-fan-v{transform:translate(-14px,-8px) rotate(-5deg)}
+.pn-art:hover .pn-fan-q{transform:translate(0,8px) rotate(1deg)}
+.pn-hop{transform-box:fill-box;transform-origin:50% 100%}
+.pn-art:hover .pn-hop{animation:pn-hop .5s var(--es) both}
+.pn-art:hover .pn-h2{animation-delay:.06s}
+.pn-art:hover .pn-h3{animation-delay:.12s}
+.pn-art:hover .pn-h4{animation-delay:.18s}
+.pn-art:hover .pn-h5{animation-delay:.24s}
+.pn-rise,.pn-bob,.pn-scrib,.pn-blink,.pn-flap{transform-box:fill-box;transform-origin:50% 50%}
+.pn-sway{transform-box:fill-box;transform-origin:50% 100%}
+.pn-anim .pn-rv .pn-w,.pn-anim .pn-rv .pn-rise,.pn-anim .pn-rv .pn-traveler{opacity:0}
+.pn-anim .pn-rv .pn-growx{transform:scaleX(0)}
+.pn-anim .pn-rv.in .pn-w{animation:pn-word .6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-r1prog{animation:pn-ring .5s var(--es) 2.3s both}
+.pn-anim .pn-rv.in .pn-r1done{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 2.8s both}
+.pn-anim .pn-rv.in .pa-tap{animation:pn-tap .6s ease 2s both}
+.pn-anim .pn-rv.in .pa-btn{animation:pn-press .3s var(--es) 2.05s both}
+.pn-anim .pn-rv.in .pn-hero-cta::after{animation:pn-shine .9s var(--es) 1.5s both}
+.pn-anim .pn-rv.in .pn-growx{animation:pn-growx .9s var(--ee) both}
+.pn-anim .pn-rv.in .pn-rise{animation:pn-rise 1.6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-fly{animation:pn-fly 11s linear both}
+.pn-anim .pn-rv.in .pn-flap{animation:pn-flap .5s ease-in-out 12}
+.pn-anim .pn-rv.in .pn-sway{animation:pn-sway 2.4s ease-in-out both}
+.pn-anim .pn-rv.in .pn-bob{animation:pn-bob .7s var(--es) both}
+.pn-anim .pn-rv.in .pn-scrib{animation:pn-scrib 1.1s ease-in-out both}
+.pn-anim .pn-rv.in .pn-traveler{animation:pn-fade .2s ease 1s both}
+/* roadmap: one route to exam day. Defaults are the final state (static / reduced motion). */
+.pnx-done,.pnx-ring,.pnx-next,.pnx-rev,.pnx-callin{transform-box:fill-box;transform-origin:50% 50%}
+.pnx-callin{transform-origin:50% 100%}
+.pnx-prog{transform-box:fill-box;transform-origin:0 50%}
+.pnx-ring{opacity:.12}
+.pnx-call{transform:translateX(56px)}
+.pnx-icA{opacity:0}
+.pnx-arc{stroke-dasharray:1 2}
+.pnx-s3{transform:translateX(-6px)}
+.pnx-s4{transform:translateX(-12px)}
+.pnx-s5{transform:translateX(32px)}
+@keyframes pnx-prog{from{transform:scaleX(.349)}to{transform:scaleX(1)}}
+@keyframes pnx-ring{0%{opacity:0;transform:scale(.6)}60%{opacity:.2;transform:scale(1.08)}100%{opacity:.12;transform:scale(1)}}
+@keyframes pnx-slide{from{transform:none}}
+@keyframes pnx-callin{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}
+@keyframes pnx-swapout{0%{opacity:1}100%{opacity:0}}
+.pn-anim .pn-rv.in .pnx-callin{animation:pnx-callin .42s cubic-bezier(.2,.9,.3,1) 1.2s both}
+@keyframes pnx-icA{0%,92%{opacity:1}100%{opacity:0}}
+.pn-anim .pn-rv.in .pnx-icA{animation:pnx-icA 2.45s linear both}
+.pn-anim .pn-rv.in .pnx-icB{animation:pa-fade .25s ease 2.45s both}
+.pn-anim .pn-rv.in .pnx-done{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 1.9s both}
+.pn-anim .pn-rv.in .pnx-prog{animation:pnx-prog .55s cubic-bezier(.3,.7,.3,1) 2.25s both}
+.pn-anim .pn-rv.in .pnx-call{animation:pnx-slide .55s cubic-bezier(.2,.9,.3,1) 2.25s both}
+.pn-anim .pn-rv.in .pnx-next{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 2.6s both}
+.pn-anim .pn-rv.in .pnx-ring{animation:pnx-ring .6s var(--es) 2.6s both}
+.pn-anim .pn-rv.in .pnx-s3,.pn-anim .pn-rv.in .pnx-s4,.pn-anim .pn-rv.in .pnx-s5{animation:pnx-slide .6s cubic-bezier(.2,.9,.3,1) 3.2s both}
+.pn-anim .pn-rv.in .pnx-arc{animation:pn-draw .8s cubic-bezier(.4,0,.2,1) 3.55s both}
+.pn-anim .pn-rv.in .pnx-rev{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 4.25s both}
+.pn-anim .pn-rv.in .pnx-arrow{animation:pa-fade .2s ease 4.25s both}
+.pnx-cal,.pnx-date{transform-box:fill-box;transform-origin:50% 50%}
+@keyframes pnx-pulse{0%,100%{transform:scale(1)}40%{transform:scale(1.07)}}
+.pn-anim .pn-rv.in .pnx-date{animation:pn-draw .5s var(--ee) 1.1s both}
+.pnx-date{stroke-dasharray:1 2}
+.pn-anim .pn-rv.in .pnx-cal{animation:pnx-pulse .5s var(--es) 4.6s both}
+/* weak areas: the pen taps each box, then circles the weak row (pen path is driven by script) */
+.pn-anim .pn-rv.in .pnw-c1{animation:pn-draw .3s ease .58s both}
+.pn-anim .pn-rv.in .pnw-c2{animation:pn-draw .3s ease 1.08s both}
+.pn-anim .pn-rv.in .pnw-dot{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 1.58s both}
+.pn-anim .pn-rv.in .pnw-ring{animation:pn-draw 1s linear 1.95s both}
+.pn-anim .pn-rv.in .pn-blink{animation:pn-blink .36s ease both}
+.pn-f-av:hover .pn-blink,.pn-anim .pn-rv.in .pn-f-av:hover .pn-blink{animation:pn-blink2 .36s ease 0s both}
+.pn-gp{position:relative;overflow:hidden}
+.pn-gp::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.3),rgba(255,255,255,0));transform:skewX(-20deg);pointer-events:none}
+.pn-gp:hover::after{animation:pn-shine .7s var(--es) both}
+.pn-ok-ic{position:relative}
+.pn-okchk{stroke-dasharray:1 2;animation:pn-draw .4s var(--ee) .15s both}
+.pn-spark{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:99px;background:#1D5C50;opacity:0;animation:pn-spark .7s var(--ee) .12s both}
+.pn-spark:nth-child(2n){background:#996A15}
+.pn-spark:nth-child(1){--a:0deg}.pn-spark:nth-child(2){--a:45deg}.pn-spark:nth-child(3){--a:90deg}.pn-spark:nth-child(4){--a:135deg}.pn-spark:nth-child(5){--a:180deg}.pn-spark:nth-child(6){--a:225deg}.pn-spark:nth-child(7){--a:270deg}.pn-spark:nth-child(8){--a:315deg}
+.pn-anim .pn-rv.in .pn-d1{animation-delay:.1s}
+.pn-anim .pn-rv.in .pn-d2{animation-delay:.2s}
+.pn-anim .pn-rv.in .pn-d3{animation-delay:.3s}
+.pn-anim .pn-rv.in .pn-d4{animation-delay:.42s}
+.pn-anim .pn-rv.in .pn-d5{animation-delay:.54s}
+.pn-anim .pn-rv.in .pn-d6{animation-delay:.68s}
+.pn-anim .pn-rv.in .pn-d7{animation-delay:.82s}
+.pn-anim .pn-rv.in .pn-d8{animation-delay:1s}
+.pn-anim .pn-rv.in .pn-d9{animation-delay:1.2s}
+.pn-anim .pn-rv.in .pn-d10{animation-delay:1.4s}
+.pn-anim .pn-rv.in .pn-d11{animation-delay:1.6s}
+.pn-anim .pn-rv.in .pn-d12{animation-delay:1.9s}
+.pn-anim .pn-rv.in .pn-d13{animation-delay:2.2s}
+.pn-anim .pn-rv.in .pn-d14{animation-delay:2.6s}
+.pn-anim .pn-rv.in .pn-d15{animation-delay:2.9s}
+.pn-anim .pn-rv.in .pn-d16{animation-delay:3.2s}
+.pn-art:hover .pn-wave,.pn-anim .pn-rv.in .pn-art:hover .pn-wave{animation:pn-wave2 .9s ease-in-out 0s both}
+.pn-art:hover .pn-glow,.pn-anim .pn-rv.in .pn-art:hover .pn-glow{animation:none;opacity:.95}
+
+.pn-nl.pn-cur{color:var(--board);background:var(--tint)}
+.pn-ddm a.pn-cur{color:var(--board);font-weight:600;background:var(--tint)}
+.pn-mi.pn-cur{color:var(--board)}
+/* ---------- Contact page ---------- */
+.ct-hero{padding:48px 0 96px}
+.ct-h1{margin:0 0 56px;font-size:clamp(42px,6vw,80px);font-weight:700;line-height:.98;letter-spacing:-0.045em}
+.ct-routes{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
+.ct-route{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.ct-route-art{width:200px;margin-bottom:8px}
+.ct-route-art svg{display:block;width:100%;height:auto;overflow:visible}
+.ct-h2{margin:0;font-size:clamp(24px,2.3vw,32px);font-weight:700;line-height:1.12;letter-spacing:-0.02em}
+.ct-p{margin:0;max-width:26rem;font-size:clamp(17px,1.3vw,18px);line-height:1.6;color:var(--muted);flex-grow:1}
+.ct-route .pn-btn,.ct-route .pn-btn2{margin-top:10px;text-decoration:none;gap:8px;width:252px;max-width:100%;justify-content:center}
+.ct-hr{display:block;height:1px;border:0;margin:0;background:var(--rule)}
+
+.ct-form-sec{padding:32px 0 128px}
+.ct-form-in{display:flex;flex-direction:column;gap:40px}
+.ct-form-head{display:flex;flex-direction:column;gap:24px}
+.ct-h2b{margin:0;font-size:clamp(30px,3vw,40px);font-weight:700;line-height:1.08;letter-spacing:-0.025em}
+.ct-plane{width:100%;max-width:300px}
+.ct-plane svg{display:block;width:100%;height:auto;overflow:visible}
+.ct-form{display:flex;flex-direction:column;gap:28px;width:100%;max-width:640px}
+.ct-row{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.ct-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.ct-lbl{font-size:16px;font-weight:600;line-height:1.2;display:flex;align-items:baseline;gap:8px}
+.ct-opt-tag{font-size:14px;font-weight:400;color:var(--muted)}
+.ct-in{width:100%;height:48px;padding:0 16px;border-radius:12px;border:1px solid #8A8276;background:var(--surface);font:inherit;font-size:16px;color:var(--ink);transition:border-color .12s var(--es)}
+.ct-ta{height:auto;min-height:144px;padding:12px 16px;resize:vertical;line-height:1.5}
+.ct-num{max-width:220px}
+.ct-in:focus{border-color:var(--board);outline:3px solid #996A15;outline-offset:2px}
+.ct-in.bad{border-color:var(--rust)}
+.ct-err{margin:0;display:flex;align-items:center;gap:6px;font-size:14px;color:var(--rust)}
+.ct-fs{border:0;margin:0;padding:0;min-width:0}
+.ct-fs legend{padding:0;margin-bottom:12px;font-size:16px;font-weight:600;line-height:1.2}
+.ct-opts{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.ct-opt{display:flex;align-items:center;gap:12px;min-height:48px;padding:0 16px;border-radius:12px;border:1px solid var(--rule);background:var(--surface);font-size:16px;cursor:pointer;transition:border-color .12s var(--es),background-color .12s var(--es)}
+.ct-opt:hover{border-color:#8A8276}
+.ct-opt input{width:20px;height:20px;margin:0;accent-color:#1D5C50;flex-shrink:0}
+.ct-opt:has(input:checked){border-color:var(--board);background:var(--tint)}
+.ct-opt:has(input:focus-visible){outline:3px solid #996A15;outline-offset:2px}
+.ct-fs.bad .ct-opt{border-color:#D9A39A}
+.ct-submit{align-self:flex-start;gap:8px}
+.ct-submit svg{transition:transform .12s var(--es)}
+.ct-submit:hover svg{transform:translate(2px,-2px)}
+.ct-ok{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:40px;border-radius:20px;background:var(--surface);border:1px solid var(--rule);max-width:640px;animation:pn-menu .32s var(--ee) both}
+.ct-ok-ic{position:relative;width:56px;height:56px;border-radius:99px;background:var(--board);display:inline-flex;align-items:center;justify-content:center;animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) both}
+.ct-ok-t{margin:0;font-size:clamp(24px,2.3vw,32px);font-weight:700;line-height:1.12;letter-spacing:-0.02em}
+.ct-ok-p{margin:0;font-size:18px;line-height:1.6;color:var(--muted)}
+.ct-ok .pn-btn2{margin-top:8px}
+
+.ct-back{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 14px 0 8px;margin:0 0 24px -8px;border:0;border-radius:12px;background:none;font:inherit;font-size:16px;font-weight:600;color:var(--board);cursor:pointer;transition:background-color .12s var(--es)}
+.ct-back:hover{background:var(--tint)}
+.ct-back svg{transition:transform .12s var(--es)}
+.ct-back:hover svg{transform:translateX(-3px)}
+.ct-fh:focus{outline:none}
+.ct-start{position:relative;overflow:visible}
+.ct-start-t{display:inline-flex;align-items:center;gap:8px;transition:opacity .2s var(--es)}
+.ct-launch{position:absolute;z-index:3;width:30px;height:30px;margin:-15px 0 0 -15px;opacity:0;pointer-events:none}
+.ct-launch svg{display:block}
+.ct-burst{position:absolute;left:50%;top:50%;width:0;height:0}
+.ct-burst .pn-spark{left:0;top:0}
+
+.ct-main{position:relative}
+.ct-fly{position:absolute;left:0;top:0;width:90px;height:82px;margin:-41px 0 0 -45px;pointer-events:none;opacity:0;z-index:20;transform-origin:50% 50%;will-change:transform}
+.ct-fly svg{display:block}
+.ct-trailx{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:19;opacity:0}
+@keyframes ct-settle{0%{transform:translateY(0)}40%{transform:translateY(5px)}100%{transform:translateY(0)}}
+.pn-anim .ct-trail{stroke-dasharray:1 2;stroke-dashoffset:1}
+.pn-anim .ct-landed .ct-trail{stroke-dashoffset:0}
+.pn-anim .ct-form-sec .ct-flyer{opacity:0;animation:none}
+.pn-anim .ct-form-sec.ct-landed .ct-flyer{opacity:1;animation:none}
+
+
+/* contact motion */
+@keyframes ct-out{to{opacity:0;transform:translateY(16px) scale(.98)}}
+@keyframes ct-h1out{to{opacity:0;transform:translateY(-10px)}}
+@keyframes ct-pick{0%{transform:none}25%{transform:translateY(-8px)}100%{opacity:0;transform:translateY(-28px)}}
+@keyframes ct-press{0%{transform:scale(1)}30%{transform:scale(.94)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes ct-launch{0%{opacity:0;transform:translate(0,0) rotate(0) scale(.6)}12%{opacity:1;transform:translate(0,0) rotate(-8deg) scale(1)}100%{opacity:0;transform:translate(420px,-300px) rotate(8deg) scale(1.5)}}
+.ct-fade .ct-h1{animation:ct-h1out .4s var(--es) both !important}
+.ct-fade .ct-route{animation:ct-out .4s var(--es) both}
+.ct-leave .ct-start{animation:ct-press .35s var(--es) both !important;opacity:1 !important}
+.ct-start .ct-ico{display:inline-flex;transition:opacity .15s var(--es),transform .15s var(--es)}
+.ct-leave .ct-ico{opacity:0;transform:translate(4px,-4px)}
+.ct-start:hover .ct-ico{transform:translate(2px,-2px)}
+.ct-leave .pn-route-line{opacity:0}
+@keyframes ct-dot{0%,100%{transform:translateY(0)}40%{transform:translateY(-4px)}}
+@keyframes ct-spin{from{opacity:0;transform:rotate(-140deg) scale(.7)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes ct-fly{0%{opacity:0;transform:translate(-60px,40px) rotate(-8deg)}60%{opacity:1}100%{opacity:1;transform:translate(0,0) rotate(0)}}
+@keyframes ct-zap{0%{opacity:0;transform:scale(.3)}40%{opacity:1}100%{opacity:0;transform:scale(1.8)}}
+.ct-dot,.ct-buoy,.ct-flyer,.ct-zap{transform-box:fill-box;transform-origin:50% 50%}
+.ct-zap{opacity:0}
+.pn-anim .pn-rv .ct-buoy{opacity:0}
+.pn-anim .pn-rv.in .ct-dot{animation:ct-dot .6s ease-in-out 1.2s 3}
+.pn-anim .pn-rv.in .ct-dot2{animation-delay:1.35s}
+.pn-anim .pn-rv.in .ct-dot3{animation-delay:1.5s}
+.pn-anim .pn-rv.in .ct-buoy{animation:ct-spin 1s var(--ee) .4s both}
+.pn-anim .pn-rv.in .ct-zap{animation:ct-zap .8s var(--es) 1.6s both}
+.ct-route:hover .ct-buoy{animation:ct-spin .8s var(--ee) both}
+
+
+@media (min-width:768px){
+.ct-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+.ct-opts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:1024px){
+.ct-hero{padding:64px 0 128px}
+.ct-routes{grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.ct-route{padding:0 40px;border-left:1px solid var(--rule)}
+.ct-route:first-child{padding-left:0;border-left:0}
+.ct-route:last-child{padding-right:0}
+.ct-form-sec{padding:40px 0 160px}
+.ct-form-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;align-items:start}
+.ct-form-head{grid-column:1 / span 4;position:sticky;top:32px}
+.ct-form-wrap{grid-column:6 / span 7}
+}
+
+/* send: plane departs, form folds away, confirmation */
+@keyframes ct-fieldout{to{opacity:0;transform:translateY(-10px)}}
+@keyframes ct-okin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes ct-fillin{from{fill-opacity:0}to{fill-opacity:1}}
+@keyframes ct-return{from{opacity:0;transform:translate(-14px,10px)}to{opacity:1;transform:none}}
+.ct-form-sec .ct-flyer{transition:opacity .35s var(--es)}
+.ct-form-sec .ct-trail{transition:opacity .6s var(--es)}
+.pn-anim .pn-rv.in .ct-sending > *{animation:ct-fieldout .32s var(--es) both;pointer-events:none}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(1){animation-delay:.02s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(2){animation-delay:.06s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(3){animation-delay:.1s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(4){animation-delay:.14s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(5){animation-delay:.18s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(6){animation-delay:.22s}
+.pn-anim .pn-rv.in .ct-sending > *:nth-last-child(7){animation-delay:.26s}
+.ct-ok{animation:none;padding:40px 40px 36px}
+.ct-ok-ic{width:64px;height:64px;background:none;border-radius:0;animation:none}
+.ct-ok-ic svg{display:block;overflow:visible}
+.pn-anim .ct-ok{animation:ct-okin .45s var(--ee) both}
+.pn-anim .ct-ok-ring{stroke-dasharray:1 2;stroke-dashoffset:1;fill-opacity:0;animation:pn-draw .7s var(--ee) .15s both,ct-fillin .4s ease .7s both}
+.pn-anim .ct-ok-chk{stroke-dasharray:1 2;stroke-dashoffset:1;animation:pn-draw .4s var(--ee) .75s both}
+.pn-anim .ct-ok-a1{animation:ct-okin .45s var(--ee) .35s both}
+.pn-anim .ct-ok-a2{animation:ct-okin .45s var(--ee) .48s both}
+.pn-anim .ct-ok-a3{animation:ct-okin .45s var(--ee) .62s both}
+
+/* the inquiry folds into a paper plane */
+.ct-sheet{position:absolute;left:0;top:0;width:220px;height:280px;opacity:0;pointer-events:none;z-index:21;transform-origin:0 0;perspective:900px}
+.ct-sh-l,.ct-sh-rf,.ct-sh-rb{position:absolute;top:0;height:100%;background-color:#FFFFFF;background-image:repeating-linear-gradient(to bottom,transparent 0 38px,#EFEAE0 38px 40px);background-position:0 36px;box-shadow:0 10px 30px rgba(38,34,27,.10)}
+.ct-sh-l{left:0;width:50%;border-radius:10px 0 0 10px;border:1px solid #E5DFD3;border-right:0}
+.ct-sh-r{position:absolute;left:50%;top:0;width:50%;height:100%;transform-origin:0 50%;transform-style:preserve-3d}
+.ct-sh-rf{left:0;width:100%;border-radius:0 10px 10px 0;border:1px solid #E5DFD3;border-left:0;backface-visibility:hidden}
+.ct-sh-rb{left:0;width:100%;border-radius:10px 0 0 10px;background-color:#F6F3EC;transform:rotateY(180deg);backface-visibility:hidden;border:1px solid #E5DFD3}
+.ct-ink{position:absolute;left:12%;height:5px;border-radius:3px;background:#B9CFC6;transform:scaleX(0);transform-origin:0 50%}
+.ct-sh-rf .ct-ink{left:8%}
+.ct-sh-tri{position:absolute;left:0;top:0;width:50%;height:110px;background:#ECE6DA;clip-path:polygon(0 0,100% 0,0 100%);transform-origin:50% 0;opacity:0}
+
+.ct-departed .ct-flyer{opacity:0 !important;transition:none}
+.ct-departed .ct-trail{opacity:0;transition:opacity .5s var(--es) .2s}
+@keyframes ct-back{from{opacity:0;transform:translate(40px,-34px) rotate(-6deg)}to{opacity:1;transform:none}}
+.pn-anim .ct-form-sec.ct-landed.ct-returned .ct-flyer{animation:ct-back .7s var(--ee) both}
+
+/* after sending: the plane keeps flying */
+.ct-ok{padding:12px 12px 36px;gap:14px}
+.ct-ok .ct-ok-t,.ct-ok .ct-ok-p,.ct-ok .pn-btn2{margin-left:28px;margin-right:28px}
+.ct-ok .ct-ok-t{margin-top:16px}
+.ct-sky{position:relative;align-self:stretch;height:180px;border-radius:14px;background:#E3EFEA;overflow:hidden}
+.ct-cloud{position:absolute;left:0;width:84px;height:22px;border-radius:999px;background:#FFFFFF;opacity:.95}
+.ct-cloud::before,.ct-cloud::after{content:"";position:absolute;bottom:8px;border-radius:999px;background:#FFFFFF}
+.ct-cloud::before{left:14px;width:30px;height:30px}
+.ct-cloud::after{left:36px;width:38px;height:38px}
+.ct-c1{top:34px}.ct-c2{top:112px;transform:scale(.7)}.ct-c3{top:70px;transform:scale(.5);opacity:.8}.ct-c4{top:142px;transform:scale(.9)}
+.ct-wind{position:absolute;left:0;height:2px;width:46px;border-radius:2px;background:#FFFFFF;opacity:0}
+.ct-w1{top:72px}.ct-w2{top:104px;width:30px}.ct-w3{top:128px;width:38px}
+.ct-cruise{position:absolute;left:42%;top:50%;width:90px;height:82px;margin:-41px 0 0 -45px;transform:rotate(20deg)}
+.ct-cruise-b svg{display:block}
+.pn-anim .ct-cruise{opacity:0}
+.ct-cruising .ct-cruise{opacity:1}
+@keyframes ct-drift{from{transform:translateX(var(--x0,640px)) scale(var(--s,1))}to{transform:translateX(-140px) scale(var(--s,1))}}
+@keyframes ct-gust{0%{opacity:0;transform:translateX(560px)}15%{opacity:.9}85%{opacity:.9}100%{opacity:0;transform:translateX(-80px)}}
+@keyframes ct-bob{0%,100%{transform:translateY(0) rotate(0)}25%{transform:translate(-2px,-6px) rotate(-2deg)}75%{transform:translate(2px,5px) rotate(1.5deg)}}
+.pn-anim .ct-cloud{animation:ct-drift linear infinite}
+.ct-c1{--s:1;animation-duration:14s !important;animation-delay:-3s !important}
+.ct-c2{--s:.7;animation-duration:19s !important;animation-delay:-11s !important}
+.ct-c3{--s:.5;animation-duration:24s !important;animation-delay:-6s !important}
+.ct-c4{--s:.9;animation-duration:16s !important;animation-delay:-13s !important}
+.pn-anim .ct-wind{animation:ct-gust 2.6s cubic-bezier(.4,0,.6,1) infinite}
+.ct-w2{animation-delay:-.9s !important;animation-duration:2.2s !important}
+.ct-w3{animation-delay:-1.7s !important;animation-duration:3s !important}
+.pn-anim .ct-cruising .ct-cruise-b{animation:ct-bob 3.4s ease-in-out infinite}
+
+@media (prefers-reduced-motion: reduce){.pn-root *{animation:none !important;transition:none !important}}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div class="pn-root">
+
+<header class="pn-hdr" onKeyDown="{{onKey}}">
+<div class="pn-wrap pn-hdr-in">
+<a class="pn-logo" href="/" aria-label="Pantas home"><svg width="34" height="34" viewBox="307 309 640 640" aria-hidden="true" focusable="false"><g class="pn-tassel"><path d="M887 515.69V664" stroke="#1D5C50" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="887" cy="682" r="20" fill="#1D5C50"/><path d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z" fill="#1D5C50"/></g><path d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z" fill="#26221B"/><path d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z" fill="#26221B"/><path d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z" fill="#26221B"/></svg><span>Pantas</span></a>
+<nav class="pn-nav-d" aria-label="Main">
+<a class="pn-nl" href="/about">About</a>
+<div class="pn-dd">
+<button class="pn-nl pn-compbtn" type="button" aria-expanded="{{compExp}}" aria-controls="pn-comp" onClick="{{toggleComp}}">Company<svg class="{{chevClass}}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<sc-if value="{{compOpen}}" hint-placeholder-val="{{false}}">
+<ul id="pn-comp" class="pn-ddm">
+<li><a href="/roadmap" onClick="{{closeAll}}">Roadmap</a></li>
+<li><a href="/programs" onClick="{{closeAll}}">Programs</a></li>
+<li><a href="/careers" onClick="{{closeAll}}">Careers</a></li>
+</ul>
+</sc-if>
+</div>
+<a class="pn-nl pn-cur" href="/contact" aria-current="page">Contact</a>
+<a class="pn-btn" href="/">Get Pantas</a>
+</nav>
+<button class="pn-menubtn" type="button" aria-expanded="{{menuExp}}" aria-controls="pn-mpanel" aria-label="{{menuLabel}}" onClick="{{toggleMenu}}">
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></sc-if>
+</button>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<div id="pn-mpanel" class="pn-mpanel">
+<ul class="pn-mlist">
+<li><a class="pn-mi" href="/about" onClick="{{closeAll}}">About</a></li>
+<li><button class="pn-mi" type="button" aria-expanded="{{mcompExp}}" aria-controls="pn-msub" onClick="{{toggleMComp}}">Company<svg class="{{mchevClass}}" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<sc-if value="{{mcompOpen}}" hint-placeholder-val="{{false}}">
+<ul id="pn-msub" class="pn-msub">
+<li><a class="pn-mi" href="/roadmap" onClick="{{closeAll}}">Roadmap</a></li>
+<li><a class="pn-mi" href="/programs" onClick="{{closeAll}}">Programs</a></li>
+<li><a class="pn-mi" href="/careers" onClick="{{closeAll}}">Careers</a></li>
+</ul>
+</sc-if>
+</li>
+<li><a class="pn-mi pn-cur" href="/contact" aria-current="page" onClick="{{closeAll}}">Contact</a></li>
+</ul>
+<a class="pn-btn" href="/" style="width: 100%; margin-top: 16px" onClick="{{closeAll}}">Get Pantas</a>
+</div>
+</sc-if>
+</header>
+
+<main>
+
+
+<main class="ct-main">
+<div class="ct-fly" aria-hidden="true"><svg width="90" height="82" viewBox="198 20 90 82"><g><path d="M200 60 L286 22 L248 100 L232 74 Z" fill="#FFFFFF" stroke="#D9D2C4" stroke-width="1.5" stroke-linejoin="round"/><path d="M232 74 L286 22 L240 82 Z" fill="#E3EFEA"/><path d="M232 74 L238 96 L248 84" fill="#CFE3DB"/></g></svg></div>
+<sc-if value="{{showRoutes}}" hint-placeholder-val="{{true}}">
+<section class="{{routesCls}}" aria-labelledby="ct-h1">
+<div class="pn-wrap">
+<h1 id="ct-h1" class="ct-h1 pn-up">Contact</h1>
+<div class="ct-routes">
+<div class="ct-route"><div class="ct-route-art" aria-hidden="true"><svg viewBox="0 0 200 130" focusable="false"><g class="pn-pop pn-d4"><rect x="30" y="6" width="74" height="36" rx="14" fill="#1D5C50"/><path d="M48 40 L44 52 L60 41 Z" fill="#1D5C50"/><circle class="ct-dot" cx="54" cy="24" r="4" fill="#FBF9F4"/><circle class="ct-dot ct-dot2" cx="67" cy="24" r="4" fill="#FBF9F4"/><circle class="ct-dot ct-dot3" cx="80" cy="24" r="4" fill="#FBF9F4"/></g><g class="pn-pop pn-d6"><rect x="112" y="20" width="60" height="30" rx="12" fill="#E3EFEA"/><path d="M152 48 L158 58 L144 49 Z" fill="#E3EFEA"/><rect x="124" y="31" width="36" height="7" rx="3.5" fill="#9DC3B5"/></g><g class="pn-su pn-d1"><circle cx="52" cy="96" r="22" fill="#E3EFEA" stroke="#FBF9F4" stroke-width="3"/><circle cx="52" cy="91" r="8" fill="#A8775A"/><path d="M39 112 C39 102 45 100 52 100 C59 100 65 102 65 112 A22 22 0 0 1 39 112 Z" fill="#2C6B5E"/></g><g class="pn-su pn-d2"><circle cx="92" cy="100" r="22" fill="#E3EFEA" stroke="#FBF9F4" stroke-width="3"/><circle cx="92" cy="95" r="8" fill="#C49276"/><path d="M79 116 C79 106 85 104 92 104 C99 104 105 106 105 116 A22 22 0 0 1 79 116 Z" fill="#996A15"/></g><g class="pn-su pn-d3"><circle cx="132" cy="96" r="22" fill="#E3EFEA" stroke="#FBF9F4" stroke-width="3"/><circle cx="132" cy="91" r="8" fill="#8A5C43"/><path d="M119 112 C119 102 125 100 132 100 C139 100 145 102 145 112 A22 22 0 0 1 119 112 Z" fill="#A33B2E"/></g></svg></div><h2 class="ct-h2 pn-up pn-d2">Community</h2><p class="ct-p pn-up pn-d3">Connect with other learners and take part in the Pantas community.</p><a class="pn-btn2 pn-up pn-d4" href="#" target="_blank" rel="noopener">Join the community<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></a></div>
+<div class="ct-route ct-pick"><div class="ct-route-art" aria-hidden="true"><svg viewBox="0 0 200 130" focusable="false"><g class="pn-su pn-d1"><rect x="14" y="54" width="70" height="56" fill="#FFFFFF" stroke="#E5DFD3"/><path d="M8 58 L49 32 L90 58 Z" fill="#2C6B5E"/><g fill="#E3EFEA"><rect x="24" y="68" width="14" height="12" rx="2"/><rect x="60" y="68" width="14" height="12" rx="2"/></g><rect x="42" y="88" width="14" height="22" rx="2" fill="#1D5C50"/></g><path class="pn-draw pn-slow pn-d3" pathLength="1" d="M90 84 C110 84 120 70 146 70" stroke="#7FB09F" stroke-width="2.6" stroke-linecap="round" fill="none"/><circle class="ct-zap" cx="118" cy="77" r="10" fill="none" stroke="#996A15" stroke-width="2"/><g class="pn-pop pn-d5"><circle cx="164" cy="70" r="24" fill="#1D5C50"/><g transform="translate(164 72) scale(0.055) translate(-627 -632)" fill="#FBF9F4"><path d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/><path d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/><path d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/></g></g></svg></div><h2 class="ct-h2 pn-up pn-d3">Partnerships</h2><p class="ct-p pn-up pn-d4">For schools, review centers, LGUs, SKs, organizations, sponsors, and other institutional partners.</p><a class="pn-btn ct-start pn-up pn-d5" href="#ct-form-h" onClick="{{startConvo}}"><span class="ct-start-t">Start a conversation<span class="ct-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span></span><sc-if value="{{leaving}}" hint-placeholder-val="{{false}}"><span class="ct-burst" aria-hidden="true"><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span><span class="pn-spark"></span></span></sc-if></a></div>
+<div class="ct-route"><div class="ct-route-art" aria-hidden="true"><svg viewBox="0 0 200 130" focusable="false"><g class="ct-buoy"><circle cx="76" cy="66" r="40" fill="none" stroke="#FBF9F4" stroke-width="18"/><circle cx="76" cy="66" r="40" fill="none" stroke="#A33B2E" stroke-width="18" pathLength="100" stroke-dasharray="12.5 12.5" transform="rotate(-6 76 66)"/><circle cx="76" cy="66" r="49" fill="none" stroke="#E5DFD3" stroke-width="1.5"/><circle cx="76" cy="66" r="31" fill="none" stroke="#E5DFD3" stroke-width="1.5"/></g><g class="pn-pop pn-d5"><rect x="122" y="18" width="62" height="40" rx="14" fill="#1D5C50"/><path d="M134 56 L130 68 L146 57 Z" fill="#1D5C50"/><path d="M148 31 a5.5 5.5 0 1 1 7 5.3 c-1.4 .5 -2 1.3 -2 2.7" stroke="#FBF9F4" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="153" cy="45" r="1.8" fill="#FBF9F4"/></g></svg></div><h2 class="ct-h2 pn-up pn-d4">Support</h2><p class="ct-p pn-up pn-d5">For account, billing, technical, privacy, or other product-related concerns.</p><button class="pn-btn2 pn-up pn-d6" type="button">Contact Support<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+</div>
+</div>
+</section>
+</sc-if>
+<sc-if value="{{showForm}}" hint-placeholder-val="{{false}}">
+<section class="{{formCls}}" aria-labelledby="ct-form-h">
+<div class="pn-wrap">
+<button class="ct-back pn-fade" type="button" onClick="{{back}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</button>
+<div class="ct-form-in">
+<div class="ct-form-head"><h1 id="ct-form-h" class="ct-h2b ct-fh pn-up pn-d1" tabindex="-1">Partnership inquiry</h1><div class="ct-plane" aria-hidden="true"><svg viewBox="0 0 300 200" focusable="false"><g><path class="ct-trail" pathLength="1" d="M30 168 C90 166 120 120 150 94 C168 78 182 66 196 58" stroke="#B9B1A3" stroke-width="2" stroke-dasharray="1 0" fill="none" stroke-linecap="round"/><g class="ct-flyer"><path d="M200 60 L286 22 L248 100 L232 74 Z" fill="#FFFFFF" stroke="#D9D2C4" stroke-width="1.5" stroke-linejoin="round"/><path d="M232 74 L286 22 L240 82 Z" fill="#E3EFEA"/><path d="M232 74 L238 96 L248 84" fill="#CFE3DB"/></g></g></svg></div></div>
+<div class="ct-form-wrap">
+<sc-if value="{{formOpen}}" hint-placeholder-val="{{true}}">
+<form class="{{formElCls}}" novalidate="" onSubmit="{{submit}}">
+<div class="ct-row pn-up pn-d3">
+<div class="ct-field"><label class="ct-lbl" for="ct-name">Name</label><input id="ct-name" class="{{nameCls}}" name="name" type="text" autocomplete="name" aria-invalid="{{nameInv}}" aria-describedby="ct-name-e" onInput="{{clearName}}"/><sc-if value="{{eName}}" hint-placeholder-val="{{false}}"><p id="ct-name-e" class="ct-err"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Enter your name.</p></sc-if></div>
+<div class="ct-field"><label class="ct-lbl" for="ct-org">Organization</label><input id="ct-org" class="{{orgCls}}" name="org" type="text" autocomplete="organization" aria-invalid="{{orgInv}}" aria-describedby="ct-org-e" onInput="{{clearOrg}}"/><sc-if value="{{eOrg}}" hint-placeholder-val="{{false}}"><p id="ct-org-e" class="ct-err"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Enter your organization.</p></sc-if></div>
+</div>
+<div class="ct-field pn-up pn-d4"><label class="ct-lbl" for="ct-email">Email</label><input id="ct-email" class="{{emailCls}}" name="email" type="email" autocomplete="email" aria-invalid="{{emailInv}}" aria-describedby="ct-email-e" onInput="{{clearEmail}}"/><sc-if value="{{eEmail}}" hint-placeholder-val="{{false}}"><p id="ct-email-e" class="ct-err"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Enter a valid email address.</p></sc-if></div>
+<fieldset class="{{typeCls}}" aria-describedby="ct-type-e"><legend>Organization type</legend><div class="ct-opts"><label class="ct-opt"><input type="radio" name="type" value="LGU, SK, or government" onChange="{{clearType}}"/><span>LGU, SK, or government</span></label><label class="ct-opt"><input type="radio" name="type" value="School or university" onChange="{{clearType}}"/><span>School or university</span></label><label class="ct-opt"><input type="radio" name="type" value="Review center" onChange="{{clearType}}"/><span>Review center</span></label><label class="ct-opt"><input type="radio" name="type" value="Nonprofit or foundation" onChange="{{clearType}}"/><span>Nonprofit or foundation</span></label><label class="ct-opt"><input type="radio" name="type" value="Company or sponsor" onChange="{{clearType}}"/><span>Company or sponsor</span></label><label class="ct-opt"><input type="radio" name="type" value="Other" onChange="{{clearType}}"/><span>Other</span></label></div><sc-if value="{{eType}}" hint-placeholder-val="{{false}}"><p id="ct-type-e" class="ct-err"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>Choose an organization type.</p></sc-if></fieldset>
+<fieldset class="ct-fs pn-up pn-d6"><legend>What are you interested in?</legend><div class="ct-opts"><label class="ct-opt"><input type="checkbox" name="interest" value="Program or partnership"/><span>Program or partnership</span></label><label class="ct-opt"><input type="checkbox" name="interest" value="Institutional use"/><span>Institutional use</span></label><label class="ct-opt"><input type="checkbox" name="interest" value="Sponsored access"/><span>Sponsored access</span></label><label class="ct-opt"><input type="checkbox" name="interest" value="Pilot or research initiative"/><span>Pilot or research initiative</span></label><label class="ct-opt"><input type="checkbox" name="interest" value="Other"/><span>Other</span></label></div></fieldset>
+<div class="ct-field pn-up pn-d7"><label class="ct-lbl" for="ct-num">Estimated number of learners <span class="ct-opt-tag">Optional</span></label><input id="ct-num" class="ct-in ct-num" name="learners" type="number" min="1" inputmode="numeric"/></div>
+<div class="ct-field pn-up pn-d8"><label class="ct-lbl" for="ct-msg">Tell us about what you have in mind</label><textarea id="ct-msg" class="ct-in ct-ta" name="message" rows="5"></textarea></div>
+<button class="pn-btn ct-submit pn-up pn-d9" type="button" onClick="{{submit}}">Send inquiry</button>
+</form>
+</sc-if>
+<sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<div class="{{okCls}}" role="status">
+<div class="ct-sky" aria-hidden="true"><span class="ct-cloud ct-c1"></span><span class="ct-cloud ct-c2"></span><span class="ct-cloud ct-c3"></span><span class="ct-cloud ct-c4"></span><span class="ct-wind ct-w1"></span><span class="ct-wind ct-w2"></span><span class="ct-wind ct-w3"></span><div class="ct-cruise"><div class="ct-cruise-b"><svg width="90" height="82" viewBox="198 20 90 82"><path d="M200 60 L286 22 L248 100 L232 74 Z" fill="#FFFFFF" stroke="#D9D2C4" stroke-width="1.5" stroke-linejoin="round"/><path d="M232 74 L286 22 L240 82 Z" fill="#E3EFEA"/><path d="M232 74 L238 96 L248 84" fill="#CFE3DB"/></svg></div></div></div>
+<p class="ct-ok-t ct-ok-a1">Thanks, your inquiry is on its way.</p>
+<p class="ct-ok-p ct-ok-a2">We’ll reply to the email you provided.</p>
+<button class="pn-btn2 ct-ok-a3" type="button" onClick="{{reset}}">Send another inquiry</button>
+</div>
+</sc-if>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+</main>
+
+</div>
+</template>
+<noscript><p style="font-family: system-ui, sans-serif; padding: 24px">Pantas works best with JavaScript turned on.</p></noscript>
+<script src="/assets/runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { menu: false, comp: false, mcomp: false, e: {}, sent: false, screen: 'routes' };
+  }
+  componentDidMount() {
+    var self = this;
+    var root = document.querySelector('.pn-root');
+    this.root = root;
+    if (root) {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        root.classList.add('pn-anim');
+        this.io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && e.intersectionRatio >= 0.15) {
+              e.target.classList.add('in');
+              self.io.unobserve(e.target);
+            }
+          });
+        }, { threshold: [0, 0.15, 0.3] });
+        root.querySelectorAll('.pn-rv').forEach(function (el) { self.io.observe(el); });
+      }
+    }
+    this.onDoc = function (e) {
+      if (!self.state.menu && !self.state.comp) return;
+      var t = e.target;
+      if (t && t.closest && t.closest('.pn-hdr')) return;
+      self.setState({ menu: false, comp: false, mcomp: false });
+    };
+    document.addEventListener('click', this.onDoc);
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    document.removeEventListener('click', this.onDoc);
+  }
+  renderVals() {
+    var s = this.state;
+    var self = this;
+    return {
+      showRoutes: s.screen !== 'form',
+      showForm: s.screen === 'form',
+      leaving: s.screen === 'leaving' || s.screen === 'fading',
+      lx: s.lx || 0, ly: s.ly || 0,
+      routesCls: s.screen === 'fading' ? 'ct-hero pn-rv in ct-leave ct-fade' : s.screen === 'leaving' ? 'ct-hero pn-rv in ct-leave' : 'ct-hero pn-rv in',
+      formCls: 'ct-form-sec pn-rv in' + (s.landed ? ' ct-landed' : '') + ((s.departing || s.sent) ? ' ct-departed' : '') + (s.returned ? ' ct-returned' : ''),
+      formElCls: s.sending ? 'ct-form ct-sending' : 'ct-form',
+      okCls: s.cruising ? 'ct-ok ct-cruising' : 'ct-ok',
+      startConvo: function (ev) {
+        ev.preventDefault();
+        if (self.state.screen !== 'routes') return;
+        var focusForm = function () {
+          setTimeout(function () { var h = document.getElementById('ct-form-h'); if (h) h.focus({ preventScroll: true }); }, 60);
+        };
+        if (!self.root || !self.root.classList.contains('pn-anim')) {
+          self.setState({ screen: 'form', sent: false, e: {}, landed: true });
+          focusForm();
+          return;
+        }
+        var main = self.root.querySelector('.ct-main'), fly = main.querySelector('.ct-fly');
+        var b = ev.currentTarget, ico = b.querySelector('.ct-ico');
+        var col = main.querySelector('.ct-route'), art = col.querySelector('.ct-route-art');
+        var mr = main.getBoundingClientRect();
+        var R = function (el) { var r = el.getBoundingClientRect(); return { l: r.left - mr.left, r: r.right - mr.left, t: r.top - mr.top, b: r.bottom - mr.top, cx: (r.left + r.right) / 2 - mr.left, cy: (r.top + r.bottom) / 2 - mr.top, w: r.width }; };
+        var Bq = R(b), Cq = R(col), Aq = R(art), Iq = R(ico || b);
+        var k = Bq.w / 326;
+        var Te = { x: Cq.l + 243, y: Aq.t + 42 };
+        var TR = [[-213, 107], [-153, 105], [-123, 59], [-93, 33], [-75, 17], [-61, 5], [-47, -3]];
+        var pts = [
+          { x: Iq.cx, y: Iq.cy },
+          { x: Iq.cx + 46 * k, y: Iq.cy - 44 * k },
+          { x: Bq.r + 110 * k, y: Bq.cy - 40 * k },
+          { x: Bq.r + 150 * k, y: Bq.cy + 70 * k },
+          { x: Bq.r + 85 * k, y: Bq.cy + 270 * k },
+          { x: Bq.l + 96 * k, y: Bq.cy + 390 * k },
+          { x: Cq.l + 353 * k, y: Bq.cy + 410 * k },
+          { x: Cq.l + 103 * k, y: Bq.cy + 330 * k },
+          { x: Cq.l - 37 * k, y: Bq.cy + 150 * k },
+          { x: Cq.l - 66 * k, y: Bq.cy - 70 * k },
+          { x: Cq.l - 30 * k, y: Aq.b + 70 }
+        ];
+        var trStartIdx = pts.length;
+        TR.forEach(function (o) { pts.push({ x: Te.x + o[0], y: Te.y + o[1] }); });
+        var trEndIdx = pts.length - 1;
+        pts.push(Te);
+        var crm = function (p0, p1, p2, p3, t) {
+          var t2 = t * t, t3 = t2 * t;
+          return {
+            x: 0.5 * ((2 * p1.x) + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3),
+            y: 0.5 * ((2 * p1.y) + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3)
+          };
+        };
+        var smp = [], wpIdx = [];
+        for (var i = 0; i < pts.length - 1; i++) {
+          wpIdx.push(smp.length);
+          var p0 = pts[Math.max(0, i - 1)], p1 = pts[i], p2 = pts[i + 1], p3 = pts[Math.min(pts.length - 1, i + 2)];
+          for (var j = 0; j < 20; j++) smp.push(crm(p0, p1, p2, p3, j / 20));
+        }
+        wpIdx.push(smp.length);
+        smp.push(Te);
+        var len = [0];
+        for (var n = 1; n < smp.length; n++) len.push(len[n - 1] + Math.hypot(smp[n].x - smp[n - 1].x, smp[n].y - smp[n - 1].y));
+        var TOT = len[len.length - 1];
+        var dTrS = len[wpIdx[trStartIdx]], dTrE = len[wpIdx[trEndIdx]];
+        var at = function (dist) {
+          var lo = 0, hi = len.length - 1;
+          while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (len[mid] < dist) lo = mid; else hi = mid; }
+          var f = (dist - len[lo]) / ((len[hi] - len[lo]) || 1), a2 = smp[lo], c2 = smp[hi];
+          return { x: a2.x + (c2.x - a2.x) * f, y: a2.y + (c2.y - a2.y) * f, dx: c2.x - a2.x, dy: c2.y - a2.y };
+        };
+        var ymin = Infinity, ymax = -Infinity;
+        smp.forEach(function (p) { ymin = Math.min(ymin, p.y); ymax = Math.max(ymax, p.y); });
+        var tim = [0];
+        for (var m = 1; m < smp.length; m++) {
+          var yy = (smp[m].y + smp[m - 1].y) / 2;
+          tim.push(tim[m - 1] + (len[m] - len[m - 1]) / (0.7 + 0.3 * ((yy - ymin) / ((ymax - ymin) || 1))));
+        }
+        var TT = tim[tim.length - 1];
+        var distAt = function (tau) {
+          var lo = 0, hi = tim.length - 1;
+          while (hi - lo > 1) { var mid = (lo + hi) >> 1; if (tim[mid] < tau) lo = mid; else hi = mid; }
+          var f = (tau - tim[lo]) / ((tim[hi] - tim[lo]) || 1);
+          return len[lo] + (len[hi] - len[lo]) * f;
+        };
+        var ease = function (w) { return (1 - Math.cos(Math.PI * w)) / 2; };
+        var clamp = function (x, lo, hi) { return Math.max(lo, Math.min(hi, x)); };
+        var FLYON = true;
+        var put = function (p, ang, sx, sy) {
+          var mn = self.root.querySelector('.ct-main'); fly = mn ? mn.querySelector('.ct-fly') : fly;
+          if (!fly) return;
+          fly.style.opacity = FLYON ? '1' : '0';
+          fly.style.transform = 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + ang.toFixed(3) + 'rad) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ')';
+        };
+        var swapAt = dTrS - 60, fadeAt = Math.max(TOT * 0.4, swapAt - 260);
+        var D = { x: 0, y: 0 }, ts = 1, swapped = false, faded = false, trailEl = null, lastD = 0, dM = null;
+        var face = 1, OFF = 0.25, pitch = -0.785 - OFF, lastP = null, spd = 0;
+        var ANT = 150, DUR = 1650, SET = 320;
+        cancelAnimationFrame(self.flyR);
+        self.setState({ screen: 'leaving', landed: false });
+        fly.style.opacity = '1';
+        var P0 = pts[0];
+        put(P0, -0.37, 0.22, 0.22);
+        var t0 = performance.now(), lastNow = t0;
+        var step = function (now) {
+          var el = now - t0, dt = Math.min(48, now - lastNow) / 16.67;
+          lastNow = now;
+          if (el < ANT) {
+            var a1 = Math.sin((el / ANT) * Math.PI), pull = a1 * 5;
+            put({ x: P0.x - pull * 0.7, y: P0.y + pull * 0.7 }, -0.37 - 0.1 * a1, 0.22 * (1 - 0.12 * a1), 0.22 * (1 + 0.08 * a1));
+            self.flyR = requestAnimationFrame(step); return;
+          }
+          var w = Math.min(1, (el - ANT) / DUR);
+          var d = distAt(ease(w) * TT);
+          if (!faded && d >= fadeAt) { faded = true; self.setState({ screen: 'fading' }); }
+          if (!swapped && d >= swapAt) {
+            swapped = true;
+            self.setState({ screen: 'form', sent: false, e: {}, landed: false });
+            setTimeout(function () {
+              main = self.root.querySelector('.ct-main') || main;
+              var g = main.querySelector('.ct-form-sec .ct-flyer');
+              trailEl = main.querySelector('.ct-form-sec .ct-trail');
+              if (trailEl) { trailEl.style.strokeDasharray = '1 2'; trailEl.style.strokeDashoffset = '1'; }
+              if (g) {
+                var m2 = main.getBoundingClientRect(), gr = g.getBoundingClientRect();
+                D = { x: gr.left - m2.left + gr.width / 2 - Te.x, y: gr.top - m2.top + gr.height / 2 - Te.y };
+                ts = gr.width / 86;
+                dM = lastD;
+              }
+            }, 20);
+          }
+          var p = at(d);
+          lastD = d;
+          if (dM !== null) {
+            var kk = clamp((d - dM) / Math.max(60, (TOT - dM) * 0.6), 0, 1), bw = kk * kk * (3 - 2 * kk);
+            p = { x: p.x + D.x * bw, y: p.y + D.y * bw, dx: p.dx, dy: p.dy };
+          }
+          if (swapped) { var mn2 = self.root.querySelector('.ct-main'); var te2 = mn2 && mn2.querySelector('.ct-form-sec .ct-trail'); if (te2) { trailEl = te2; trailEl.style.strokeDasharray = '1 2'; } }
+          if (trailEl) {
+            var pr = clamp((d - 47 - dTrS) / (dTrE - dTrS), 0, 1);
+            trailEl.style.strokeDashoffset = String(1 - pr);
+          }
+          if (lastP) spd += (Math.hypot(p.x - lastP.x, p.y - lastP.y) / (dt || 1) - spd) * 0.25;
+          lastP = p;
+          var tgtFace = Math.abs(p.dx) > 0.15 ? (p.dx > 0 ? 1 : -1) : face;
+          face += (tgtFace - face) * Math.min(1, 0.22 * dt);
+          var tgtPitch = clamp(Math.atan2(p.dy, Math.abs(p.dx) + 0.0001), -0.8, 0.6);
+          pitch += (tgtPitch - pitch) * Math.min(1, 0.2 * dt);
+          var u = d / TOT;
+          var lv = u < 0.92 ? 1 : 1 - (u - 0.92) / 0.08;
+          var grow = clamp(u / 0.12, 0, 1), gs = 0.22 + 0.78 * (1 - Math.pow(1 - grow, 3));
+          var base = dM !== null ? gs + (ts - 1) * clamp((d - dM) / ((TOT - dM) || 1), 0, 1) : gs;
+          var st = clamp(spd / 22, 0, 1) * 0.1 * lv;
+          put(p, (pitch + OFF) * lv * (face >= 0 ? 1 : -1), base * face * (1 + st), base * (1 - st * 0.5));
+          if (w < 1) { self.flyR = requestAnimationFrame(step); return; }
+          if (trailEl) trailEl.style.strokeDashoffset = '0';
+          var tL = performance.now(), F = p;
+          var settle = function (now2) {
+            var q2 = Math.min(1, (now2 - tL) / SET);
+            put({ x: F.x, y: F.y + Math.sin(q2 * Math.PI) * 3 * (1 - q2) }, 0, ts, ts);
+            if (q2 < 1) { self.flyR = requestAnimationFrame(settle); return; }
+            put(F, 0, ts, ts);
+            self.setState({ landed: true });
+            requestAnimationFrame(function () { requestAnimationFrame(function () { FLYON = false; put(F, 0, ts, ts); }); });
+            focusForm();
+          };
+          self.flyR = requestAnimationFrame(settle);
+        };
+        self.flyR = requestAnimationFrame(step);
+      },
+      back: function () {
+        cancelAnimationFrame(self.flyR);
+        var fl = self.root && self.root.querySelector('.ct-fly'); if (fl) fl.style.opacity = '0';
+
+        self.setState({ screen: 'routes', sent: false, departing: false, sending: false, returned: false, e: {}, landed: false });
+        try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (x) {}
+      },
+      formOpen: !s.sent,
+      sent: s.sent,
+      eName: !!s.e.name, eOrg: !!s.e.org, eEmail: !!s.e.email, eType: !!s.e.type,
+      nameCls: s.e.name ? 'ct-in bad' : 'ct-in', orgCls: s.e.org ? 'ct-in bad' : 'ct-in', emailCls: s.e.email ? 'ct-in bad' : 'ct-in',
+      typeCls: s.e.type ? 'ct-fs bad' : 'ct-fs',
+      nameInv: s.e.name ? 'true' : 'false', orgInv: s.e.org ? 'true' : 'false', emailInv: s.e.email ? 'true' : 'false',
+      clearName: function () { if (self.state.e.name) self.setState({ e: Object.assign({}, self.state.e, { name: false }) }); },
+      clearOrg: function () { if (self.state.e.org) self.setState({ e: Object.assign({}, self.state.e, { org: false }) }); },
+      clearEmail: function () { if (self.state.e.email) self.setState({ e: Object.assign({}, self.state.e, { email: false }) }); },
+      clearType: function () { if (self.state.e.type) self.setState({ e: Object.assign({}, self.state.e, { type: false }) }); },
+      submit: function (ev) {
+        ev.preventDefault();
+        var cur = ev.currentTarget;
+        var f = cur && cur.tagName === 'FORM' ? cur : (cur && (cur.form || cur.closest('form')));
+        if (!f) return;
+        var g = function (n) { var el = f.elements[n]; return el ? String(el.value || '').trim() : ''; };
+        var e = {};
+        if (!g('name')) e.name = true;
+        if (!g('org')) e.org = true;
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(g('email'))) e.email = true;
+        if (!f.querySelector('input[name="type"]:checked')) e.type = true;
+        if (Object.keys(e).length) {
+          self.setState({ e: e });
+          var first = e.name ? 'ct-name' : e.org ? 'ct-org' : e.email ? 'ct-email' : null;
+          setTimeout(function () {
+            var el = first ? document.getElementById(first) : f.querySelector('input[name="type"]');
+            if (el) el.focus();
+          }, 30);
+          return;
+        }
+        var main = self.root && self.root.querySelector('.ct-main');
+        var g = main && main.querySelector('.ct-form-sec .ct-flyer');
+        if (!self.root.classList.contains('pn-anim') || !g) {
+          self.setState({ sent: true, departing: true, cruising: true, e: {} });
+          return;
+        }
+        var mr = main.getBoundingClientRect(), gr = g.getBoundingClientRect();
+        var ts = gr.width / 86;
+        var T = { x: gr.left - mr.left + gr.width / 2, y: gr.top - mr.top + gr.height / 2 };
+        var put = function (p, ang, sc, op) {
+          var mn = self.root.querySelector('.ct-main'), fl = mn && mn.querySelector('.ct-fly');
+          if (!fl) return;
+          fl.style.opacity = String(op);
+          fl.style.transform = 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + ang.toFixed(3) + 'rad) scale(' + sc.toFixed(3) + ')';
+        };
+        var target = function () {
+          var mn = self.root.querySelector('.ct-main'), c = mn && mn.querySelector('.ct-cruise-b');
+          if (!c) return null;
+          var m2 = mn.getBoundingClientRect(), r = c.getBoundingClientRect();
+          return { x: r.left - m2.left + r.width / 2, y: r.top - m2.top + r.height / 2 };
+        };
+        var eio = function (w) { return w < 0.5 ? 4 * w * w * w : 1 - Math.pow(-2 * w + 2, 3) / 2; };
+        cancelAnimationFrame(self.flyR);
+        put(T, 0, ts, 1);
+        self.setState({ departing: true, sending: true, returned: false, cruising: false, e: {} });
+        var t0 = performance.now(), ANT = 170, GO = 300, DUR = 1150, pitch = 0, C0 = null, shown = false;
+        var step = function (now) {
+          var el = now - t0;
+          if (!shown && el >= GO - 40) { shown = true; self.setState({ sent: true, sending: false }); }
+          if (el < ANT) {
+            var sn = Math.sin((el / ANT) * Math.PI / 2);
+            put({ x: T.x - 3 * sn, y: T.y + 5 * sn }, 0.07 * sn, ts, 1);
+            self.flyR = requestAnimationFrame(step); return;
+          }
+          if (el < GO) { put({ x: T.x - 3, y: T.y + 5 }, 0.07, ts, 1); self.flyR = requestAnimationFrame(step); return; }
+          var C = target() || C0 || { x: T.x + 400, y: T.y };
+          C0 = C;
+          var w = Math.min(1, (el - GO) / DUR), t = eio(w), u = 1 - t;
+          var S = { x: T.x - 3, y: T.y + 5 };
+          var B1 = { x: S.x + 160, y: S.y - 120 }, B2 = { x: C.x - 200, y: C.y };
+          var p = { x: u * u * u * S.x + 3 * u * u * t * B1.x + 3 * u * t * t * B2.x + t * t * t * C.x, y: u * u * u * S.y + 3 * u * u * t * B1.y + 3 * u * t * t * B2.y + t * t * t * C.y };
+          var d = { x: 3 * u * u * (B1.x - S.x) + 6 * u * t * (B2.x - B1.x) + 3 * t * t * (C.x - B2.x), y: 3 * u * u * (B1.y - S.y) + 6 * u * t * (B2.y - B1.y) + 3 * t * t * (C.y - B2.y) };
+          var END = 0.349;
+          var tgt = Math.max(-0.2, Math.min(0.75, Math.atan2(d.y, Math.abs(d.x) + 0.0001) + 0.415));
+          var lv = w < 0.7 ? 0 : (w - 0.7) / 0.3;
+          pitch += ((tgt * (1 - lv) + END * lv) - pitch) * 0.22;
+          put(p, pitch, ts + (1 - ts) * t, 1);
+          if (w < 1) { self.flyR = requestAnimationFrame(step); return; }
+          self.setState({ cruising: true });
+          put(p, END, 1, 1);
+          requestAnimationFrame(function () { requestAnimationFrame(function () { put(p, END, 1, 0); }); });
+        };
+        self.flyR = requestAnimationFrame(step);
+      },
+      reset: function () {
+        cancelAnimationFrame(self.flyR);
+        var sh = self.root && self.root.querySelector('.ct-sheet');
+        if (sh && sh.getAnimations) { [sh].concat([].slice.call(sh.querySelectorAll('*'))).forEach(function (n) { n.getAnimations().forEach(function (a) { a.cancel(); }); }); }
+        self.setState({ sent: false, departing: false, sending: false, cruising: false, returned: true, e: {} });
+      },
+      menuOpen: s.menu,
+      menuClosed: !s.menu,
+      menuExp: s.menu ? 'true' : 'false',
+      menuLabel: s.menu ? 'Close menu' : 'Open menu',
+      compOpen: s.comp,
+      compExp: s.comp ? 'true' : 'false',
+      chevClass: s.comp ? 'pn-chev up' : 'pn-chev',
+      mcompOpen: s.mcomp,
+      mcompExp: s.mcomp ? 'true' : 'false',
+      mchevClass: s.mcomp ? 'pn-chev up' : 'pn-chev',
+      toggleMenu: function () { self.setState({ menu: !self.state.menu, mcomp: false }); },
+      toggleComp: function () { self.setState({ comp: !self.state.comp }); },
+      toggleMComp: function () { self.setState({ mcomp: !self.state.mcomp }); },
+      closeAll: function () { self.setState({ menu: false, comp: false, mcomp: false }); },
+      onKey: function (e) {
+        if (e.key !== 'Escape' || (!self.state.menu && !self.state.comp)) return;
+        var sel = self.state.menu ? '.pn-menubtn' : '.pn-compbtn';
+        self.setState({ menu: false, comp: false, mcomp: false });
+        var b = document.querySelector(sel);
+        if (b) b.focus();
+      }
+    };
+  }
+}
+
+
+mountDC(Component, document.getElementById('tpl'), document.getElementById('app'));
+</script>
+</body>
+</html>

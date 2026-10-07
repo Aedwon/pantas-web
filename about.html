@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Pantas</title>
+<meta name="description" content="Why Pantas exists, who built it, and the thinking behind its design.">
+<meta name="theme-color" content="#FBF9F4">
+<meta property="og:title" content="About — Pantas">
+<meta property="og:description" content="Why Pantas exists, who built it, and the thinking behind its design.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+body{margin:0;background:#FBF9F4}
+a{color:#1D5C50}a:hover{color:#174A41}
+.pn-root{--bg:#FBF9F4;--surface:#FFFFFF;--ink:#26221B;--muted:#6E675C;--rule:#E5DFD3;--faint:#F1EDE4;--ctl:#8A8276;--board:#1D5C50;--board-h:#174A41;--board-p:#113A33;--tint:#E3EFEA;--tint-p:#CFE3DB;--rust:#A33B2E;--amber:#996A15;--g:20px;--s:.64;--ee:cubic-bezier(0.16,1,0.3,1);--es:cubic-bezier(0.2,0.8,0.2,1);font-family:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip;min-width:320px}
+.pn-root *{box-sizing:border-box}
+.pn-root a:focus-visible,.pn-root button:focus-visible,.pn-root input:focus-visible{outline:3px solid #996A15;outline-offset:2px}
+.pn-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pn-wrap{max-width:calc(1280px + 2 * var(--g));margin:0 auto;padding-inline:var(--g)}
+
+/* header */
+.pn-hdr{position:relative;z-index:30}
+.pn-hdr-in{height:64px;display:flex;align-items:center;justify-content:space-between}
+.pn-logo{display:inline-flex;align-items:center;gap:10px;min-height:48px;color:var(--ink);text-decoration:none;font-weight:700;font-size:20px;letter-spacing:-0.02em}
+.pn-logo:hover{color:var(--ink)}
+.pn-nav-d{display:none}
+.pn-nl{font:inherit;font-size:16px;font-weight:600;line-height:1.2;color:var(--ink);background:none;border:0;padding:0 14px;height:48px;display:inline-flex;align-items:center;gap:6px;border-radius:12px;text-decoration:none;cursor:pointer;transition:background-color .12s var(--es)}
+.pn-nl:hover{background:var(--faint);color:var(--ink)}
+.pn-chev{transition:transform .18s var(--es)}
+.pn-chev.up{transform:rotate(180deg)}
+.pn-dd{position:relative}
+.pn-ddm{position:absolute;top:calc(100% + 6px);left:0;min-width:200px;margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--rule);border-radius:12px;box-shadow:0 8px 24px rgba(38,34,27,0.08);animation:pn-menu .18s var(--es) both}
+.pn-ddm a{display:flex;align-items:center;height:44px;padding:0 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-weight:400;transition:background-color .12s var(--es)}
+.pn-ddm a:hover{background:var(--tint)}
+.pn-menubtn{width:48px;height:48px;border:0;background:none;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer}
+.pn-menubtn:hover{background:var(--faint)}
+.pn-mpanel{position:absolute;left:0;right:0;top:64px;background:var(--surface);border-top:1px solid var(--faint);border-bottom:1px solid var(--rule);padding:8px var(--g) 24px;animation:pn-menu .18s var(--es) both}
+.pn-mlist{list-style:none;margin:0;padding:0}
+.pn-mi{display:flex;width:100%;height:48px;align-items:center;justify-content:space-between;font:inherit;font-size:16px;font-weight:600;color:var(--ink);text-decoration:none;background:none;border:0;border-bottom:1px solid var(--faint);padding:0;cursor:pointer;text-align:left}
+.pn-mi:hover{color:var(--board)}
+.pn-msub{list-style:none;margin:0;padding:0 0 0 16px}
+.pn-msub .pn-mi{font-weight:400}
+
+/* buttons */
+.pn-btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 20px;border-radius:12px;background:var(--board);color:#FFFFFF;font:inherit;font-size:16px;font-weight:600;line-height:1.2;text-decoration:none;border:0;cursor:pointer;transition:background-color .12s var(--es),transform .12s var(--es)}
+.pn-btn:hover{background:var(--board-h);color:#FFFFFF}
+.pn-btn:active{background:var(--board-p);transform:scale(.98)}
+.pn-btn2{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 20px;border-radius:12px;background:var(--surface);color:var(--board);border:1px solid var(--board);font:inherit;font-size:16px;font-weight:600;line-height:1.2;cursor:pointer;transition:background-color .12s var(--es),transform .12s var(--es)}
+.pn-btn2:hover{background:var(--tint)}
+.pn-btn2:active{background:var(--tint-p);transform:scale(.98)}
+.pn-gp{display:inline-flex;flex-direction:column;justify-content:center;height:56px;min-width:176px;padding:0 22px;background:#000000;color:#FFFFFF;border-radius:10px;text-decoration:none;line-height:1.1;transition:transform .12s var(--es)}
+.pn-gp:hover{color:#FFFFFF;transform:translateY(-2px)}
+.pn-gp:active{transform:translateY(0) scale(.98)}
+.pn-gp-s{font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.pn-gp-b{font-size:21px;font-weight:600;letter-spacing:-0.01em}
+
+
+@media (min-width:480px){.pn-root{--g:24px}}
+@media (min-width:768px){
+.pn-root{--g:32px}
+.pn-hdr-in{height:72px}
+.pn-nav-d{display:flex;align-items:center;gap:4px}
+.pn-nav-d .pn-btn{margin-left:12px}
+.pn-menubtn,.pn-mpanel{display:none}
+}
+@media (min-width:1024px){.pn-root{--g:48px}}
+@media (min-width:1280px){.pn-root{--g:64px}}
+
+/* motion */
+@keyframes pn-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes pn-fade{from{opacity:0}to{opacity:1}}
+@keyframes pn-pop{0%{opacity:0;transform:scale(.6)}70%{opacity:1;transform:scale(1.05)}100%{opacity:1;transform:scale(1)}}
+@keyframes pn-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes pn-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes pn-sl{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+@keyframes pn-sr{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes pn-su{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pn-wave{0%{transform:skewY(0)}25%{transform:skewY(-9deg)}55%{transform:skewY(6deg)}80%{transform:skewY(-2deg)}100%{transform:skewY(0)}}
+@keyframes pn-wave2{0%{transform:skewY(0)}25%{transform:skewY(-9deg)}55%{transform:skewY(6deg)}80%{transform:skewY(-2deg)}100%{transform:skewY(0)}}
+@keyframes pn-glow{0%{opacity:0}20%{opacity:.9}30%{opacity:.15}45%{opacity:.95}55%{opacity:.35}72%{opacity:.95}100%{opacity:.55}}
+@keyframes pn-settle{from{opacity:0;transform:translateY(48px) rotate(14deg)}to{opacity:1;transform:rotate(6deg)}}
+@keyframes pn-gauge{from{stroke-dashoffset:61}to{stroke-dashoffset:0}}
+@keyframes pn-ring{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+@keyframes pn-out{from{opacity:1}to{opacity:0}}
+@keyframes pn-menu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.pn-pop,.pn-sl,.pn-sr,.pn-su,.pn-wave{transform-box:fill-box;transform-origin:50% 50%}
+.pn-grow{transform-box:fill-box;transform-origin:50% 100%}
+.pn-wave{transform-origin:0% 50%}
+.pn-glow{opacity:.5;transition:opacity .32s var(--es)}
+.pn-anim .pn-rv .pn-up,.pn-anim .pn-rv .pn-pop,.pn-anim .pn-rv .pn-sl,.pn-anim .pn-rv .pn-sr,.pn-anim .pn-rv .pn-su,.pn-anim .pn-rv .pn-fade,.pn-anim .pn-rv .pn-glow,.pn-anim .pn-rv .pn-tilt{opacity:0}
+.pn-anim .pn-rv .pn-grow{transform:scaleY(0)}
+.pn-anim .pn-rv .pn-draw{stroke-dasharray:1 2;stroke-dashoffset:1}
+.pn-anim .pn-rv .pn-gauge{stroke-dashoffset:61}
+.pn-anim .pn-rv.in .pn-up{animation:pn-up .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-fade{animation:pn-fade .42s ease both}
+.pn-anim .pn-rv.in .pn-pop{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) both}
+.pn-anim .pn-rv.in .pn-sl{animation:pn-sl .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-sr{animation:pn-sr .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-su{animation:pn-su .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-grow{animation:pn-grow .6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-draw{animation:pn-draw .42s var(--ee) both}
+.pn-anim .pn-rv.in .pn-draw.pn-slow{animation-duration:1s}
+.pn-anim .pn-rv.in .pn-wave{animation:pn-wave .9s ease-in-out both}
+.pn-anim .pn-rv.in .pn-glow{animation:pn-glow 1.2s ease both}
+.pn-anim .pn-rv.in .pn-tilt{animation:pn-settle .7s var(--ee) .15s both}
+.pn-anim .pn-rv.in .pn-gauge{animation:pn-gauge .9s var(--ee) .8s both}
+@keyframes pn-word{from{opacity:0;transform:translateY(.4em) rotate(3deg)}to{opacity:1;transform:none}}
+@keyframes pn-swing{0%{transform:rotate(0)}18%{transform:rotate(16deg)}40%{transform:rotate(-10deg)}62%{transform:rotate(5deg)}82%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes pn-swing2{0%{transform:rotate(0)}18%{transform:rotate(16deg)}40%{transform:rotate(-10deg)}62%{transform:rotate(5deg)}82%{transform:rotate(-2deg)}100%{transform:rotate(0)}}
+@keyframes pn-tap{0%{opacity:0;transform:scale(.5)}35%{opacity:.35;transform:scale(1)}100%{opacity:0;transform:scale(3)}}
+@keyframes pn-press{0%,100%{transform:scale(1)}45%{transform:scale(.96)}}
+@keyframes pn-growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pn-hop{0%,100%{transform:translateY(0)}40%{transform:translateY(-12px)}70%{transform:translateY(2px)}}
+@keyframes pn-rise{from{opacity:0;transform:translateY(120px)}to{opacity:1;transform:none}}
+@keyframes pn-fly{from{transform:translateX(-620px)}to{transform:translateX(1240px)}}
+@keyframes pn-flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.35)}}
+@keyframes pn-sway{0%,100%{transform:skewX(0)}30%{transform:skewX(4deg)}65%{transform:skewX(-3deg)}}
+@keyframes pn-bob{0%,100%{transform:translateY(0)}40%{transform:translateY(-10px)}70%{transform:translateY(2px)}}
+@keyframes pn-scrib{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,-6px)}40%{transform:translate(4px,-10px)}60%{transform:translate(10px,-2px)}80%{transform:translate(-2px,4px)}}
+@keyframes pn-blink{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.1)}}
+@keyframes pn-blink2{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.1)}}
+@keyframes pn-shine{from{left:-60%}to{left:130%}}
+@keyframes pn-spark{from{opacity:1;transform:rotate(var(--a)) translateX(0) scale(1)}to{opacity:0;transform:rotate(var(--a)) translateX(30px) scale(.3)}}
+.pn-w{display:inline-block}
+.pn-ulw{position:relative}
+.pn-ul{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.32em;overflow:visible}
+.pn-tassel{transform-box:fill-box;transform-origin:50% 0}
+.pn-anim .pn-tassel{animation:pn-swing 1.6s ease-in-out .6s both}
+.pn-logo:hover .pn-tassel{animation:pn-swing2 1.4s ease-in-out both}
+.pn-3d{width:100%;height:100%;transition:transform .32s var(--es)}
+.pa-ring1{position:relative;width:24px;height:24px;flex-shrink:0}
+.pa-ring1 svg{display:block}
+.pn-r1prog{stroke-dasharray:100;stroke-dashoffset:100}
+.pn-r1done{position:absolute;inset:0;border-radius:99px;background:#0B7A68;display:flex;align-items:center;justify-content:center;opacity:0}
+.pa-btn{position:relative;overflow:hidden}
+.pa-tap{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:99px;background:#FFFFFF;opacity:0}
+.pn-growx{transform-box:fill-box;transform-origin:0 50%}
+.pn-fan-b,.pn-fan-v,.pn-fan-q{transform-box:fill-box;transform-origin:50% 50%;transition:transform .42s var(--ee)}
+.pn-art:hover .pn-fan-b{transform:translate(16px,-10px) rotate(4deg)}
+.pn-art:hover .pn-fan-v{transform:translate(-14px,-8px) rotate(-5deg)}
+.pn-art:hover .pn-fan-q{transform:translate(0,8px) rotate(1deg)}
+.pn-hop{transform-box:fill-box;transform-origin:50% 100%}
+.pn-art:hover .pn-hop{animation:pn-hop .5s var(--es) both}
+.pn-art:hover .pn-h2{animation-delay:.06s}
+.pn-art:hover .pn-h3{animation-delay:.12s}
+.pn-art:hover .pn-h4{animation-delay:.18s}
+.pn-art:hover .pn-h5{animation-delay:.24s}
+.pn-rise,.pn-bob,.pn-scrib,.pn-blink,.pn-flap{transform-box:fill-box;transform-origin:50% 50%}
+.pn-sway{transform-box:fill-box;transform-origin:50% 100%}
+.pn-anim .pn-rv .pn-w,.pn-anim .pn-rv .pn-rise,.pn-anim .pn-rv .pn-traveler{opacity:0}
+.pn-anim .pn-rv .pn-growx{transform:scaleX(0)}
+.pn-anim .pn-rv.in .pn-w{animation:pn-word .6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-r1prog{animation:pn-ring .5s var(--es) 2.3s both}
+.pn-anim .pn-rv.in .pn-r1done{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 2.8s both}
+.pn-anim .pn-rv.in .pa-tap{animation:pn-tap .6s ease 2s both}
+.pn-anim .pn-rv.in .pa-btn{animation:pn-press .3s var(--es) 2.05s both}
+.pn-anim .pn-rv.in .pn-hero-cta::after{animation:pn-shine .9s var(--es) 1.5s both}
+.pn-anim .pn-rv.in .pn-growx{animation:pn-growx .9s var(--ee) both}
+.pn-anim .pn-rv.in .pn-rise{animation:pn-rise 1.6s var(--ee) both}
+.pn-anim .pn-rv.in .pn-fly{animation:pn-fly 11s linear both}
+.pn-anim .pn-rv.in .pn-flap{animation:pn-flap .5s ease-in-out 12}
+.pn-anim .pn-rv.in .pn-sway{animation:pn-sway 2.4s ease-in-out both}
+.pn-anim .pn-rv.in .pn-bob{animation:pn-bob .7s var(--es) both}
+.pn-anim .pn-rv.in .pn-scrib{animation:pn-scrib 1.1s ease-in-out both}
+.pn-anim .pn-rv.in .pn-traveler{animation:pn-fade .2s ease 1s both}
+/* roadmap: one route to exam day. Defaults are the final state (static / reduced motion). */
+.pnx-done,.pnx-ring,.pnx-next,.pnx-rev,.pnx-callin{transform-box:fill-box;transform-origin:50% 50%}
+.pnx-callin{transform-origin:50% 100%}
+.pnx-prog{transform-box:fill-box;transform-origin:0 50%}
+.pnx-ring{opacity:.12}
+.pnx-call{transform:translateX(56px)}
+.pnx-icA{opacity:0}
+.pnx-arc{stroke-dasharray:1 2}
+.pnx-s3{transform:translateX(-6px)}
+.pnx-s4{transform:translateX(-12px)}
+.pnx-s5{transform:translateX(32px)}
+@keyframes pnx-prog{from{transform:scaleX(.349)}to{transform:scaleX(1)}}
+@keyframes pnx-ring{0%{opacity:0;transform:scale(.6)}60%{opacity:.2;transform:scale(1.08)}100%{opacity:.12;transform:scale(1)}}
+@keyframes pnx-slide{from{transform:none}}
+@keyframes pnx-callin{from{opacity:0;transform:translateY(10px) scale(.92)}to{opacity:1;transform:none}}
+@keyframes pnx-swapout{0%{opacity:1}100%{opacity:0}}
+.pn-anim .pn-rv.in .pnx-callin{animation:pnx-callin .42s cubic-bezier(.2,.9,.3,1) 1.2s both}
+@keyframes pnx-icA{0%,92%{opacity:1}100%{opacity:0}}
+.pn-anim .pn-rv.in .pnx-icA{animation:pnx-icA 2.45s linear both}
+.pn-anim .pn-rv.in .pnx-icB{animation:pa-fade .25s ease 2.45s both}
+.pn-anim .pn-rv.in .pnx-done{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 1.9s both}
+.pn-anim .pn-rv.in .pnx-prog{animation:pnx-prog .55s cubic-bezier(.3,.7,.3,1) 2.25s both}
+.pn-anim .pn-rv.in .pnx-call{animation:pnx-slide .55s cubic-bezier(.2,.9,.3,1) 2.25s both}
+.pn-anim .pn-rv.in .pnx-next{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 2.6s both}
+.pn-anim .pn-rv.in .pnx-ring{animation:pnx-ring .6s var(--es) 2.6s both}
+.pn-anim .pn-rv.in .pnx-s3,.pn-anim .pn-rv.in .pnx-s4,.pn-anim .pn-rv.in .pnx-s5{animation:pnx-slide .6s cubic-bezier(.2,.9,.3,1) 3.2s both}
+.pn-anim .pn-rv.in .pnx-arc{animation:pn-draw .8s cubic-bezier(.4,0,.2,1) 3.55s both}
+.pn-anim .pn-rv.in .pnx-rev{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 4.25s both}
+.pn-anim .pn-rv.in .pnx-arrow{animation:pa-fade .2s ease 4.25s both}
+.pnx-cal,.pnx-date{transform-box:fill-box;transform-origin:50% 50%}
+@keyframes pnx-pulse{0%,100%{transform:scale(1)}40%{transform:scale(1.07)}}
+.pn-anim .pn-rv.in .pnx-date{animation:pn-draw .5s var(--ee) 1.1s both}
+.pnx-date{stroke-dasharray:1 2}
+.pn-anim .pn-rv.in .pnx-cal{animation:pnx-pulse .5s var(--es) 4.6s both}
+/* weak areas: the pen taps each box, then circles the weak row (pen path is driven by script) */
+.pn-anim .pn-rv.in .pnw-c1{animation:pn-draw .3s ease .58s both}
+.pn-anim .pn-rv.in .pnw-c2{animation:pn-draw .3s ease 1.08s both}
+.pn-anim .pn-rv.in .pnw-dot{animation:pn-pop .42s cubic-bezier(.34,1.4,.64,1) 1.58s both}
+.pn-anim .pn-rv.in .pnw-ring{animation:pn-draw 1s linear 1.95s both}
+.pn-anim .pn-rv.in .pn-blink{animation:pn-blink .36s ease both}
+.pn-f-av:hover .pn-blink,.pn-anim .pn-rv.in .pn-f-av:hover .pn-blink{animation:pn-blink2 .36s ease 0s both}
+.pn-gp{position:relative;overflow:hidden}
+.pn-gp::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.3),rgba(255,255,255,0));transform:skewX(-20deg);pointer-events:none}
+.pn-gp:hover::after{animation:pn-shine .7s var(--es) both}
+.pn-ok-ic{position:relative}
+.pn-okchk{stroke-dasharray:1 2;animation:pn-draw .4s var(--ee) .15s both}
+.pn-spark{position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:99px;background:#1D5C50;opacity:0;animation:pn-spark .7s var(--ee) .12s both}
+.pn-spark:nth-child(2n){background:#996A15}
+.pn-spark:nth-child(1){--a:0deg}.pn-spark:nth-child(2){--a:45deg}.pn-spark:nth-child(3){--a:90deg}.pn-spark:nth-child(4){--a:135deg}.pn-spark:nth-child(5){--a:180deg}.pn-spark:nth-child(6){--a:225deg}.pn-spark:nth-child(7){--a:270deg}.pn-spark:nth-child(8){--a:315deg}
+.pn-anim .pn-rv.in .pn-d1{animation-delay:.1s}
+.pn-anim .pn-rv.in .pn-d2{animation-delay:.2s}
+.pn-anim .pn-rv.in .pn-d3{animation-delay:.3s}
+.pn-anim .pn-rv.in .pn-d4{animation-delay:.42s}
+.pn-anim .pn-rv.in .pn-d5{animation-delay:.54s}
+.pn-anim .pn-rv.in .pn-d6{animation-delay:.68s}
+.pn-anim .pn-rv.in .pn-d7{animation-delay:.82s}
+.pn-anim .pn-rv.in .pn-d8{animation-delay:1s}
+.pn-anim .pn-rv.in .pn-d9{animation-delay:1.2s}
+.pn-anim .pn-rv.in .pn-d10{animation-delay:1.4s}
+.pn-anim .pn-rv.in .pn-d11{animation-delay:1.6s}
+.pn-anim .pn-rv.in .pn-d12{animation-delay:1.9s}
+.pn-anim .pn-rv.in .pn-d13{animation-delay:2.2s}
+.pn-anim .pn-rv.in .pn-d14{animation-delay:2.6s}
+.pn-anim .pn-rv.in .pn-d15{animation-delay:2.9s}
+.pn-anim .pn-rv.in .pn-d16{animation-delay:3.2s}
+.pn-art:hover .pn-wave,.pn-anim .pn-rv.in .pn-art:hover .pn-wave{animation:pn-wave2 .9s ease-in-out 0s both}
+.pn-art:hover .pn-glow,.pn-anim .pn-rv.in .pn-art:hover .pn-glow{animation:none;opacity:.95}
+
+/* ---------- About page ---------- */
+.pn-nl.pn-cur{color:var(--board);background:var(--tint)}
+.pn-mi.pn-cur{color:var(--board)}
+.ab-hr{display:block;height:1px;border:0;margin:0;background:var(--rule)}
+.ab-p{margin:0;max-width:40rem;font-size:clamp(17px,1.3vw,18px);line-height:1.65;color:var(--ink);text-wrap:pretty}
+.ab-open{margin:0;max-width:34rem;font-size:clamp(24px,2.3vw,32px);font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:var(--ink);text-wrap:balance}
+.ab-h1{margin:0;font-size:clamp(42px,6vw,80px);font-weight:700;line-height:.98;letter-spacing:-0.045em}
+.ab-h2{margin:0;font-size:clamp(36px,4.5vw,56px);font-weight:700;line-height:1.02;letter-spacing:-0.035em}
+.ab-h3{margin:0;font-size:clamp(20px,1.8vw,24px);font-weight:700;line-height:1.18;letter-spacing:-0.015em}
+.ab-copy{display:flex;flex-direction:column;gap:20px}
+.ab-copy .ab-h2{margin-bottom:8px}
+.ab-art svg{display:block;width:100%;height:auto;overflow:visible}
+
+/* chapter 1: hero + idea */
+.ab-hero{padding:48px 0 96px}
+.ab-hero-in{display:flex;flex-direction:column;gap:56px}
+.ab-hero-copy{display:flex;flex-direction:column;gap:24px;max-width:38rem}
+.ab-hero-copy .ab-open{margin-top:8px}
+.ab-hero-art{width:100%;max-width:560px;align-self:center}
+.ab-idea{padding:0 0 96px}
+.ab-idea-copy{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;margin:0 auto 56px;max-width:44rem}
+.ab-statement{margin:0;font-size:clamp(30px,3vw,40px);font-weight:700;line-height:1.08;letter-spacing:-0.025em;text-wrap:balance}
+.ab-town{border-radius:28px;overflow:hidden;background:#174A41}
+.ab-town svg{display:block;width:100%;height:220px}
+@media (min-width:768px){.ab-town svg{height:auto}}
+
+/* chapter 2: who */
+.ab-ch{padding:96px 0}
+.ab-who-in{display:flex;flex-direction:column;gap:56px}
+.ab-portrait{width:100%;max-width:440px;align-self:center}
+.ab-growth{display:flex;flex-direction:column;align-items:center;gap:48px;margin-top:96px}
+.ab-growth .ab-p{text-align:center;max-width:42rem}
+.ab-growth-art{width:100%;max-width:500px}
+.ab-growth-art svg{display:block;width:100%;height:auto;overflow:visible}
+
+/* chapter 3: intention */
+.ab-int-head{display:flex;flex-direction:column;gap:24px;margin-bottom:64px}
+.ab-pr-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:64px}
+.ab-pr{display:flex;flex-direction:column;gap:16px}
+.ab-pr-art{border-radius:28px;background:var(--faint);overflow:hidden;margin-bottom:12px}
+.ab-pr-art svg{display:block;width:100%;height:auto}
+.ab-pr .ab-p{font-size:17px}
+
+/* chapter 4: future */
+.ab-fut-in{display:flex;flex-direction:column;gap:56px}
+.ab-map{width:100%;max-width:460px;align-self:center}
+.ab-mission{padding:96px 0 64px;text-align:center}
+.ab-mq{margin:0 auto;max-width:50rem;font-size:clamp(26px,2.8vw,38px);font-weight:700;line-height:1.2;letter-spacing:-0.022em;text-wrap:balance}
+.ab-hl{background-image:linear-gradient(var(--tint-p),var(--tint-p));background-repeat:no-repeat;background-position:0 86%;background-size:100% .34em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.ab-cs{padding:0 0 128px;display:flex;justify-content:center}
+.ab-cs a{display:inline-flex;align-items:center;gap:8px;min-height:48px;font-size:18px;font-weight:600;text-decoration:none;color:var(--board)}
+.ab-cs a:hover,.ab-cs a:focus-visible{text-decoration:underline;text-underline-offset:4px}
+.ab-cs svg{transition:transform .12s var(--es)}
+.ab-cs a:hover svg{transform:translateX(3px)}
+
+/* about motion */
+@keyframes ab-on{0%{opacity:0}35%{opacity:.95}50%{opacity:.35}100%{opacity:1}}
+@keyframes ab-fill{from{fill-opacity:0}to{fill-opacity:1}}
+@keyframes ab-steam{0%{opacity:0;transform:translateY(8px)}30%{opacity:.7}100%{opacity:0;transform:translateY(-22px)}}
+@keyframes ab-hl{from{background-size:0% .34em}to{background-size:100% .34em}}
+@keyframes ab-dim{from{opacity:1}to{opacity:.22}}
+@keyframes ab-twk{0%{opacity:0}50%{opacity:1}75%{opacity:.4}100%{opacity:.85}}
+.ab-steam{transform-box:fill-box;transform-origin:50% 100%}
+.pn-anim .pn-rv .ab-lit,.pn-anim .pn-rv .ab-steam,.pn-anim .pn-rv .ab-star{opacity:0}
+.pn-anim .pn-rv .ab-fill{fill-opacity:0}
+.pn-anim .pn-rv .ab-hl{background-size:0% .34em}
+.pn-anim .pn-rv.in .ab-lit{animation:ab-on .7s ease var(--d,0s) both}
+.pn-anim .pn-rv.in .ab-fill{animation:ab-fill .6s ease 2.6s both}
+.pn-anim .pn-rv.in .ab-steam{animation:ab-steam 2.6s ease-out 1.2s 2}
+.pn-anim .pn-rv.in .ab-steam2{animation-delay:1.9s}
+.pn-anim .pn-rv.in .ab-star{animation:ab-twk 1.6s ease var(--d,.6s) both}
+.pn-anim .pn-rv.in .ab-hl{animation:ab-hl 1s var(--ee) .7s both}
+.pn-anim .pn-rv.in .ab-wifi{animation:ab-dim .5s ease 1.1s both}
+.pn-anim .pn-rv .ab-gx{transform:scaleX(0)}
+.pn-anim .pn-rv.in .ab-gx{animation:pn-growx .7s var(--ee) both}
+.pn-anim .pn-rv.in .ab-mk1{animation:pn-draw 1s var(--ee) 1.5s both,ab-fill .6s ease 2.7s both}
+.pn-anim .pn-rv.in .ab-mk2{animation:pn-draw 1s var(--ee) 1.8s both,ab-fill .6s ease 2.8s both}
+.pn-anim .pn-rv.in .ab-mk3{animation:pn-draw .6s var(--ee) 2.4s both,ab-fill .4s ease 2.9s both}
+@keyframes ab-ring{0%{opacity:0;transform:scale(.4)}30%{opacity:.8}100%{opacity:0;transform:scale(3.2)}}
+.ab-ring{transform-box:fill-box;transform-origin:50% 50%;opacity:0}
+.pn-anim .pn-rv.in .ab-ring{animation:ab-ring 1.6s var(--es) .8s 2 both}
+.ab-lit{opacity:1}
+
+/* about breakpoints */
+@media (min-width:1024px){
+.ab-hero{padding:64px 0 128px}
+.ab-hero-in,.ab-who-in,.ab-fut-in{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;align-items:center}
+.ab-hero-copy{grid-column:1 / span 6}
+.ab-hero-art{grid-column:7 / span 6;justify-self:end}
+.ab-idea{padding:0 0 128px}
+.ab-ch{padding:128px 0}
+.ab-who-in{align-items:start}
+.ab-portrait{grid-column:1 / span 5;justify-self:start;position:sticky;top:32px}
+.ab-who-copy{grid-column:7 / span 6}
+.ab-int-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:32px;align-items:end;margin-bottom:80px}
+.ab-int-head .ab-h2{grid-column:1 / span 5}
+.ab-int-head .ab-p{grid-column:7 / span 6}
+.ab-pr-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;row-gap:96px}
+.ab-fut-copy{grid-column:1 / span 6}
+.ab-map{grid-column:8 / span 5;justify-self:center}
+.ab-mission{padding:128px 0 64px}
+}
+
+@media (prefers-reduced-motion: reduce){.pn-root *{animation:none !important;transition:none !important}}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div class="pn-root">
+
+<header class="pn-hdr" onKeyDown="{{onKey}}">
+<div class="pn-wrap pn-hdr-in">
+<a class="pn-logo" href="/" aria-label="Pantas home"><svg width="34" height="34" viewBox="307 309 640 640" aria-hidden="true" focusable="false"><g class="pn-tassel"><path d="M887 515.69V664" stroke="#1D5C50" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="887" cy="682" r="20" fill="#1D5C50"/><path d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z" fill="#1D5C50"/></g><path d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z" fill="#26221B"/><path d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z" fill="#26221B"/><path d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z" fill="#26221B"/></svg><span>Pantas</span></a>
+<nav class="pn-nav-d" aria-label="Main">
+<a class="pn-nl" href="/about">About</a>
+<div class="pn-dd">
+<button class="pn-nl pn-compbtn" type="button" aria-expanded="{{compExp}}" aria-controls="pn-comp" onClick="{{toggleComp}}">Company<svg class="{{chevClass}}" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<sc-if value="{{compOpen}}" hint-placeholder-val="{{false}}">
+<ul id="pn-comp" class="pn-ddm">
+<li><a href="/roadmap" onClick="{{closeAll}}">Roadmap</a></li>
+<li><a href="/programs" onClick="{{closeAll}}">Programs</a></li>
+<li><a href="/careers" onClick="{{closeAll}}">Careers</a></li>
+</ul>
+</sc-if>
+</div>
+<a class="pn-nl" href="/contact">Contact</a>
+<a class="pn-btn" href="/">Get Pantas</a>
+</nav>
+<button class="pn-menubtn" type="button" aria-expanded="{{menuExp}}" aria-controls="pn-mpanel" aria-label="{{menuLabel}}" onClick="{{toggleMenu}}">
+<sc-if value="{{menuClosed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></sc-if>
+</button>
+</div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+<div id="pn-mpanel" class="pn-mpanel">
+<ul class="pn-mlist">
+<li><a class="pn-mi" href="/about" onClick="{{closeAll}}">About</a></li>
+<li><button class="pn-mi" type="button" aria-expanded="{{mcompExp}}" aria-controls="pn-msub" onClick="{{toggleMComp}}">Company<svg class="{{mchevClass}}" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+<sc-if value="{{mcompOpen}}" hint-placeholder-val="{{false}}">
+<ul id="pn-msub" class="pn-msub">
+<li><a class="pn-mi" href="/roadmap" onClick="{{closeAll}}">Roadmap</a></li>
+<li><a class="pn-mi" href="/programs" onClick="{{closeAll}}">Programs</a></li>
+<li><a class="pn-mi" href="/careers" onClick="{{closeAll}}">Careers</a></li>
+</ul>
+</sc-if>
+</li>
+<li><a class="pn-mi" href="/contact" onClick="{{closeAll}}">Contact</a></li>
+</ul>
+<a class="pn-btn" href="/" style="width: 100%; margin-top: 16px" onClick="{{closeAll}}">Get Pantas</a>
+</div>
+</sc-if>
+</header>
+
+<main>
+
+
+<main>
+
+<section aria-labelledby="ab-h1">
+<div class="ab-hero pn-rv">
+<div class="pn-wrap ab-hero-in">
+<div class="ab-hero-copy">
+<h1 id="ab-h1" class="ab-h1 pn-up">Why Pantas exists</h1>
+<p class="ab-open pn-up pn-d1">I wanted to build a study tool for myself.</p>
+<p class="ab-p pn-up pn-d2">At the time, I was preparing for the Civil Service Examination. I wanted something beyond what already existed: reviewers and question banks. Those are useful, but I wanted something deeper and more systematic. Something that could meet me halfway, figure out what I needed to work on, and plan around the time I actually had to study.</p>
+</div>
+<div class="ab-hero-art ab-art" aria-hidden="true">
+<svg viewBox="0 0 560 470" focusable="false">
+<defs>
+<linearGradient id="abNight" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#113A33"/><stop offset="1" stop-color="#1D5C50"/></linearGradient>
+<linearGradient id="abBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE7A8" stop-opacity=".5"/><stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/></linearGradient>
+<radialGradient id="abPool" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE7A8" stop-opacity=".9"/><stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/></radialGradient>
+<mask id="abMoon"><rect width="560" height="470" fill="#FFFFFF"/><circle cx="452" cy="88" r="15" fill="#000000"/></mask>
+</defs>
+<circle class="pn-fade" cx="300" cy="228" r="214" fill="#E3EFEA"/>
+<g class="pn-fade pn-d1">
+<rect x="332" y="56" width="164" height="132" rx="16" fill="url(#abNight)"/>
+<circle cx="444" cy="94" r="16" fill="#FBF9F4" mask="url(#abMoon)"/>
+<circle class="ab-star" style="--d:.7s" cx="368" cy="86" r="2" fill="#FBF9F4"/>
+<circle class="ab-star" style="--d:.95s" cx="398" cy="132" r="1.6" fill="#FBF9F4"/>
+<circle class="ab-star" style="--d:1.2s" cx="472" cy="150" r="1.8" fill="#FBF9F4"/>
+<circle class="ab-star" style="--d:1.4s" cx="356" cy="160" r="1.4" fill="#FBF9F4"/>
+<rect x="332" y="56" width="164" height="132" rx="16" fill="none" stroke="#FFFFFF" stroke-width="7"/>
+<path d="M414 58v128M334 122h160" stroke="#FFFFFF" stroke-width="5"/>
+</g>
+<ellipse class="ab-lit" style="--d:.55s" cx="372" cy="344" rx="170" ry="34" fill="url(#abPool)"/>
+<path class="ab-lit" style="--d:.55s" d="M201 204 L277 161 L486 340 L248 342 Z" fill="url(#abBeam)"/>
+<rect x="34" y="340" width="492" height="20" rx="8" fill="#D9C29C"/>
+<rect x="46" y="358" width="468" height="30" rx="6" fill="#C4A97E"/>
+<rect x="46" y="358" width="468" height="6" fill="#B39567" opacity=".5"/>
+<g class="pn-su pn-d2">
+<ellipse cx="104" cy="341" rx="38" ry="8" fill="#26221B"/>
+<path d="M104 338 L78 226 L214 150" stroke="#26221B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<circle cx="78" cy="226" r="8" fill="#3A342A"/>
+<g transform="translate(228 164) rotate(-30)"><path d="M-30 -20 L28 -20 L46 22 L-46 22 Z" fill="#1D5C50"/><path d="M-46 22 L46 22" stroke="#174A41" stroke-width="5" stroke-linecap="round"/><ellipse class="ab-lit" style="--d:.5s" cx="0" cy="26" rx="20" ry="6" fill="#FFE7A8"/></g>
+</g>
+<g class="pn-su pn-d3">
+<rect x="136" y="312" width="132" height="28" rx="5" fill="#A33B2E"/>
+<rect x="136" y="321" width="132" height="3" fill="#8A3126"/>
+<text x="202" y="333" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.6" fill="#FBF9F4">REVIEWER</text>
+<rect x="146" y="288" width="114" height="24" rx="5" fill="#996A15"/>
+<rect x="146" y="296" width="114" height="2.5" fill="#7E5711"/>
+<rect x="140" y="262" width="122" height="26" rx="5" fill="#CFE3DB"/>
+<rect x="140" y="262" width="12" height="26" rx="3" fill="#1D5C50"/>
+<rect x="232" y="252" width="8" height="12" rx="2" fill="#E9B44C"/>
+<rect x="244" y="255" width="8" height="9" rx="2" fill="#FFFFFF"/>
+</g>
+<g class="pn-su pn-d4"><g transform="translate(-24 0)">
+<path d="M176 222 h40 v30 a10 10 0 0 1 -10 10 h-20 a10 10 0 0 1 -10 -10 Z" fill="#FFFFFF"/>
+<path d="M216 230 h6 a8 8 0 0 1 0 16 h-6" stroke="#FFFFFF" stroke-width="5" fill="none"/>
+<rect x="176" y="222" width="40" height="7" fill="#E5DFD3"/>
+<path class="ab-steam" d="M190 214 q-6 -8 0 -16 q6 -8 0 -16" stroke="#8A8276" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<path class="ab-steam ab-steam2" d="M203 214 q-6 -8 0 -16 q6 -8 0 -16" stroke="#8A8276" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</g></g>
+<g class="pn-up pn-d3">
+<ellipse cx="386" cy="344" rx="130" ry="7" fill="#26221B" opacity=".08"/>
+<path d="M270 342 L384 342 L380 232 L284 224 Z" fill="#FFFFFF"/>
+<path d="M384 342 L500 342 L488 224 L388 232 Z" fill="#FFFFFF"/>
+<path d="M384 342 L384 232" stroke="#E5DFD3" stroke-width="2"/>
+<g stroke="#F1EDE4" stroke-width="1.5"><path d="M286 252 L380 258M285 272 L381 277M284 292 L382 296M283 312 L383 315"/><path d="M390 258 L487 252M390 277 L489 272M390 296 L491 292M390 315 L492 312"/></g>
+<g transform="translate(296 248) scale(0.112) translate(-307 -309)" stroke="#1D5C50" stroke-width="18" stroke-linejoin="round" stroke-linecap="round">
+<path class="pn-draw ab-fill ab-mk1" pathLength="1" fill="#1D5C50" d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/>
+<path class="pn-draw ab-fill ab-mk2" pathLength="1" fill="#1D5C50" d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/>
+<path class="pn-draw ab-fill ab-mk2" pathLength="1" fill="#1D5C50" d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/>
+<path class="pn-draw pn-d13" pathLength="1" fill="none" d="M887 515.69V664"/>
+<circle class="pn-draw ab-fill ab-mk3" pathLength="1" cx="887" cy="682" r="20" fill="#1D5C50"/>
+</g>
+<g stroke="#26221B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<rect x="400" y="246" width="9" height="9" rx="2"/><rect x="400" y="266" width="9" height="9" rx="2"/><rect x="400" y="286" width="9" height="9" rx="2"/>
+<path class="pn-draw pn-d5" pathLength="1" d="M401.5 250 l2.5 3 l5 -7"/>
+<path class="pn-draw pn-d6" pathLength="1" d="M401.5 270 l2.5 3 l5 -7"/>
+<path d="M416 251 h44M416 271 h36M416 291 h48" stroke="#8A8276"/>
+<path class="pn-draw pn-slow pn-d8" pathLength="1" stroke="#996A15" stroke-width="2.4" d="M396 291 C394 282 420 280 446 281 C468 282 474 288 470 296 C466 303 430 303 410 301 C398 300 393 296 397 289"/>
+<path class="pn-draw pn-slow pn-d10" pathLength="1" stroke="#1D5C50" stroke-width="2.4" stroke-dasharray="1 0" d="M404 330 C420 312 436 336 452 318 C462 306 472 318 480 312"/>
+<circle class="pn-pop pn-d10" cx="404" cy="330" r="3.5" fill="#1D5C50" stroke="none"/>
+<circle class="pn-pop pn-d11" cx="480" cy="312" r="4.5" fill="#996A15" stroke="none"/>
+</g>
+<g transform="translate(452 334) rotate(-28)">
+<rect x="-34" y="-4" width="58" height="8" rx="2" fill="#E9B44C"/>
+<rect x="-42" y="-4" width="9" height="8" rx="2" fill="#A33B2E"/>
+<path d="M24 -4 L36 0 L24 4 Z" fill="#E5DFD3"/>
+<path d="M32 -1.4 L36 0 L32 1.4 Z" fill="#26221B"/>
+</g>
+</g>
+</svg>
+</div>
+</div>
+</div>
+
+<div class="ab-idea pn-rv">
+<div class="pn-wrap">
+<div class="ab-idea-copy">
+<p class="ab-statement pn-up">That became the idea for Pantas.</p>
+<p class="ab-p pn-up pn-d1">As I started planning how I would build it, I realized the same system could be useful to other people too. If I could build something like this for myself, why not make it accessible to others who could use it as well?</p>
+</div>
+<div class="ab-town pn-fade pn-d2" aria-hidden="true">
+<svg viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" focusable="false">
+<defs><linearGradient id="abDusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F332D"/><stop offset="1" stop-color="#1D5C50"/></linearGradient></defs>
+<rect width="1200" height="300" fill="url(#abDusk)"/>
+<circle class="ab-star" style="--d:0.73s" cx="1124" cy="26" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.68s" cx="980" cy="90" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.25s" cx="970" cy="43" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.67s" cx="973" cy="79" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.96s" cx="318" cy="39" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.62s" cx="1081" cy="59" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.34s" cx="141" cy="30" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.82s" cx="73" cy="115" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.06s" cx="803" cy="101" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.95s" cx="920" cy="27" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.54s" cx="288" cy="73" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.76s" cx="903" cy="109" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.99s" cx="800" cy="83" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.15s" cx="844" cy="84" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.67s" cx="68" cy="119" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.79s" cx="344" cy="99" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.75s" cx="1181" cy="82" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.40s" cx="442" cy="91" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.80s" cx="139" cy="71" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.52s" cx="146" cy="62" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.43s" cx="884" cy="108" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.62s" cx="100" cy="87" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.93s" cx="687" cy="80" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.11s" cx="83" cy="49" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.51s" cx="1106" cy="14" r="1.2" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.76s" cx="607" cy="88" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.62s" cx="96" cy="53" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.90s" cx="293" cy="120" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.93s" cx="1075" cy="59" r="1" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.27s" cx="1048" cy="44" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.29s" cx="496" cy="48" r="1.8" fill="#FBF9F4"/><circle class="ab-star" style="--d:1.77s" cx="1077" cy="48" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.42s" cx="860" cy="84" r="1.5" fill="#FBF9F4"/><circle class="ab-star" style="--d:0.43s" cx="282" cy="17" r="1.5" fill="#FBF9F4"/>
+<circle cx="1010" cy="62" r="20" fill="#FBF9F4" opacity=".92"/>
+<circle cx="1019" cy="55" r="18" fill="#123E36"/>
+<g fill="#2C6B5E" opacity=".55"><rect x="0" y="161" width="70" height="139" rx="3"/><rect x="76" y="174" width="91" height="126" rx="3"/><rect x="163" y="112" width="102" height="188" rx="3"/><rect x="262" y="106" width="73" height="194" rx="3"/><rect x="330" y="116" width="108" height="184" rx="3"/><rect x="438" y="169" width="52" height="131" rx="3"/><rect x="497" y="172" width="76" height="128" rx="3"/><rect x="574" y="110" width="55" height="190" rx="3"/><rect x="636" y="108" width="53" height="192" rx="3"/><rect x="686" y="152" width="110" height="148" rx="3"/><rect x="791" y="106" width="86" height="194" rx="3"/><rect x="883" y="152" width="53" height="148" rx="3"/><rect x="931" y="163" width="85" height="137" rx="3"/><rect x="1019" y="162" width="76" height="138" rx="3"/><rect x="1092" y="141" width="86" height="159" rx="3"/><rect x="1177" y="106" width="56" height="194" rx="3"/></g><rect x="-4" y="219" width="83" height="53" fill="#123D35"/><path d="M-10 221 L37.5 185 L85 221 Z" fill="#123D35"/><rect x="111" y="119" width="146" height="153" rx="3" fill="#123D35"/><rect x="223" y="103" width="20" height="16" rx="2" fill="#123D35"/><rect x="221" y="99" width="24" height="5" rx="2" fill="#123D35"/><rect x="283" y="79" width="141" height="193" rx="3" fill="#123D35"/><rect x="390" y="63" width="20" height="16" rx="2" fill="#123D35"/><rect x="388" y="59" width="24" height="5" rx="2" fill="#123D35"/><rect x="456" y="226" width="104" height="46" fill="#123D35"/><path d="M450 228 L508.0 192 L566 228 Z" fill="#123D35"/><rect x="586" y="225" width="94" height="47" fill="#164A40"/><path d="M580 227 L633.0 191 L686 227 Z" fill="#164A40"/><rect x="700" y="78" width="121" height="194" rx="3" fill="#123D35"/><rect x="787" y="62" width="20" height="16" rx="2" fill="#123D35"/><rect x="785" y="58" width="24" height="5" rx="2" fill="#123D35"/><rect x="821" y="103" width="146" height="169" rx="3" fill="#123D35"/><rect x="933" y="87" width="20" height="16" rx="2" fill="#123D35"/><rect x="931" y="83" width="24" height="5" rx="2" fill="#123D35"/><rect x="999" y="222" width="90" height="50" fill="#123D35"/><path d="M993 224 L1044.0 188 L1095 224 Z" fill="#123D35"/><rect x="1109" y="169" width="92" height="103" rx="3" fill="#123D35"/><rect x="1105" y="228" width="100" height="6" rx="3" fill="#0E302A"/><g fill="#1B4C43"><rect x="6.0" y="231.0" width="16.0" height="18.0" rx="2"/><rect x="53.0" y="231.0" width="16.0" height="18.0" rx="2"/><rect x="129.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect x="161.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect x="193.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect x="225.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect x="129.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect x="161.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect x="193.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect x="225.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect x="129.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect x="161.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect x="193.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect x="225.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect x="129.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect x="161.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect x="193.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect x="225.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect x="300.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect x="331.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect x="362.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect x="393.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect x="300.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect x="331.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect x="362.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect x="393.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect x="300.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect x="331.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect x="362.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect x="393.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect x="300.0" y="185.0" width="14.0" height="18.0" rx="2"/><rect x="331.0" y="185.0" width="14.0" height="18.0" rx="2"/><rect x="362.0" y="185.0" width="14.0" height="18.0" rx="2"/><rect x="393.0" y="185.0" width="14.0" height="18.0" rx="2"/><rect x="300.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect x="331.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect x="362.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect x="393.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect x="466.0" y="238.0" width="16.0" height="18.0" rx="2"/><rect x="534.0" y="238.0" width="16.0" height="18.0" rx="2"/><rect x="617.0" y="237.0" width="32.0" height="24.0" rx="2"/><rect x="594.0" y="241.0" width="12.0" height="16.0" rx="2"/><rect x="660.0" y="241.0" width="12.0" height="16.0" rx="2"/><rect x="719.8" y="94.0" width="14.0" height="18.0" rx="2"/><rect x="753.5" y="94.0" width="14.0" height="18.0" rx="2"/><rect x="787.2" y="94.0" width="14.0" height="18.0" rx="2"/><rect x="719.8" y="124.0" width="14.0" height="18.0" rx="2"/><rect x="753.5" y="124.0" width="14.0" height="18.0" rx="2"/><rect x="787.2" y="124.0" width="14.0" height="18.0" rx="2"/><rect x="719.8" y="154.0" width="14.0" height="18.0" rx="2"/><rect x="753.5" y="154.0" width="14.0" height="18.0" rx="2"/><rect x="787.2" y="154.0" width="14.0" height="18.0" rx="2"/><rect x="719.8" y="184.0" width="14.0" height="18.0" rx="2"/><rect x="753.5" y="184.0" width="14.0" height="18.0" rx="2"/><rect x="787.2" y="184.0" width="14.0" height="18.0" rx="2"/><rect x="719.8" y="214.0" width="14.0" height="18.0" rx="2"/><rect x="753.5" y="214.0" width="14.0" height="18.0" rx="2"/><rect x="787.2" y="214.0" width="14.0" height="18.0" rx="2"/><rect x="839.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect x="871.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect x="903.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect x="935.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect x="839.0" y="149.0" width="14.0" height="18.0" rx="2"/><rect x="871.0" y="149.0" width="14.0" height="18.0" rx="2"/><rect x="903.0" y="149.0" width="14.0" height="18.0" rx="2"/><rect x="935.0" y="149.0" width="14.0" height="18.0" rx="2"/><rect x="839.0" y="179.0" width="14.0" height="18.0" rx="2"/><rect x="871.0" y="179.0" width="14.0" height="18.0" rx="2"/><rect x="903.0" y="179.0" width="14.0" height="18.0" rx="2"/><rect x="935.0" y="179.0" width="14.0" height="18.0" rx="2"/><rect x="839.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect x="871.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect x="903.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect x="935.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect x="1009.0" y="234.0" width="16.0" height="18.0" rx="2"/><rect x="1063.0" y="234.0" width="16.0" height="18.0" rx="2"/><rect x="1121.0" y="185.0" width="14.7" height="20.0" rx="2"/><rect x="1143.7" y="185.0" width="14.7" height="20.0" rx="2"/><rect x="1166.3" y="185.0" width="14.7" height="20.0" rx="2"/><rect x="1123.0" y="238.0" width="64.0" height="22.0" rx="2"/></g><g fill="#F3C969"><rect class="ab-lit" style="--d:3.60s" x="129.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.49s" x="161.0" y="135.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.35s" x="161.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.13s" x="225.0" y="165.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.37s" x="129.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.47s" x="161.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.16s" x="193.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.25s" x="225.0" y="195.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.48s" x="129.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.50s" x="161.0" y="225.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.91s" x="300.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.97s" x="331.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.50s" x="393.0" y="95.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.80s" x="300.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.81s" x="331.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.49s" x="362.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.51s" x="393.0" y="125.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.02s" x="300.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.66s" x="362.0" y="155.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.97s" x="300.0" y="185.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.78s" x="300.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.74s" x="331.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.42s" x="362.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.33s" x="393.0" y="215.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:1.99s" x="466.0" y="238.0" width="16.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:1.75s" x="534.0" y="238.0" width="16.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:0.50s" x="617.0" y="237.0" width="32.0" height="24.0" rx="2"/><rect class="ab-lit" style="--d:1.59s" x="594.0" y="241.0" width="12.0" height="16.0" rx="2"/><rect class="ab-lit" style="--d:1.72s" x="660.0" y="241.0" width="12.0" height="16.0" rx="2"/><rect class="ab-lit" style="--d:2.06s" x="719.8" y="94.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.21s" x="753.5" y="94.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.22s" x="787.2" y="94.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.26s" x="787.2" y="124.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:1.85s" x="719.8" y="154.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.01s" x="753.5" y="154.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:1.74s" x="719.8" y="184.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.02s" x="787.2" y="184.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:1.68s" x="719.8" y="214.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.14s" x="753.5" y="214.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.51s" x="871.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.77s" x="903.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.89s" x="935.0" y="119.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.29s" x="839.0" y="149.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.72s" x="935.0" y="179.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.15s" x="839.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.36s" x="871.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:2.63s" x="903.0" y="209.0" width="14.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.13s" x="1009.0" y="234.0" width="16.0" height="18.0" rx="2"/><rect class="ab-lit" style="--d:3.44s" x="1143.7" y="185.0" width="14.7" height="20.0" rx="2"/><rect class="ab-lit" style="--d:3.52s" x="1166.3" y="185.0" width="14.7" height="20.0" rx="2"/><rect class="ab-lit" style="--d:3.48s" x="1123.0" y="238.0" width="64.0" height="22.0" rx="2"/></g><g class="ab-lit" style="--d:0.5s"><circle cx="629.0" cy="248" r="4.2" fill="#123D35"/><path d="M622.0 261 q7 -9 14 0 Z" fill="#123D35"/><rect x="619.0" y="258" width="26" height="3" fill="#123D35"/><path d="M641.0 258 l0 -9 l4 -3" stroke="#123D35" stroke-width="1.6" fill="none"/></g><rect x="854" y="248" width="4" height="26" fill="#0E302A"/><circle cx="856" cy="233.0" r="25" fill="#0F362F"/><circle cx="871.0" cy="244.5" r="17.5" fill="#0F362F"/><rect x="335" y="248" width="4" height="26" fill="#0E302A"/><circle cx="337" cy="235.4" r="21" fill="#0F362F"/><circle cx="349.6" cy="245.7" r="14.7" fill="#0F362F"/><rect x="698" y="248" width="4" height="26" fill="#0E302A"/><circle cx="700" cy="235.4" r="21" fill="#0F362F"/><circle cx="712.6" cy="245.7" r="14.7" fill="#0F362F"/><rect x="309" y="248" width="4" height="26" fill="#0E302A"/><circle cx="311" cy="235.4" r="21" fill="#0F362F"/><circle cx="323.6" cy="245.7" r="14.7" fill="#0F362F"/><rect x="999" y="248" width="4" height="26" fill="#0E302A"/><circle cx="1001" cy="233.0" r="25" fill="#0F362F"/><circle cx="1016.0" cy="244.5" r="17.5" fill="#0F362F"/><rect x="861" y="248" width="4" height="26" fill="#0E302A"/><circle cx="863" cy="234.2" r="23" fill="#0F362F"/><circle cx="876.8" cy="245.1" r="16.099999999999998" fill="#0F362F"/><rect x="78" y="248" width="4" height="26" fill="#0E302A"/><circle cx="80" cy="233.0" r="25" fill="#0F362F"/><circle cx="95.0" cy="244.5" r="17.5" fill="#0F362F"/><rect x="156" y="248" width="4" height="26" fill="#0E302A"/><circle cx="158" cy="234.2" r="23" fill="#0F362F"/><circle cx="171.8" cy="245.1" r="16.099999999999998" fill="#0F362F"/><rect x="1140" y="248" width="4" height="26" fill="#0E302A"/><circle cx="1142" cy="237.8" r="17" fill="#0F362F"/><circle cx="1152.2" cy="246.9" r="11.899999999999999" fill="#0F362F"/><rect x="0" y="272" width="1200" height="28" fill="#0E302A"/>
+</svg>
+</div>
+</div>
+</div>
+</section>
+
+<div class="pn-wrap"><hr class="ab-hr"></div>
+
+<section class="ab-ch" aria-labelledby="ab-who-h">
+<div class="pn-wrap">
+<div class="ab-who-in pn-rv">
+<div class="ab-portrait ab-art" aria-hidden="true">
+<svg viewBox="0 0 440 520" focusable="false">
+<defs>
+<clipPath id="abArch"><path d="M20 520 L20 210 A200 200 0 0 1 420 210 L420 520 Z"/></clipPath>
+<radialGradient id="abWarm" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFE7A8" stop-opacity=".75"/><stop offset="1" stop-color="#FFE7A8" stop-opacity="0"/></radialGradient>
+<clipPath id="abHead"><ellipse cx="220" cy="256" rx="62" ry="72"/></clipPath>
+</defs>
+<g clip-path="url(#abArch)">
+<rect class="pn-fade" x="0" y="0" width="440" height="520" fill="#E3EFEA"/>
+<circle class="ab-lit" style="--d:.5s" cx="40" cy="250" r="190" fill="url(#abWarm)"/>
+<g class="pn-fade pn-d2">
+<rect x="292" y="136" width="70" height="92" rx="8" fill="#FFFFFF"/>
+<rect x="302" y="148" width="50" height="10" rx="3" fill="#CFE3DB"/>
+<rect x="302" y="166" width="34" height="6" rx="3" fill="#E5DFD3"/>
+<rect x="302" y="180" width="42" height="6" rx="3" fill="#E5DFD3"/>
+<rect x="302" y="200" width="50" height="16" rx="5" fill="#1D5C50"/>
+<rect x="80" y="150" width="60" height="78" rx="8" fill="#FFFFFF" opacity=".75"/>
+<path d="M92 166 h36 M92 180 h28 M92 194 h32" stroke="#8A8276" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 4"/>
+<rect x="92" y="206" width="36" height="12" rx="4" fill="none" stroke="#8A8276" stroke-width="2" stroke-dasharray="3 3"/>
+</g>
+<g class="pn-su pn-d3">
+<path d="M54 540 C62 422 126 370 220 366 C314 370 378 422 386 540 Z" fill="#1D5C50"/>
+<path d="M194 312 L194 366 C194 388 246 388 246 366 L246 312 Z" fill="#8A5C43"/>
+<path d="M194 326 C208 340 232 340 246 326 L246 314 L194 314 Z" fill="#7A4F38" opacity=".55"/>
+<path d="M186 370 C198 394 242 394 254 370 C244 366 234 364 220 364 C206 364 196 366 186 370 Z" fill="#174A41"/><path d="M196 368 C206 384 234 384 244 368 C236 365 228 364 220 364 C212 364 204 365 196 368 Z" fill="#8A5C43"/>
+<ellipse cx="158" cy="266" rx="12" ry="17" fill="#A8775A"/>
+<ellipse cx="282" cy="266" rx="12" ry="17" fill="#A8775A"/>
+<ellipse cx="159" cy="267" rx="5" ry="9" fill="#8A5C43"/>
+<ellipse cx="281" cy="267" rx="5" ry="9" fill="#8A5C43"/>
+<ellipse cx="220" cy="256" rx="62" ry="72" fill="#A8775A"/>
+<g clip-path="url(#abHead)"><ellipse cx="284" cy="290" rx="44" ry="70" fill="#96664B" opacity=".28"/></g>
+<path d="M155 262 C145 204 170 156 222 156 C276 156 298 200 287 262 C285 250 282 240 276 231 C266 220 250 214 234 214 C244 219 249 225 250 231 C232 221 208 222 190 233 C178 240 168 248 160 258 Z" fill="#26221B"/><path d="M190 233 C200 214 222 204 246 206 C230 210 214 220 204 232 Z" fill="#26221B"/>
+<path d="M184 186 C202 174 238 172 260 186" stroke="#3A342A" stroke-width="4" stroke-linecap="round" fill="none" opacity=".8"/>
+<path d="M206 170 C218 166 232 167 242 172" stroke="#3A342A" stroke-width="3" stroke-linecap="round" fill="none" opacity=".6"/>
+<path d="M181 241 C189 235 201 234 209 237" stroke="#26221B" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+<path d="M231 237 C239 234 251 235 259 241" stroke="#26221B" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+<g class="pn-blink pn-d9"><ellipse cx="196" cy="260" rx="5" ry="6" fill="#26221B"/><ellipse cx="244" cy="260" rx="5" ry="6" fill="#26221B"/></g>
+<path d="M219 268 C214 282 214 290 224 291" stroke="#7A4F38" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+<path d="M201 304 C212 315 230 315 241 304" stroke="#26221B" stroke-width="4" stroke-linecap="round" fill="none"/>
+<ellipse cx="184" cy="288" rx="10" ry="6" fill="#C98B6E" opacity=".35"/>
+<ellipse cx="256" cy="288" rx="10" ry="6" fill="#C98B6E" opacity=".35"/>
+</g>
+<g class="pn-up pn-d5">
+<path d="M104 520 L124 418 L316 418 L336 520 Z" fill="#26221B"/>
+<path d="M124 418 L316 418" stroke="#3A342A" stroke-width="4" stroke-linecap="round"/>
+<g transform="translate(220 466) scale(0.085) translate(-627 -632)" fill="#FBF9F4">
+<path d="M363.97 493.76 L614.06 374.19 A30 30 0 0 1 639.94 374.19 L890.03 493.76 A18 18 0 0 1 890.03 526.24 L639.94 645.81 A30 30 0 0 1 614.06 645.81 L363.97 526.24 A18 18 0 0 1 363.97 493.76 Z"/>
+<path d="M443.45 593.06 L519.45 629.40 A8 8 0 0 1 524.00 636.62 L524.00 878.00 A12 12 0 0 1 512.00 890.00 L478.00 890.00 A46 46 0 0 1 432.00 844.00 L432.00 600.28 A8 8 0 0 1 443.45 593.06 Z"/>
+<path d="M728 638.53 Q728 632.53 734 629.63 L814 591.44 Q820 588.54 820 594.54 L820 696 A150 150 0 0 1 670 846 L584 846 A12 12 0 0 1 572 834 L572 766 A12 12 0 0 1 584 754 L670 754 A58 58 0 0 0 728 696 Z"/>
+<path d="M887 515.69V664" stroke="#FBF9F4" stroke-width="11" stroke-linecap="round" fill="none"/><circle cx="887" cy="682" r="20"/><path d="M877 699 L897 699 L912 774 Q915 790 899 791 L875 791 Q859 790 862 774 Z"/>
+</g>
+</g>
+<g class="pn-su pn-d6">
+<path d="M362 520 L368 470 L404 470 L410 520 Z" fill="#C4A97E"/>
+<path d="M386 470 C372 444 352 440 344 424 C364 424 380 436 386 456 C388 432 400 416 418 410 C414 432 402 448 390 470 Z" fill="#1D5C50"/>
+<path d="M386 470 C392 450 404 444 420 446 C410 458 400 466 388 472 Z" fill="#2C6B5E"/>
+</g>
+</g>
+</svg>
+</div>
+<div class="ab-who-copy ab-copy">
+<h2 id="ab-who-h" class="ab-h2 pn-up">Who built Pantas</h2>
+<p class="ab-open pn-up pn-d1">I'm Aerol, the sole developer of Pantas.</p>
+<p class="ab-p pn-up pn-d2">I graduated from Philippine Science High School and later studied Computer Science at UP Diliman as a DOST Merit Scholar.</p>
+<p class="ab-p pn-up pn-d3">Right now, I'm a one-man team. Everything you see, from the app itself to this website, is the result of me pouring my time and effort into making sure the experience feels as good as I can make it.</p>
+<p class="ab-p pn-up pn-d4">I've also been seriously learning UI/UX design for the past year, and a lot of what I've learned has found its way into Pantas. I still have plenty of room to improve, but that honestly makes the project more exciting to me. As I get better, Pantas gets better too.</p>
+<p class="ab-p pn-up pn-d5">I'm also part of the audience I built Pantas for. That means I'll always be particular about the little things and keep polishing the parts that might otherwise be overlooked, so that Pantas is wonderful to use not only for me, but for everyone.</p>
+</div>
+</div>
+
+<div class="ab-growth pn-rv">
+<p class="ab-statement pn-up" style="font-size: clamp(22px, 2.1vw, 30px); max-width: 48rem; text-align: center; line-height: 1.22">Over time, I want the history of Pantas itself to reflect that growth: not just as a product, but as a record of how much I've improved alongside it.</p>
+<div class="ab-growth-art" aria-hidden="true">
+<svg viewBox="300 0 400 340" focusable="false">
+<defs><filter id="abSh" x="-30%" y="-20%" width="160%" height="150%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#26221B" flood-opacity=".16"/></filter></defs>
+<ellipse class="pn-fade pn-d7" cx="597" cy="326" rx="86" ry="8" fill="#26221B" opacity=".06"/>
+<g transform="translate(331 142) scale(.75) translate(-41 -38)"><g class="pn-su pn-d2">
+<path d="M42 40 C40 110 44 200 41 276 C70 279 118 277 150 279 C152 200 148 110 151 38 C118 36 74 41 42 40 Z" fill="#FBF9F4" stroke="#8A8276" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M60 62 C80 61 110 63 132 61" stroke="#8A8276" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M58 84 C82 82 98 85 112 83" stroke="#8A8276" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M58 106 C60 104 128 108 132 105 C134 130 131 150 133 168 C110 170 80 167 59 169 C57 150 60 126 58 106 Z" stroke="#8A8276" stroke-width="2" fill="none" stroke-linejoin="round"/>
+<path d="M62 112 L128 164 M128 112 L62 164" stroke="#B9B1A3" stroke-width="1.5"/>
+<path d="M60 190 C84 188 104 191 130 189 M60 210 C80 209 96 211 116 209" stroke="#8A8276" stroke-width="2" stroke-linecap="round" fill="none"/>
+<path d="M60 238 C76 236 116 239 132 237 C133 246 132 252 133 258 C110 260 80 257 60 259 C59 251 61 245 60 238 Z" stroke="#8A8276" stroke-width="2" fill="none"/>
+</g></g>
+<g transform="translate(389 117) scale(.854) translate(-290 -38)"><g class="pn-su pn-d3">
+<rect x="290" y="38" width="110" height="240" rx="18" fill="#FFFFFF" stroke="#D9D2C4" stroke-width="2"/>
+<rect x="304" y="60" width="60" height="10" rx="4" fill="#E5DFD3"/>
+<rect x="304" y="82" width="82" height="16" rx="5" fill="#E5DFD3"/>
+<rect x="304" y="110" width="82" height="64" rx="8" fill="#F1EDE4"/>
+<rect x="304" y="186" width="82" height="10" rx="4" fill="#E5DFD3"/>
+<rect x="304" y="204" width="60" height="10" rx="4" fill="#E5DFD3"/>
+<rect x="304" y="236" width="82" height="22" rx="8" fill="#D9D2C4"/>
+</g></g>
+<g transform="translate(453 90) scale(.967) translate(-540 -38)"><g class="pn-su pn-d4">
+<rect x="540" y="38" width="110" height="240" rx="18" fill="#FFFFFF" stroke="#E5DFD3" stroke-width="1.5"/>
+<rect x="554" y="58" width="82" height="24" rx="7" fill="#F1EDE4"/>
+<rect x="554" y="94" width="58" height="12" rx="4" fill="#B9B1A3"/>
+<g fill="none" stroke="#D9D2C4" stroke-width="2.4"><circle cx="562" cy="128" r="6"/><circle cx="562" cy="152" r="6"/><circle cx="562" cy="176" r="6"/></g>
+<rect x="574" y="124" width="56" height="8" rx="3" fill="#E5DFD3"/><rect x="574" y="148" width="46" height="8" rx="3" fill="#E5DFD3"/><rect x="574" y="172" width="52" height="8" rx="3" fill="#E5DFD3"/>
+<rect x="554" y="200" width="82" height="22" rx="7" fill="#B9B1A3"/>
+<path d="M566 258 a29 29 0 0 1 58 0" stroke="#EFEAE0" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path d="M566 258 a29 29 0 0 1 40 -27" stroke="#B9B1A3" stroke-width="7" stroke-linecap="round" fill="none"/>
+</g></g>
+<g transform="translate(525 8) scale(1.2) translate(-790 -20)"><g class="pn-su pn-d7" filter="url(#abSh)">
+<rect x="790" y="20" width="120" height="262" rx="22" fill="#26221B"/>
+<rect x="795" y="25" width="110" height="252" rx="18" fill="#F5F5F7"/>
+<rect x="836" y="30" width="28" height="8" rx="4" fill="#000000"/>
+<rect x="803" y="46" width="94" height="22" rx="7" fill="#FFFFFF"/>
+<g fill="#0B7A68"><circle cx="814" cy="62" r="1.4"/><circle cx="827" cy="62" r="1.4"/><circle cx="840" cy="62" r="1.4"/></g>
+<circle cx="853" cy="56" r="6.5" fill="#0B7A68"/>
+<rect x="805" y="78" width="66" height="10" rx="3" fill="#1D1D1F"/>
+<rect x="803" y="98" width="94" height="78" rx="8" fill="#FFFFFF"/>
+<circle cx="815" cy="112" r="5" fill="#0B7A68"/><path d="M812.6 112 l1.6 1.8 l3.2 -3.6" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+<g fill="none" stroke="#D1D1D6" stroke-width="1.6"><circle cx="815" cy="132" r="5"/><circle cx="815" cy="152" r="5"/></g>
+<rect x="826" y="109" width="54" height="6" rx="3" fill="#C7C7CC"/><rect x="826" y="129" width="60" height="6" rx="3" fill="#1D1D1F" opacity=".8"/><rect x="826" y="149" width="46" height="6" rx="3" fill="#1D1D1F" opacity=".8"/>
+<rect x="808" y="162" width="84" height="10" rx="4" fill="#0B7A68"/>
+<path d="M822 228 a28 28 0 0 1 56 0" stroke="#E5E5EA" stroke-width="7" stroke-linecap="round" fill="none"/>
+<path d="M822 228 a28 28 0 0 1 42 -24" stroke="#0B7A68" stroke-width="7" stroke-linecap="round" fill="none"/>
+<rect x="841" y="214" width="18" height="10" rx="3" fill="#1D1D1F"/>
+<rect x="803" y="248" width="94" height="20" rx="10" fill="#FFFFFF"/>
+<rect x="806" y="251" width="22" height="14" rx="7" fill="#E4F1EE"/>
+</g></g>
+</svg>
+</div>
+</div>
+</div>
+</section>
+
+<div class="pn-wrap"><hr class="ab-hr"></div>
+
+<section class="ab-ch" aria-labelledby="ab-int-h">
+<div class="pn-wrap">
+<div class="ab-int-head pn-rv">
+<h2 id="ab-int-h" class="ab-h2 pn-up">Designed with intention</h2>
+<p class="ab-p pn-up pn-d1">Frankly, there are already so many apps that try to do the same thing. Before writing any code, I spent a lot of time researching the best and proven ways to study for these exams effectively.</p>
+</div>
+<div class="ab-pr-grid">
+
+<article class="ab-pr pn-rv">
+<div class="ab-pr-art" aria-hidden="true">
+<svg viewBox="0 0 400 250" focusable="false">
+<g class="pn-fade">
+<circle cx="56" cy="60" r="17" fill="#FFFFFF"/><g stroke="#1D5C50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="49" y="50.5" width="14" height="19" rx="3"/><path d="M52.5 54.5h7"/></g><g fill="#1D5C50"><circle cx="53" cy="60" r="1.2"/><circle cx="56" cy="60" r="1.2"/><circle cx="59" cy="60" r="1.2"/><circle cx="53" cy="64.5" r="1.2"/><circle cx="56" cy="64.5" r="1.2"/><circle cx="59" cy="64.5" r="1.2"/></g>
+<circle cx="56" cy="104" r="17" fill="#FFFFFF"/><g stroke="#1D5C50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M50 96h12a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-6l-4.5 3.5v-3.5h-1.5a3 3 0 0 1 -3 -3v-6a3 3 0 0 1 3 -3z"/><path d="M51.5 100h9M51.5 104h5.5"/></g>
+<circle cx="56" cy="148" r="17" fill="#FFFFFF"/><g stroke="#1D5C50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M53 139.5v6.5l-5.2 9.2a1.8 1.8 0 0 0 1.6 2.8h13.2a1.8 1.8 0 0 0 1.6 -2.8L59 146v-6.5M51.5 139.5h9"/><path d="M50.2 152h11.6"/></g>
+<circle cx="56" cy="192" r="17" fill="#FFFFFF"/><g stroke="#1D5C50" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M56 187.5c-2.6 -1.8 -5.6 -2.3 -9 -1.5v12c3.4 -.8 6.4 -.3 9 1.5c2.6 -1.8 5.6 -2.3 9 -1.5v-12c-3.4 -.8 -6.4 -.3 -9 1.5zM56 187.5v12"/></g>
+</g>
+<g fill="#E5DFD3"><rect x="88" y="54" width="272" height="12" rx="6"/><rect x="88" y="98" width="272" height="12" rx="6"/><rect x="88" y="142" width="272" height="12" rx="6"/><rect x="88" y="186" width="272" height="12" rx="6"/></g>
+<rect class="pn-growx ab-gx pn-d2" x="88" y="54" width="222" height="12" rx="6" fill="#1D5C50"/>
+<rect class="pn-growx ab-gx pn-d3" x="88" y="98" width="150" height="12" rx="6" fill="#1D5C50"/>
+<rect class="pn-growx ab-gx pn-d4" x="88" y="142" width="62" height="12" rx="6" fill="#996A15"/>
+<rect class="pn-growx ab-gx pn-d5" x="88" y="186" width="188" height="12" rx="6" fill="#1D5C50"/>
+<rect class="pn-draw pn-slow pn-d8" pathLength="1" x="30" y="124" width="342" height="48" rx="24" fill="none" stroke="#996A15" stroke-width="2.4" stroke-dasharray="1 2"/>
+</svg>
+</div>
+<h3 class="ab-h3 pn-up pn-d1">Self-assessment</h3>
+<p class="ab-p pn-up pn-d2">This is something most products, and often self-study itself, fail to address: not everyone starts at the same point.</p>
+<p class="ab-p pn-up pn-d3">We all have different levels of mastery across different subjects, so I thought it made sense for Pantas to first assess what you already know. That gives you a clear baseline for where to start and what actually needs your attention.</p>
+</article>
+
+<article class="ab-pr pn-rv">
+<div class="ab-pr-art" aria-hidden="true">
+<svg viewBox="0 0 400 250" focusable="false">
+<path d="M40 30 V210 H372" stroke="#D9D2C4" stroke-width="2" fill="none" stroke-linecap="round"/>
+<path class="pn-draw pn-d3" pathLength="1" d="M40 168 H372" stroke="#996A15" stroke-width="2" stroke-dasharray="1 2" fill="none" opacity=".7"/>
+<path class="pn-draw pn-slow pn-d2" pathLength="1" d="M40 46 C62 110 88 150 122 166" stroke="#1D5C50" stroke-width="4" stroke-linecap="round" fill="none"/>
+<path class="pn-fade pn-d6" d="M122 166 V52" stroke="#1D5C50" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+<path class="pn-draw pn-slow pn-d7" pathLength="1" d="M122 52 C160 104 196 142 236 164" stroke="#1D5C50" stroke-width="4" stroke-linecap="round" fill="none"/>
+<path class="pn-fade pn-d10" d="M236 164 V52" stroke="#1D5C50" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+<path class="pn-draw pn-slow pn-d11" pathLength="1" d="M236 52 C280 80 326 104 372 118" stroke="#1D5C50" stroke-width="4" stroke-linecap="round" fill="none"/>
+<g class="pn-pop pn-d6"><circle cx="122" cy="52" r="13" fill="#1D5C50"/><path d="M117 49 a6 6 0 1 1 -0.5 6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M114.5 46 l2.6 3.2 l3.4 -2.4" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="pn-pop pn-d10"><circle cx="236" cy="52" r="13" fill="#1D5C50"/><path d="M231 49 a6 6 0 1 1 -0.5 6" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M228.5 46 l2.6 3.2 l3.4 -2.4" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="pn-fade pn-d8" stroke="#B9B1A3" stroke-width="2" stroke-linecap="round" fill="none"><path d="M46 228 V236 M46 232 H116 M116 228 V236"/><path d="M128 228 V236 M128 232 H230 M230 228 V236"/><path d="M242 228 V236 M242 232 H366 M366 228 V236"/></g>
+</svg>
+</div>
+<h3 class="ab-h3 pn-up pn-d1">Spaced repetition</h3>
+<p class="ab-p pn-up pn-d2">Pantas estimates how well you remember what you've studied and uses that to decide when you should see it again.</p>
+<p class="ab-p pn-up pn-d3">Instead of reviewing everything equally, lessons and questions can return when your memory is starting to fade, helping you refresh what you've learned before it gets lost.</p>
+</article>
+
+<article class="ab-pr pn-rv">
+<div class="ab-pr-art" aria-hidden="true">
+<svg viewBox="0 0 400 250" focusable="false">
+<defs><filter id="abSh2" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="9" flood-color="#26221B" flood-opacity=".08"/></filter></defs>
+<g class="pn-up" filter="url(#abSh2)">
+<rect x="34" y="26" width="212" height="198" rx="16" fill="#FFFFFF"/>
+<rect x="52" y="44" width="160" height="8" rx="4" fill="#D9D2C4"/>
+<rect x="52" y="58" width="112" height="8" rx="4" fill="#D9D2C4"/>
+<g fill="none" stroke="#E5DFD3" stroke-width="1.6"><rect x="52" y="80" width="176" height="28" rx="14"/><rect x="52" y="118" width="176" height="28" rx="14"/><rect x="52" y="156" width="176" height="28" rx="14"/><rect x="52" y="194" width="176" height="20" rx="10" opacity="0"/></g>
+<g font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#6E675C" text-anchor="middle"><text x="68" y="98">A</text><text x="68" y="136">B</text><text x="68" y="174">C</text></g>
+<rect x="82" y="90" width="90" height="7" rx="3.5" fill="#E5DFD3"/><rect x="82" y="128" width="104" height="7" rx="3.5" fill="#E5DFD3"/><rect x="82" y="166" width="80" height="7" rx="3.5" fill="#E5DFD3"/>
+</g>
+<g class="pn-fade pn-d4"><rect x="52" y="118" width="176" height="28" rx="14" fill="#F6E4E1" stroke="#A33B2E" stroke-width="1.8"/><text x="68" y="136" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#A33B2E">B</text><rect x="82" y="128" width="104" height="7" rx="3.5" fill="#E2B8B1"/><path d="M207 127 l8 8 M215 127 l-8 8" stroke="#A33B2E" stroke-width="2.2" stroke-linecap="round"/></g>
+<g class="pn-fade pn-d6"><rect x="52" y="156" width="176" height="28" rx="14" fill="#E3EFEA" stroke="#1D5C50" stroke-width="1.8"/><text x="68" y="174" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" fill="#1D5C50">C</text><rect x="82" y="166" width="80" height="7" rx="3.5" fill="#B8D5CA"/><path d="M206 170 l3.5 3.5 l7 -7" stroke="#1D5C50" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="pn-sr pn-d8" filter="url(#abSh2)">
+<path d="M236 132 L252 122 L252 142 Z" fill="#FFFFFF"/>
+<rect x="250" y="76" width="126" height="128" rx="14" fill="#FFFFFF"/>
+<rect x="250" y="76" width="126" height="6" rx="3" fill="#A33B2E"/>
+<circle cx="270" cy="102" r="9" fill="#F6E4E1"/><path d="M270 97v6M270 106.5v.5" stroke="#A33B2E" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="284" y="98" width="72" height="8" rx="4" fill="#26221B" opacity=".8"/>
+<rect class="pn-growx ab-gx pn-d9" x="264" y="124" width="98" height="7" rx="3.5" fill="#E5DFD3"/>
+<rect class="pn-growx ab-gx pn-d10" x="264" y="140" width="86" height="7" rx="3.5" fill="#E5DFD3"/>
+<rect class="pn-growx ab-gx pn-d11" x="264" y="156" width="94" height="7" rx="3.5" fill="#E5DFD3"/>
+<rect class="pn-growx ab-gx pn-d12" x="264" y="172" width="60" height="7" rx="3.5" fill="#E5DFD3"/>
+</g>
+</svg>
+</div>
+<h3 class="ab-h3 pn-up pn-d1">Elaborated mistakes</h3>
+<p class="ab-p pn-up pn-d2">When you get an answer wrong, Pantas tells you why your answer was wrong, not just why another answer is right.</p>
+<p class="ab-p pn-up pn-d3">Questions are also intentionally written with meaningful distractors, so mistakes can reveal what you misunderstood instead of simply telling you that you missed the correct choice.</p>
+</article>
+
+<article class="ab-pr pn-rv">
+<div class="ab-pr-art" aria-hidden="true">
+<svg viewBox="0 0 400 250" focusable="false">
+<path class="pn-fade" d="M0 196 C70 166 130 170 190 186 C250 202 320 170 400 160 V250 H0 Z" fill="#E3EFEA"/>
+<path class="pn-fade pn-d1" d="M0 222 C90 196 170 206 240 218 C300 228 350 214 400 206 V250 H0 Z" fill="#CFE3DB"/>
+<g class="pn-fade pn-d2"><rect x="52" y="168" width="5" height="30" fill="#2C6B5E"/><circle cx="54" cy="160" r="20" fill="#2C6B5E"/><circle cx="68" cy="170" r="13" fill="#2C6B5E"/><rect x="336" y="150" width="4" height="24" fill="#2C6B5E"/><circle cx="338" cy="144" r="15" fill="#2C6B5E"/></g>
+<g class="pn-su pn-d2">
+<rect x="146" y="20" width="116" height="218" rx="20" fill="#26221B"/>
+<rect x="152" y="26" width="104" height="206" rx="15" fill="#F5F5F7"/>
+<rect x="190" y="31" width="28" height="8" rx="4" fill="#000000"/>
+<rect x="160" y="48" width="88" height="60" rx="9" fill="#CFE3DB"/>
+<path d="M168 102 l20 -24 l14 14 l10 -10 l28 20 Z" fill="#1D5C50" opacity=".75"/>
+<circle cx="230" cy="64" r="6" fill="#FBF9F4"/>
+<rect x="160" y="118" width="70" height="9" rx="3" fill="#1D1D1F"/>
+<rect x="160" y="136" width="88" height="6" rx="3" fill="#C7C7CC"/><rect x="160" y="148" width="80" height="6" rx="3" fill="#C7C7CC"/><rect x="160" y="160" width="84" height="6" rx="3" fill="#C7C7CC"/><rect x="160" y="172" width="56" height="6" rx="3" fill="#C7C7CC"/>
+<rect x="160" y="200" width="88" height="6" rx="3" fill="#E5E5EA"/>
+<rect class="pn-growx ab-gx pn-d8" style="animation-duration: 1.4s" x="160" y="200" width="88" height="6" rx="3" fill="#0B7A68"/>
+</g>
+<g class="pn-pop pn-d13"><circle cx="248" cy="196" r="13" fill="#0B7A68"/><path d="M242 196 l4 4 l8 -8" stroke="#FFFFFF" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="pn-fade pn-d3" transform="translate(316 70)">
+<g class="ab-wifi" stroke="#6E675C" stroke-width="4" stroke-linecap="round" fill="none"><path d="M-26 -6 a37 37 0 0 1 52 0"/><path d="M-17 4 a24 24 0 0 1 34 0"/><path d="M-8 14 a11 11 0 0 1 16 0"/></g>
+<circle class="ab-wifi" cx="0" cy="22" r="3.6" fill="#6E675C"/>
+<path class="pn-draw pn-d6" pathLength="1" d="M-24 -18 L24 30" stroke="#A33B2E" stroke-width="4" stroke-linecap="round"/>
+</g>
+</svg>
+</div>
+<h3 class="ab-h3 pn-up pn-d1">Full offline access</h3>
+<p class="ab-p pn-up pn-d2">All of Pantas' main study features work even without an internet connection, so you can study anywhere, at your own pace.</p>
+</article>
+
+</div>
+</div>
+</section>
+
+<div class="pn-wrap"><hr class="ab-hr"></div>
+
+<section class="ab-ch" aria-labelledby="ab-fut-h" style="padding-bottom: 0">
+<div class="pn-wrap">
+<div class="ab-fut-in pn-rv">
+<div class="ab-fut-copy ab-copy">
+<h2 id="ab-fut-h" class="ab-h2 pn-up">The future of Pantas</h2>
+<p class="ab-open pn-up pn-d1">I want Pantas to become the go-to tool for studying for Philippine exams.</p>
+<p class="ab-p pn-up pn-d2">Beyond that, I want it to keep expanding into more exams, improve the way lessons and practice are delivered, create programs that benefit more learners, and help make good preparation less dependent on how much privilege someone starts with.</p>
+</div>
+<div class="ab-map ab-art" aria-hidden="true">
+<svg viewBox="0 0 420 580" focusable="false">
+<defs><radialGradient id="abGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#E9B44C" stop-opacity=".55"/><stop offset="1" stop-color="#E9B44C" stop-opacity="0"/></radialGradient></defs>
+<g class="pn-fade" fill="#CFE3DB"><path d="M160.0 26.0C163.6 25.5 170.6 21.8 180.0 23.2C189.4 24.6 203.7 33.1 212.0 34.0C220.3 34.9 222.8 21.2 226.0 28.0C229.2 34.8 230.7 58.3 230.0 72.0C229.3 85.7 224.9 95.7 222.0 104.0C219.1 112.3 218.0 111.9 214.0 118.0C210.0 124.1 202.9 130.4 200.0 138.0C197.1 145.6 197.6 151.7 198.0 160.0C198.4 168.3 202.0 176.8 202.0 184.0C202.0 191.2 195.8 195.3 198.0 200.0C200.2 204.7 207.5 209.6 214.0 210.0C220.5 210.4 228.2 204.5 234.0 202.0C239.8 199.5 241.3 195.3 246.0 196.0C250.7 196.7 255.7 203.1 260.0 206.0C264.3 208.9 265.3 209.8 270.0 212.0C274.7 214.2 281.7 214.8 286.0 218.0C290.3 221.2 291.1 225.0 294.0 230.0C296.9 235.0 300.9 239.9 302.0 246.0C303.1 252.1 302.2 261.8 300.0 264.0C297.8 266.2 295.4 261.2 290.0 258.0C284.6 254.8 276.5 251.0 270.0 246.0C263.5 241.0 259.4 231.1 254.0 230.0C248.6 228.9 244.0 240.7 240.0 240.0C236.0 239.3 236.0 230.7 232.0 226.0C228.0 221.3 222.7 216.5 218.0 214.0C213.3 211.5 211.0 210.6 206.0 212.0C201.0 213.4 195.8 220.0 190.0 222.0C184.2 224.0 179.0 224.6 174.0 223.2C169.0 221.8 162.7 218.5 162.0 214.0C161.3 209.5 170.4 202.7 170.0 198.0C169.6 193.3 159.3 190.9 160.0 188.0C160.7 185.1 174.4 184.5 174.0 182.0C173.6 179.5 162.7 172.9 158.0 174.0C153.3 175.1 151.6 188.0 148.0 188.0C144.4 188.0 141.2 180.5 138.0 174.0C134.8 167.5 132.2 161.0 130.0 152.0C127.8 143.0 125.3 130.8 126.0 124.0C126.7 117.2 130.8 113.6 134.0 114.0C137.2 114.4 140.9 124.6 144.0 126.0C147.1 127.4 150.3 126.7 151.2 122.0C152.1 117.3 148.3 108.6 148.8 100.0C149.3 91.4 153.1 82.6 154.0 74.0C154.9 65.4 152.9 60.6 154.0 52.0C155.1 43.4 158.9 30.7 160.0 26.0C161.1 21.3 156.4 26.5 160.0 26.0Z"/><path d="M150.0 228.0C152.5 224.8 159.5 225.6 166.0 226.0C172.5 226.4 180.6 226.8 186.0 230.0C191.4 233.2 193.8 237.9 196.0 244.0C198.2 250.1 200.2 257.9 198.0 264.0C195.8 270.1 189.0 275.8 184.0 278.0C179.0 280.2 175.0 278.9 170.0 276.0C165.0 273.1 159.2 267.8 156.0 262.0C152.8 256.2 153.1 250.1 152.0 244.0C150.9 237.9 147.5 231.2 150.0 228.0Z"/><path d="M118.0 314.0C120.2 316.9 123.8 321.5 122.0 328.0C120.2 334.5 113.8 342.4 108.0 350.0C102.2 357.6 96.5 362.4 90.0 370.0C83.5 377.6 79.2 384.1 72.0 392.0C64.8 399.9 58.3 406.4 50.0 414.0C41.7 421.6 31.0 431.8 26.0 434.0C21.0 436.2 18.8 431.8 22.0 426.0C25.2 420.2 36.8 410.6 44.0 402.0C51.2 393.4 55.2 386.3 62.0 378.0C68.8 369.7 75.2 363.9 82.0 356.0C88.8 348.1 95.0 341.9 100.0 334.0C105.0 326.1 106.8 315.6 110.0 312.0C113.2 308.4 115.8 311.1 118.0 314.0Z"/><path d="M212.0 294.0C214.2 291.5 222.8 296.2 230.0 298.0C237.2 299.8 246.2 300.4 252.0 304.0C257.8 307.6 262.7 312.2 262.0 318.0C261.3 323.8 252.7 331.7 248.0 336.0C243.3 340.3 241.4 339.8 236.0 342.0C230.6 344.2 222.3 349.4 218.0 348.0C213.7 346.6 212.0 340.5 212.0 334.0C212.0 327.5 218.0 319.2 218.0 312.0C218.0 304.8 209.8 296.5 212.0 294.0Z"/><path d="M250.0 330.0C252.9 327.1 261.0 328.6 266.0 330.0C271.0 331.4 277.3 332.2 278.0 338.0C278.7 343.8 271.8 353.4 270.0 362.0C268.2 370.6 270.2 378.1 268.0 386.0C265.8 393.9 262.0 404.2 258.0 406.0C254.0 407.8 250.3 401.0 246.0 396.0C241.7 391.0 235.4 385.2 234.0 378.0C232.6 370.8 235.1 361.8 238.0 356.0C240.9 350.2 247.8 350.7 250.0 346.0C252.2 341.3 247.1 332.9 250.0 330.0Z"/><path d="M298.0 316.8C299.1 319.7 300.4 331.3 300.0 338.0C299.6 344.7 298.5 347.9 296.0 354.0C293.5 360.1 290.3 365.5 286.0 372.0C281.7 378.5 275.1 387.8 272.0 390.0C268.9 392.2 267.4 389.0 268.8 384.0C270.2 379.0 276.2 370.3 280.0 362.0C283.8 353.7 287.5 345.2 290.0 338.0C292.5 330.8 292.6 325.8 294.0 322.0C295.4 318.2 296.9 313.9 298.0 316.8Z"/><path d="M286.0 366.0C288.9 363.5 296.2 361.6 302.0 362.0C307.8 362.4 315.1 364.8 318.0 368.0C320.9 371.2 320.9 376.8 318.0 380.0C315.1 383.2 307.0 385.3 302.0 386.0C297.0 386.7 292.9 385.8 290.0 384.0C287.1 382.2 286.7 379.2 286.0 376.0C285.3 372.8 283.1 368.5 286.0 366.0Z"/><path d="M308.0 306.0C310.2 303.8 316.6 312.2 322.0 314.0C327.4 315.8 335.1 311.7 338.0 316.0C340.9 320.3 336.6 330.4 338.0 338.0C339.4 345.6 347.4 352.6 346.0 358.0C344.6 363.4 333.6 369.8 330.0 368.0C326.4 366.2 328.2 353.8 326.0 348.0C323.8 342.2 320.9 340.0 318.0 336.0C315.1 332.0 311.8 331.4 310.0 326.0C308.2 320.6 305.8 308.2 308.0 306.0Z"/><path d="M306.0 266.0C308.9 263.1 318.4 268.0 326.0 268.0C333.6 268.0 342.2 263.5 348.0 266.0C353.8 268.5 356.6 275.2 358.0 282.0C359.4 288.8 355.3 296.1 356.0 304.0C356.7 311.9 364.2 322.0 362.0 326.0C359.8 330.0 349.8 328.9 344.0 326.0C338.2 323.1 334.7 315.0 330.0 310.0C325.3 305.0 321.6 302.7 318.0 298.0C314.4 293.3 312.2 289.8 310.0 284.0C307.8 278.2 303.1 268.9 306.0 266.0Z"/><path d="M264.0 270.0C266.2 268.6 274.6 271.5 280.0 274.0C285.4 276.5 293.3 281.1 294.0 284.0C294.7 286.9 288.7 290.4 284.0 290.0C279.3 289.6 271.6 285.6 268.0 282.0C264.4 278.4 261.8 271.4 264.0 270.0Z"/><path d="M302.0 206.0C304.2 203.8 310.6 206.4 312.0 210.0C313.4 213.6 312.2 223.8 310.0 226.0C307.8 228.2 301.4 225.6 300.0 222.0C298.6 218.4 299.8 208.2 302.0 206.0Z"/><path d="M216.0 490.0C214.2 487.5 215.1 476.5 218.0 470.0C220.9 463.5 226.2 459.0 232.0 454.0C237.8 449.0 245.3 447.0 250.0 442.0C254.7 437.0 253.0 429.2 258.0 426.0C263.0 422.8 272.2 423.3 278.0 424.0C283.8 424.7 285.0 427.1 290.0 430.0C295.0 432.9 302.0 440.4 306.0 440.0C310.0 439.6 308.4 430.2 312.0 428.0C315.6 425.8 321.0 430.5 326.0 428.0C331.0 425.5 335.0 418.3 340.0 414.0C345.0 409.7 350.8 410.8 354.0 404.0C357.2 397.2 355.1 378.9 358.0 376.0C360.9 373.1 365.7 382.6 370.0 388.0C374.3 393.4 378.4 398.8 382.0 406.0C385.6 413.2 387.1 419.0 390.0 428.0C392.9 437.0 397.3 446.6 398.0 456.0C398.7 465.4 396.5 473.2 394.0 480.0C391.5 486.8 388.3 494.0 384.0 494.0C379.7 494.0 374.0 483.2 370.0 480.0C366.0 476.8 363.8 473.5 362.0 476.0C360.2 478.5 361.8 486.8 360.0 494.0C358.2 501.2 354.5 508.4 352.0 516.0C349.5 523.6 350.0 533.5 346.0 536.0C342.0 538.5 337.2 532.9 330.0 530.0C322.8 527.1 311.8 526.5 306.0 520.0C300.2 513.5 298.0 501.9 298.0 494.0C298.0 486.1 308.2 481.8 306.0 476.0C303.8 470.2 291.8 465.2 286.0 462.0C280.2 458.8 279.0 457.3 274.0 458.0C269.0 458.7 263.4 464.2 258.0 466.0C252.6 467.8 249.4 464.8 244.0 468.0C238.6 471.2 233.0 480.0 228.0 484.0C223.0 488.0 217.8 492.5 216.0 490.0Z"/><path d="M208.0 500.0C210.2 498.1 221.1 499.0 224.0 500.8C226.9 502.6 226.2 508.1 224.0 510.0C221.8 511.9 214.9 513.0 212.0 511.2C209.1 509.4 205.8 501.9 208.0 500.0Z"/><path d="M170.0 524.0C172.5 522.9 182.8 522.9 186.0 524.0C189.2 525.1 190.5 528.9 188.0 530.0C185.5 531.1 175.2 531.1 172.0 530.0C168.8 528.9 167.5 525.1 170.0 524.0Z"/></g>
+<g class="ab-lit" style="--d:0.90s"><circle cx="176.0" cy="184.0" r="16" fill="url(#abGlow)"/><circle cx="176.0" cy="184.0" r="4.6" fill="#996A15"/></g><circle class="ab-ring" cx="176.0" cy="184.0" r="8" fill="none" stroke="#996A15" stroke-width="2"/><g class="ab-lit" style="--d:1.59s"><circle cx="160.0" cy="40.0" r="16" fill="url(#abGlow)"/><circle cx="160.0" cy="40.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.49s"><circle cx="204.0" cy="64.0" r="16" fill="url(#abGlow)"/><circle cx="204.0" cy="64.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.25s"><circle cx="160.0" cy="112.0" r="16" fill="url(#abGlow)"/><circle cx="160.0" cy="112.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.19s"><circle cx="150.0" cy="128.0" r="16" fill="url(#abGlow)"/><circle cx="150.0" cy="128.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.07s"><circle cx="176.0" cy="148.0" r="16" fill="url(#abGlow)"/><circle cx="176.0" cy="148.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.07s"><circle cx="200.0" cy="210.0" r="16" fill="url(#abGlow)"/><circle cx="200.0" cy="210.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.36s"><circle cx="264.0" cy="224.0" r="16" fill="url(#abGlow)"/><circle cx="264.0" cy="224.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.48s"><circle cx="284.0" cy="242.0" r="16" fill="url(#abGlow)"/><circle cx="284.0" cy="242.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.13s"><circle cx="184.0" cy="232.0" r="16" fill="url(#abGlow)"/><circle cx="184.0" cy="232.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.92s"><circle cx="86.0" cy="378.0" r="16" fill="url(#abGlow)"/><circle cx="86.0" cy="378.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.70s"><circle cx="238.0" cy="339.2" r="16" fill="url(#abGlow)"/><circle cx="238.0" cy="339.2" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.57s"><circle cx="246.0" cy="306.0" r="16" fill="url(#abGlow)"/><circle cx="246.0" cy="306.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.74s"><circle cx="254.0" cy="342.0" r="16" fill="url(#abGlow)"/><circle cx="254.0" cy="342.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.00s"><circle cx="268.0" cy="396.0" r="16" fill="url(#abGlow)"/><circle cx="268.0" cy="396.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.89s"><circle cx="292.0" cy="356.0" r="16" fill="url(#abGlow)"/><circle cx="292.0" cy="356.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.99s"><circle cx="292.0" cy="380.8" r="16" fill="url(#abGlow)"/><circle cx="292.0" cy="380.8" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.89s"><circle cx="336.0" cy="318.0" r="16" fill="url(#abGlow)"/><circle cx="336.0" cy="318.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.81s"><circle cx="332.0" cy="296.0" r="16" fill="url(#abGlow)"/><circle cx="332.0" cy="296.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.26s"><circle cx="322.0" cy="428.8" r="16" fill="url(#abGlow)"/><circle cx="322.0" cy="428.8" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.27s"><circle cx="306.0" cy="440.0" r="16" fill="url(#abGlow)"/><circle cx="306.0" cy="440.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.28s"><circle cx="356.0" cy="410.0" r="16" fill="url(#abGlow)"/><circle cx="356.0" cy="410.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.58s"><circle cx="360.0" cy="484.0" r="16" fill="url(#abGlow)"/><circle cx="360.0" cy="484.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.37s"><circle cx="219.2" cy="490.0" r="16" fill="url(#abGlow)"/><circle cx="219.2" cy="490.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.69s"><circle cx="342.0" cy="522.0" r="16" fill="url(#abGlow)"/><circle cx="342.0" cy="522.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.44s"><circle cx="306.0" cy="479.2" r="16" fill="url(#abGlow)"/><circle cx="306.0" cy="479.2" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.16s"><circle cx="356.0" cy="378.0" r="16" fill="url(#abGlow)"/><circle cx="356.0" cy="378.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:2.13s"><circle cx="270.0" cy="424.0" r="16" fill="url(#abGlow)"/><circle cx="270.0" cy="424.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.05s"><circle cx="148.0" cy="168.0" r="16" fill="url(#abGlow)"/><circle cx="148.0" cy="168.0" r="3.6" fill="#996A15"/></g><g class="ab-lit" style="--d:1.32s"><circle cx="188.0" cy="96.0" r="16" fill="url(#abGlow)"/><circle cx="188.0" cy="96.0" r="3.6" fill="#996A15"/></g>
+</svg>
+</div>
+</div>
+<div class="ab-mission pn-rv">
+<p class="ab-mq pn-up">The product will keep changing for the better, but the advocacy behind it will stay the same: <span class="ab-hl">make effective exam preparation accessible to as many people as possible.</span></p>
+</div>
+<div class="ab-cs">
+<a href="#">Read the technical case study<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</section>
+
+</main>
+
+
+</div>
+</template>
+<noscript><p style="font-family: system-ui, sans-serif; padding: 24px">Pantas works best with JavaScript turned on.</p></noscript>
+<script src="/assets/runtime.js"></script>
+<script>
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { menu: false, comp: false, mcomp: false };
+  }
+  componentDidMount() {
+    var self = this;
+    var root = document.querySelector('.pn-root');
+    this.root = root;
+    if (root) {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce && 'IntersectionObserver' in window) {
+        root.classList.add('pn-anim');
+        this.io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && e.intersectionRatio >= 0.15) {
+              e.target.classList.add('in');
+              self.io.unobserve(e.target);
+            }
+          });
+        }, { threshold: [0, 0.15, 0.3] });
+        root.querySelectorAll('.pn-rv').forEach(function (el) { self.io.observe(el); });
+      }
+    }
+    this.onDoc = function (e) {
+      if (!self.state.menu && !self.state.comp) return;
+      var t = e.target;
+      if (t && t.closest && t.closest('.pn-hdr')) return;
+      self.setState({ menu: false, comp: false, mcomp: false });
+    };
+    document.addEventListener('click', this.onDoc);
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    document.removeEventListener('click', this.onDoc);
+  }
+  renderVals() {
+    var s = this.state;
+    var self = this;
+    return {
+      menuOpen: s.menu,
+      menuClosed: !s.menu,
+      menuExp: s.menu ? 'true' : 'false',
+      menuLabel: s.menu ? 'Close menu' : 'Open menu',
+      compOpen: s.comp,
+      compExp: s.comp ? 'true' : 'false',
+      chevClass: s.comp ? 'pn-chev up' : 'pn-chev',
+      mcompOpen: s.mcomp,
+      mcompExp: s.mcomp ? 'true' : 'false',
+      mchevClass: s.mcomp ? 'pn-chev up' : 'pn-chev',
+      toggleMenu: function () { self.setState({ menu: !self.state.menu, mcomp: false }); },
+      toggleComp: function () { self.setState({ comp: !self.state.comp }); },
+      toggleMComp: function () { self.setState({ mcomp: !self.state.mcomp }); },
+      closeAll: function () { self.setState({ menu: false, comp: false, mcomp: false }); },
+      onKey: function (e) {
+        if (e.key !== 'Escape' || (!self.state.menu && !self.state.comp)) return;
+        var sel = self.state.menu ? '.pn-menubtn' : '.pn-compbtn';
+        self.setState({ menu: false, comp: false, mcomp: false });
+        var b = document.querySelector(sel);
+        if (b) b.focus();
+      }
+    };
+  }
+}
+
+
+mountDC(Component, document.getElementById('tpl'), document.getElementById('app'));
+</script>
+</body>
+</html>
