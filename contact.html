@@ -259,7 +259,9 @@ a{color:#1D5C50}a:hover{color:#174A41}
 .ct-route-art svg{display:block;width:100%;height:auto;overflow:visible}
 .ct-h2{margin:0;font-size:clamp(24px,2.3vw,32px);font-weight:700;line-height:1.12;letter-spacing:-0.02em}
 .ct-p{margin:0;max-width:26rem;font-size:clamp(17px,1.3vw,18px);line-height:1.6;color:var(--muted);flex-grow:1}
-.ct-route .pn-btn,.ct-route .pn-btn2{margin-top:10px;text-decoration:none;gap:8px;width:252px;max-width:100%;justify-content:center}
+.ct-route .pn-btn,.ct-route .pn-btn2{margin-top:10px;text-decoration:none;gap:8px;width:100%;justify-content:center}
+@media (max-width:767px){.ct-submit{align-self:stretch;width:100%;justify-content:center}.ct-ok .pn-btn2{display:flex;width:auto;align-self:stretch;justify-content:center}}
+@media (min-width:768px){.ct-route .pn-btn,.ct-route .pn-btn2{width:252px;max-width:100%}}
 .ct-hr{display:block;height:1px;border:0;margin:0;background:var(--rule)}
 
 .ct-form-sec{padding:32px 0 128px}
