@@ -47,7 +47,7 @@ a{color:#1D5C50}a:hover{color:#174A41}
 
 .pn-hdr{position:sticky;top:0;z-index:50;height:64px}
 .pn-hdr-in{border:1px solid transparent;border-radius:0;background-color:rgba(255,255,255,0);transition:max-width .6s cubic-bezier(0.16,1,0.3,1),margin-top .65s cubic-bezier(.34,1.5,.55,1),height .5s cubic-bezier(0.16,1,0.3,1),padding .6s cubic-bezier(0.16,1,0.3,1),border-radius .5s cubic-bezier(0.16,1,0.3,1),background-color .35s ease,border-color .35s ease,box-shadow .5s ease}
-.pn-hdr.is-float .pn-hdr-in{max-width:calc(100% - 16px);margin-top:8px;height:56px;padding-inline:8px 6px;border-radius:16px;background-color:rgba(255,255,255,.96);border-color:#E5DFD3;box-shadow:0 12px 32px rgba(38,34,27,.10)}
+.pn-hdr.is-float .pn-hdr-in{max-width:calc(100% - 16px);margin-top:8px;height:56px;padding-inline:8px 6px;border-radius:16px;background-color:#FFFFFF;border-color:#E5DFD3;box-shadow:0 12px 32px rgba(38,34,27,.10)}
 .pn-hdr.is-float .pn-tassel{animation:pn-swing2 1.2s ease-in-out both}
 .pn-hdr.is-docked:not(.is-float) .pn-tassel{animation:pn-swing 1.2s ease-in-out 0s both}
 .pn-mpanel{transition:top .5s cubic-bezier(0.16,1,0.3,1)}
@@ -597,6 +597,13 @@ class Component extends DCLogic {
   renderVals() {
     var s = this.state;
     var self = this;
+    var cam = function (mainEl, pt, k) {
+      if (!mainEl || window.innerWidth >= 1024) return;
+      var vh = window.innerHeight, top = 96, bot = vh - 150;
+      var vy = mainEl.getBoundingClientRect().top + pt.y, dy = 0;
+      if (vy < top) dy = vy - top; else if (vy > bot) dy = vy - bot;
+      if (Math.abs(dy) > 0.5) window.scrollTo(0, (window.scrollY || 0) + dy * (k || 0.2));
+    };
     return {
       showRoutes: s.screen !== 'form',
       showForm: s.screen === 'form',
@@ -614,6 +621,7 @@ class Component extends DCLogic {
         };
         if (!self.root || !self.root.classList.contains('pn-anim')) {
           self.setState({ screen: 'form', sent: false, e: {}, landed: true });
+          try { window.scrollTo(0, 0); } catch (x) {}
           focusForm();
           return;
         }
@@ -639,6 +647,10 @@ class Component extends DCLogic {
           { x: Cq.l - 66 * k, y: Bq.cy - 70 * k },
           { x: Cq.l - 30 * k, y: Aq.b + 70 }
         ];
+        if (mr.width < 700) {
+          var xl = 30, xr = mr.width - 30;
+          pts.forEach(function (q) { q.x = Math.max(xl, Math.min(xr, q.x)); });
+        }
         var trStartIdx = pts.length;
         TR.forEach(function (o) { pts.push({ x: Te.x + o[0], y: Te.y + o[1] }); });
         var trEndIdx = pts.length - 1;
@@ -739,6 +751,7 @@ class Component extends DCLogic {
             var pr = clamp((d - 47 - dTrS) / (dTrE - dTrS), 0, 1);
             trailEl.style.strokeDashoffset = String(1 - pr);
           }
+          cam(self.root.querySelector('.ct-main'), p, 0.22);
           if (lastP) spd += (Math.hypot(p.x - lastP.x, p.y - lastP.y) / (dt || 1) - spd) * 0.25;
           lastP = p;
           var tgtFace = Math.abs(p.dx) > 0.15 ? (p.dx > 0 ? 1 : -1) : face;
@@ -760,6 +773,7 @@ class Component extends DCLogic {
             if (q2 < 1) { self.flyR = requestAnimationFrame(settle); return; }
             put(F, 0, ts, ts);
             self.setState({ landed: true });
+            if (window.innerWidth < 1024 && (window.scrollY || 0) > 0) { try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (x) {} }
             requestAnimationFrame(function () { requestAnimationFrame(function () { FLYON = false; put(F, 0, ts, ts); }); });
             focusForm();
           };
@@ -817,6 +831,7 @@ class Component extends DCLogic {
           var mn = self.root.querySelector('.ct-main'), fl = mn && mn.querySelector('.ct-fly');
           if (!fl) return;
           fl.style.opacity = String(op);
+          cam(mn, p, 0.2);
           fl.style.transform = 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + ang.toFixed(3) + 'rad) scale(' + sc.toFixed(3) + ')';
         };
         var target = function () {
